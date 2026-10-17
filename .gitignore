@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.mp4
+*.mov
+*.webm
+evidence/**/*.png
+evidence/**/*.jpg
+!evidence/**/thumb_*.png
