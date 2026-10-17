@@ -8,3 +8,4 @@
 | `07-portrait-headshot.md` | 人像近脸特写（影棚美妆头，含独特标记变量） | ✅ 已验证 |
 | `09-video-8s-B.md` | 8 秒单镜 · 连贯写法（H3 Ref2VA） | ✅ 默认 |
 | `09-video-8s-A.md` | 8 秒单镜 · 逐秒编排（六列分镜表 → Ref2VA） | 🗄️ 暂定存档 |
+| `11-faceswap-head.md` | 换头（BFS LoRA，目标身 + 参考脸两槽） | ✅ 已验证 |
