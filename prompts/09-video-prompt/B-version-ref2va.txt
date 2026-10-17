@@ -1,0 +1,23 @@
+subject_definitions:
+<Subject 1> is the young woman defined by the face close-up — an East Asian woman in her mid-twenties with an oval face, almond eyes with double eyelids, straight soft eyebrows, a straight nose, full lips in a natural dusty-pink tone, fair warm-toned skin, and very long jet-black hair with a centre part falling behind her shoulders. The portrait defines her face, hair and skin only, so its plain white background and the grey knit top she wears in it never appear in the video.
+<Subject 2> is the pyjama set shown in the four-panel product sheet — the champagne satin pyjamas: a long-sleeved shirt with a notched collar, a single row of buttons and one left chest pocket, with a matching pair of wide straight trousers. The sheet defines these garments only, so its four-panel layout, its white background and the model in its fourth panel never appear in the video.
+<Subject 3> is the living room described here: a pale grey fabric sofa in the left half of the frame, a low wooden coffee table in the near foreground, a tall window with a sheer white curtain and a street lamp beyond it on the right, a wall with a potted plant on the left and a pale rug on a light wooden floor.
+
+summary:
+[reference generation] The target video is one continuous eight-second shot of <Subject 1> sitting on the sofa in <Subject 3> in <Subject 2>, watching television, picking up a phone and smiling. All three references are references only; none is aligned to any moment of the video.
+
+retention_analysis:
+<Subject 1> (appears in [Shot 1]): fully_preserved - her facial identity, hair, skin tone and build stay exactly as the portrait defines them.
+<Subject 2> (appears in [Shot 1]): fully_preserved - the champagne satin shirts and trousers keep their exact colour, cut, sheen and garment count.
+<Subject 3> (appears in [Shot 1]): partially_preserved - the sofa, table, window and curtain, street lamp, plant and rug keep their positions and light while the camera pushes in.
+
+detailed_description:
+Live-action, real available light, natural skin with visible pores and no beauty smoothing, matte finish with no oily highlights, true-to-life colour, no over-sharpening and no HDR glow.
+
+[Shot 1] The frame opens as a medium shot at eye level: <Subject 1> sits curled into the left half of the pale grey sofa in <Subject 3>, wearing <Subject 2>, her knees drawn up and one hand around a mug on the cushion beside her, her eyes on the off-frame television whose pale light flickers across her face from the front left, with the street lamp through the sheer curtain laying a warm rim along her right shoulder and the coffee table crossing the bottom of the frame in front of her shins. She watches the screen with her face still and loose. The phone on the coffee table lights up and buzzes twice, and her eyes move down to it; she leans forward, sets the mug down on the wood with a soft click and reaches across so her fingertips close on the phone. She lifts it to her chest and tilts the screen toward herself so that only its light reaches her face, and the glow on her cheek shifts from the cool television light to the warmer light of the phone. Her thumb moves once across the glass, her eyebrows lift a little, and the smile arrives at the corners of her mouth and the outer corners of her eyes as her shoulders drop out of the cushion. The camera pushes in with small amplitude at slow speed throughout, easing from the medium shot to a close-up so the coffee table slides below the bottom of the frame, and the room light stays on the same direction and the same colour temperature as the shot begins. She holds the look with her eyes on the phone and one quiet breath in, the smile still on her face, and the shot ends on that held expression. Her face remains identical to <Subject 1> in every frame, and her very long jet-black hair keeps the exact same length, centre part and style, with no flickering and no morphing. The motion stays buttery smooth and continuous: constant speed, no stuttering, no frame jumps. She says nothing and her lips stay closed, and no lettering appears anywhere in the frame.
+
+overall_soundscape:
+A quiet indoor room tone holds under everything, with a muffled television dialogue from off-frame, the faint hum of the street beyond the window, two phone buzzes on the wooden table, one soft ceramic click as the mug meets the wood, the light rustle of satin, and one calm breath. No dialogue and no other voices are heard.
+
+non_diegetic_music:
+N/A.
