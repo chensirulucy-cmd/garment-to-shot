@@ -1,0 +1,137 @@
+{
+  "13": {
+    "inputs": {
+      "aspect_ratio": "9:16 (Portrait Widescreen)",
+      "megapixels": 2.0,
+      "multiple": 8
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "分辨率选择器"
+    }
+  },
+  "461": {
+    "inputs": {
+      "filename_prefix": "Qwen_image_2.1",
+      "format": "png",
+      "format.bit_depth": "8-bit",
+      "format.input_color_space": "sRGB",
+      "images": [
+        "459_481",
+        0
+      ]
+    },
+    "class_type": "SaveImageAdvanced",
+    "_meta": {
+      "title": "保存图像（高级）"
+    }
+  },
+  "459_474": {
+    "inputs": {
+      "unet_name": "qwen_image_2.1_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "459_475": {
+    "inputs": {
+      "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "459_476": {
+    "inputs": {
+      "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "459_479": {
+    "inputs": {
+      "width": [
+        "13",
+        0
+      ],
+      "height": [
+        "13",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "459_477": {
+    "inputs": {
+      "prompt": "A single full-length studio photograph of a matte white articulated artist's mannequin standing alone against a pale grey seamless backdrop. The figure is a slender adult female body with a smooth featureless head: an egg-shaped cranium and a blank face carrying no eyes, no nose, no mouth, no eyebrows and no hair, the surface continuous from the crown down through the neck and jaw. Visible ball-and-socket joints break the surface at both shoulders, both elbows, both wrists, both hips, both knees and both ankles, each joint a clean seam with a narrow dark line, and the hands are fully modelled with five separated fingers and a thumb, the feet modelled with five toes and a soft arch. The white resin is satin-matte and even, holding only soft broad highlights along the shoulder, the chest and the front of each thigh, with no gloss, no chrome, no wet sheen and no fingerprints anywhere.\n\nThe figure stands with its weight on its left leg, the right knee relaxed and turned slightly inward, the right arm bent with the hand resting flat on the side of its hip just below the waist and the elbow pointing out away from the body, the left arm hanging a little away from the body with the palm turned inward and the fingers relaxed, and the head level on an upright neck. Its body is built to real adult proportions: seven and a half head heights from crown to sole, shoulders two point two head-widths across, the waist at three head heights from the crown, the hip bone one head height below the waist, legs from the crotch to the floor at forty-eight percent of the total height, and feet as long as the head is tall, so the silhouette is neither lengthened nor slimmed.\n\nThe frame is a full-length shot running from four centimetres above the crown down to just below the soles, so the figure fills ninety percent of the picture height and stands on the vertical centre axis, with the camera at waist height on a level axis and an eighty-five millimetre lens at three and a half metres so the perspective stays flat and the body is not stretched.\n\nThe lighting is a large soft source from the front left at chest height, laying a gentle falloff across the chest and the left arm, with a soft shadow of the figure falling on the backdrop behind its right side and a firm contact shadow under both soles. The pale grey backdrop curves into the floor in one continuous sweep with no seam, holding a faint gradient from a lighter centre to a slightly deeper edge. The figure wears no clothing and carries no prop, no jewellery and no lettering anywhere in the frame\n\n",
+      "negative_prompt": "face, facial features, eyes, nose, mouth, lips, eyebrows, eyelashes, hair, wig, bald skin head, skin tone, flesh colour, human skin, doll face, barbie, anime, cartoon, clothing, dress, shirt, trousers, shoes, socks, underwear, jewellery, gloss, chrome, shiny plastic, wet look, oily sheen, fingerprints, dust, scratches, cracked joints, missing joints, extra joints, fused fingers, extra fingers, missing fingers, six toes, eight head heights, nine head heights, tiny head, oversized head, elongated legs, tiny feet, oversized shoes, sloping shoulders, narrow shoulders, floating figure, no contact shadow, stiff mannequin stand, support pole, base plate, busy background, seam in backdrop, props, text, watermark, logo, low resolution, blurry, noise, compression artifacts, CGI look, 3D render, illustration\n\n\n",
+      "resolution": 1024,
+      "clip": [
+        "459_475",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImage21",
+    "_meta": {
+      "title": "Text Encode Qwen Image 2.1"
+    }
+  },
+  "459_480": {
+    "inputs": {
+      "seed": 339292210584591,
+      "steps": 30,
+      "cfg": 3.5,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0,
+      "model": [
+        "459_474",
+        0
+      ],
+      "positive": [
+        "459_477",
+        0
+      ],
+      "negative": [
+        "459_477",
+        1
+      ],
+      "latent_image": [
+        "459_479",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "459_481": {
+    "inputs": {
+      "samples": [
+        "459_480",
+        0
+      ],
+      "vae": [
+        "459_476",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  }
+}
