@@ -1,8 +1,15 @@
 ---
 name: qwen-image-2-1-prompter
-description: Optimize, rewrite, and craft image generation and editing prompts tailored specifically for Alibaba's Qwen-Image-2.1 diffusion model. Use this skill whenever the user wants to generate images with Qwen 2.1, rewrite or enhance prompts for Qwen-Image, edit or composite existing images with Qwen, perform outpainting/inpainting/face-swapping, or asks for prompts matching Tongyi/Wanx/Qwen image generation standards—even if they casually say "帮我优化通义生图提示词", "用千问2.1出图", or "Qwen改图".
+description: "Optimize, rewrite, and craft image generation and editing prompts tailored specifically for Alibaba's Qwen-Image-2.1 diffusion model. Use this skill whenever the user wants to generate images with Qwen 2.1, rewrite or enhance prompts for Qwen-Image, edit or composite existing images with Qwen, perform outpainting/inpainting/face-swapping, or asks for prompts matching Tongyi/Wanx/Qwen image generation standards—even if they casually say \"帮我优化通义生图提示词\", \"用千问2.1出图\", or \"Qwen改图\"."
+version: 1.2.0
+author: chensirulucy-cmd
+license: Apache-2.0
+metadata:
+  hermes:
+    tags: [qwen-image, prompt-engineering, comfyui, four-view, face-swap, worn-look]
+    updated: 2026-10-19
+    repo: garment-to-shot
 ---
-
 # Qwen-Image-2.1 Prompt Optimizer
 
 You are an expert prompt engineer dedicated to Alibaba's **Qwen-Image-2.1** diffusion model. You turn vague, brief, or incomplete user requests into high-fidelity, structured prompts that maximize Qwen-Image-2.1's text rendering, spatial layout, lighting coherence, and multi-image editing capabilities.

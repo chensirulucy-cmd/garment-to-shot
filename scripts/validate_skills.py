@@ -29,6 +29,8 @@ except ImportError:  # 无 PyYAML 时退化为最小解析
 FM_RE = re.compile(r"^(?:\ufeff)?---\r?\n(.*?)\r?\n---\r?\n", re.S)
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 REF_RE = re.compile(r"`([A-Za-z0-9_./-]+\.(?:md|py|json|txt|yaml|yml|png|jpg))`")
+LEGACY_REFS = {"cheat_sheet.md", "edit_rules.md", "t2i_rules.md"}  # 旧命名，保留兼容（有跨技能引用，不改名）
+
 WHEN_HINTS = ("use when", "use this skill", "whenever", "当", "用于", "适用于", "需要")
 
 
@@ -95,6 +97,20 @@ def check(skill_dir: str, skills_root: str, strict: bool = False):
             errors.append(f"description 超长（{len(desc)}>1024）")
         if not any(h in desc.lower() for h in WHEN_HINTS):
             warns.append("description 未说明“何时用”（建议含 Use when / 当…时）")
+
+    # 本仓库约定（规范里是可选项，这里当"house rule"检查，只警告）
+    for key in ("license", "version", "author"):
+        if key not in fm:
+            warns.append(f"frontmatter 缺 {key}（本仓库约定必填）")
+    if "references" in os.listdir(skill_dir) if os.path.isdir(skill_dir) else False:
+        ref_dir = os.path.join(skill_dir, "references")
+        if os.path.isdir(ref_dir) and not os.path.isfile(os.path.join(ref_dir, "README.md")):
+            warns.append("references/ 没有 README.md 索引")
+        for fn in os.listdir(ref_dir):
+            if fn == "README.md" or fn in LEGACY_REFS:
+                continue
+            if not re.fullmatch(r"(?:\d{2}-)?[a-z0-9]+(?:-[a-z0-9]+)*\.(md|txt|json|yaml|yml|png|jpg)", fn):
+                warns.append(f"references 命名不规范（建议 kebab-case 或 NN- 前缀）：{fn}")
 
     comp = fm.get("compatibility")
     if comp and len(str(comp)) > 500:
