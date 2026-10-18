@@ -44,6 +44,43 @@ Add the footwear from <image2>: take the exact pair of shoes shown in <image2> a
 
 负向在通用负向基础上保留 `mismatched pair, only one shoe, two different shoes, clashing shoe style`，并追加 `missing footwear, bare feet, wrong shoe design, changed shoe colour, invented shoes not in the reference`。
 
+## 变体：上装 / 下装 / 鞋 三件套（纯文生图）
+
+三件套不是上面那个编辑版的改写，而是**另一支工作流**：9 节点纯文生图、cfg 1、30 步、euler-simple、实测 768×1376。没有输入图，所以每件的版形必须写死：
+
+| 必写 | 不写会怎样 |
+|---|---|
+| 下装腿型：`straight-leg`（膝到脚踝同宽）/ `slim`（收到脚踝）/ `wide-leg`（外扩） | 默认出阔腿或紧贴腿，之后调词也拉不回来 |
+| 上装贴身程度 + 有没有塞进腰头（`without being tucked in`） | 默认塞进去或半塞，腰线位置错 |
+| 鞋型：`low-top canvas court sneakers with a white rubber cupsole, flat laces through five eyelets` | 默认出跑鞋/板鞋混血款 |
+| 三色分离句：白不许变米/灰/蓝，浅蓝不许变深蓝/黑/灰，鞋白不许变灰 | 白会变米白、浅牛仔会变深蓝 |
+
+结构仍是六段：定调句 → `[TOP: …], [BOTTOM: …], [SHOES: …]` 清单 → 隐形身体（逐项否定）→ 视角与可见细节 → 廓形 → 光/背景 + 只含这几件 + 颜色保真 + 无字。**cfg=1 时负向权重为 0**，“没有人”全靠隐形身体那段的逐项否定撑。成品与词库：仓库 `templates/02-ghost-set-trio.md`。
+
+**哪些写得死、哪些写不死（实测）**：
+
+| 类型 | 项 | 结果 |
+|---|---|---|
+| 硬约束（一句话能锁） | 下装腿型（直筒：膝到踝同宽）、裤长（及踝搭鞋面）、三色分离、画面里没有人、件数 | 出图与文字一致 ✅ |
+| 软约束（写死也漂 ±1 档） | 腰位（`mid-rise` → 出图偏高腰）、上装松量（`sits close` → 出图偏宽松） | 漂了，且加词拉不回来 ✗ |
+
+软约束只承诺「档位」，不承诺「精确值」；要精确只能出图后局部编辑。
+
+**出图先读元数据**：这条线最容易在「上一支工作流的节点还挂着」时出错——实测出现过服装台把人物 LoRA（strength 1.0）带进链路、以及无 LoRA + 768×1376 的误跑被当成证据。判定一张图能不能当证据，只看 PNG 内嵌 prompt 里的 `LoraLoaderModelOnly` 与尺寸，不看文件名、不看界面：`python scripts/check_output_meta.py <output_dir> --glob 'Qwen_image_2.1_*.png' --last 8`。
+
+## 变体：单件连体款（睡裙 / 连衣裙）的三件套式结构
+
+同一支 9 节点文生图，把 `[TOP]/[BOTTOM]/[SHOES]` 三槽换成**一个 `[GARMENT]` 槽**：
+
+```
+[GARMENT: a loose short-sleeve sleep tee-dress in soft matte cotton jersey, cut as one piece with an easy A-line body: a wide round neckline finished with a narrow self-fabric binding of the same colour, short straight sleeves ending at mid-upper-arm in a plain turned hem with no elastic, a relaxed body with no waist seam, no drawstring and no belt, and a plain turned hem sitting above the knee]
+```
+
+- **隐形身体段要多写一句「空下摆 + 地面接触影」**：`a hem hanging loose and empty with nothing below it but a faint contact shadow on the floor`。单件款没有裤脚可写，只写「空」不够 —— 不写就会给你长出一双拖鞋或一截腿。
+- **廓形段写死裙型与下摆位置**（A 字 / 直筒；膝上 / 及膝 / 小腿）。单件款最常见的两种自作主张：自己加一条腰封、自己配一双拖鞋 —— 两个都要进负向。
+- **颜色按参考图定档**：`warm ivory white — a soft off-white with a slight warm cast, never grey, never yellow, never blue and never a cold paper white`。电商真实色与参考图的暖光色不是一个值，改色只改这一句，别只换一个词然后把 `never grey/yellow/blue` 留在原地自相矛盾。
+- **负向反向禁**：`belt, drawstring, waist seam, pockets, lace, ruffles, slippers, shoes, long sleeves, sleeveless, elastic cuffs`。
+
 ## 验收（逐项看）
 
 1. 件数对不对（连衣裙没被拦腰切开）；2. 有没有长出手/头/皮肤；3. 下摆、袖口有没有被裁；4. 鞋是否成对、是否搭调（不要尖头细跟配运动装）；5. 品牌文字是否清掉；6. 背景是否单一浅灰、没有格线或黑底。

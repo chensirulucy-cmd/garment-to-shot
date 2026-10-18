@@ -45,8 +45,8 @@
 
 ## 回滚基线
 
-- 已验收的 3 行 2 列空房画布：`<COMFYUI_INPUT>/room_canvas_3x2.png`
-- 工作流 + 三段提示词 + 接线表：`Sakura_Project/展示墙_FROZEN_2026-10-16/`
+- 已验收的 3 行 2 列空房画布：`F:\ComfyUI-Data\input\room_canvas_3x2.png`
+- 工作流 + 三段提示词 + 接线表：`F:\Sakura_Project\展示墙_FROZEN_2026-10-16\`
 - 改坏时按节点 diff 回滚；**差异只有提示词时，不要怀疑种子 / 开关 / LoRA / 比例**。
 
 ## 点选高亮（手指点选 / 选中发光）

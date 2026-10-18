@@ -33,20 +33,23 @@ Edit the four-figure sheet in <image1> into a finished character reference sheet
 4. 画布锁定句（`keep <image1> as the canvas … camera height … plain white background`）
 5. 收尾句 `Nothing else is added, removed, restyled or re-lit.`
 
-## 五、铁律：脸词会外溢到整张画布
+## 五、「脸词外溢」这条已被推翻（2026-10-19 反证）
 
-2026-10-18 实测：把第 4 格那句从
+旧结论：`her skin condition` / `her expression` 会让前三格长出人头。
 
-`her facial identity and hair`（旧，无头正确）
+**反证**：`00418`（白长袖 + 浅蓝牛仔）用的正是这句完整写法 ——
 
-改成
+`her facial identity, her skin condition, her expression and her hair are those shown in <image2> … with nothing added and nothing restyled`
 
-`her facial identity, her skin condition, her expression and her hair … with nothing added and nothing restyled`（新，**前三格长出人头**）
+结果**前三格干净无头**。而 `00416`（奶油连身裙）同样的写法 → 三格冒头。
 
-原因：`skin condition` 和 `expression` 是**具体的脸词**，在整张画布范围内生效，不只作用于第 4 格。所以：
+| 样本 | 服装 | 含 skin/expression | 结果 |
+|---|---|---|---|
+| 00402 | 奶油连身裙 | 含 | ✅ 无头 |
+| 00403 / 00410 / 00411 / 00416 | 奶油连身裙 | 含 | ❌ 冒头 |
+| **00418** | 白长袖 + 浅蓝牛仔（两件式） | 含 | **✅ 无头** |
 
-- 第 4 格只写 `identity` 和 `hair` 两个抽象词；
-- `skin` / `expression` / `eyes` / `lips` / `face shape` / `makeup` 一律**不许出现在角色板提示词里**（要脸部状态，改 <image2> 那张参考图）。
+**现在的结论**：脸词**不是**主因；主因是**服装类型**（两件式稳 / 一件式连身裙不稳），见第八节。这句写法可以照用，但**别再用它解释冒头**。
 
 ## 五之二、锚点 token 必须裸写（2026-10-18 更正）
 

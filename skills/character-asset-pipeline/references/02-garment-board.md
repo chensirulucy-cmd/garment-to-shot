@@ -51,6 +51,9 @@ missing footwear, bare feet, only one shoe, mismatched pair, two different shoes
 | 长出黑色无头人台 | 只说 `no face, no skin, no visible body`，没禁人台 | 正向写 `no mannequin, no dress form …`；负向加 `mannequin, dress form, display figure, mannequin torso` |
 | 只有正面、没有背/侧 | 负向里有 `back view` 这类词 | **删掉** `back view`；正向逐个点名 front / back / side |
 | 品牌刺绣被带进下游 | 输入图左胸有小刺绣 | 正向 `no embroidery, no lettering`；负向 `embroidery, lettering, chest logo` |
+| 成品颜色比原衣亮/粉（同一件红裙：产品图 RGB 144.8/18.8/41.0 → 上身图 162.1/64.7/59.6） | 服装板和上身**各做一次「光照正常化」**，饱和度被抬两遍 | 两段各写色彩保真句（`stays X and never turns Y/Z`）+ 负向同色禁词；**面料必须单写一句**（`crisp matte crepe, not satin, no sheen`）—— 模板只固定结构，不管材质，不写就自由发挥；产品图 vs 上身图**不可套 Δ≤10**（那条只用于同一张图的前后对比，两者光照不同） |
+
+**复刻边界（对用户怎么说）**：件数 / 剪裁 / 领型 / 袖长 / 下摆 / 鞋型 —— 可复刻，量出来对得上；**颜色** —— 会被两段重绘抬亮，必须靠保真句和负向压；**面料织法** —— 不可承诺，源图多数看不出，成品也不会自己���对；**背面** —— 源图没有的部分是模型编的，不要声称「完全复刻」。
 
 ## 变体：没有鞋图时（纯文字点名鞋）
 
