@@ -63,7 +63,7 @@ head_swap: start with <image1> as the base image, keeping its lighting, environm
 | VAE | `qwen_image_2.1_vae_bf16.safetensors`（675 MB） |
 | LoRA | Pruna 8step（1.0）→ BFS `bfs_head_v1.1_qwen_2.1`（1.0） |
 | cfg / steps / sampler / scheduler | **1.0 / 8 / euler / simple**（不装 Pruna 则 steps 20–30） |
-| 尺寸 | 目标图按原比例、长边 ≤ 1440；参考图单独 512–768，**不要和成品同大** |
+| 尺寸 | **目标图 1088×1920，不缩**；参考图 576–1088；两者共用一个分辨率选择器时至少设 `9:16 / 2 MP` |
 | 出图耗时 | 8 步 800×1440 ≈ **80 秒**（含 15 秒模型初始化），日志实测 80.08s / 83.55s |
 
 ## 七、判据（四条，10 秒）
@@ -78,5 +78,6 @@ head_swap: start with <image1> as the base image, keeping its lighting, environm
 ## 八、已知偏差（用之前先认）
 
 - **脸被"网红化"**：眼更大、唇更厚、皮肤更平。作者在 V1.1 说明里承认这是 LoRA 固有倾向，只是被压到"约三分之二"。
+- **低于 1088×1920 会把 1–2 px 的特征糊没**：痣 / 疤 / 发际线缺口在 800×1440 下会淡到看不见（00370），但**不是被抹掉** —— 00373（1088×1920、strength 仍 1.0）里痣回来了。所以"痣丢了"先查尺寸，再怀疑 LoRA。
 - **参考图比目标图大是最差设置**（作者 body 版实测）。骨架里两张图都走同一个分辨率选择器时，参考会被放大到和长边一样大 —— 这是本线当前的已知偏差，见 `cases/11-faceswap-2026-10-18.md`。
 - **参考脸本身若是 AI 生成的**，换上去的是"经过两次 AI 转述的脸"，偏差在参考图就锁定了。
