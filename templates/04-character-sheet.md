@@ -1,6 +1,6 @@
 # 模板 · 角色四视图（角色板）
 
-> **状态**：✅ 已验证（00307 / 00308 / 00321，用户判定「正确产出过无头」的那版原文为准）
+> **状态**：✅ 已验证（00307 / 00308 / 00321 / **00418**，以「正确产出过无头」的那版原文为准）
 > **工作流**：Qwen-Image 2.1 **编辑**线（两支 KSampler：478 服装板 → 515 角色板）· 30 步 · cfg 3.5 · euler-simple · denoise 1.0 · 16:9 · 2 MP
 > **本页只讲角色板（515）**；服装板见 `02-ghost-set-trio.md`。
 
@@ -73,3 +73,21 @@ Edit the four-figure sheet in <image1> into a finished character reference sheet
 ```text
 three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, a head in the first three panels, a face in the first three panels, hair falling over the shoulders in the first three panels, head added above the shoulders, repaired crop, figure rescaled to fit the whole body, different person between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, wardrobe from <image2>, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, warped buttons, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render
 ```
+
+## 八、服装类型判定：两件式稳、连身裙不稳（2026-10-19 实测）
+
+| 服装 | 类型 | 结果 |
+|---|---|---|
+| 黑针织上衣 + 米白 A 字裙（00307 / 00308） | 两件式 | ✅ 无头 |
+| 香槟缎面睡衣上衣 + 长裤（00321 / 00325） | 两件式 | ✅ 无头 |
+| 白长袖 + 浅蓝牛仔 + 小白鞋（00418） | 两件式 | ✅ 无头（首次即中） |
+| 奶油短袖 T 恤**连身裙**（00402 / 00403 / 00410 / 00411 / 00416） | 一件式 | ⚠️ 仅 00402 成功一次，其余三格冒头 |
+
+**规则**：
+
+1. **两件式**（上衣与下装分开写）→ 按本页骨架直接跑，稳。
+2. **一件式连身裙** → 不稳定，同一份提示词同 seed 会一次无头一次冒头。二选一：
+   - 同一份提示词**跑 3–5 张挑一张**（00402 证明能做对，是概率问题）；
+   - 或把连身裙**改写成两件式描述**（同色上衣 + 同色半裙/同色下摆），再跑。
+3. 换服装时只改**第 5 句（服装名词段）+ 第 6 句（颜色保真句）**，其余 6 句一个字不动。00418（385 词）与 00402（386 词）的差别只有这两处。
+4. 不要用后期裁切/铺背景补救冒头 —— 已验证三种像素修法都留半截长发或硬边，不可交付。
