@@ -77,3 +77,17 @@ N/A.
 - [ ] 每一句都在描述**看得见的东西**，没有 `cinematic / 高级感 / 8K`
 - [ ] 时长与景别匹配：**起始景别越大，脸越小** → 全身镜别指望脸保真
 - [ ] 声音段落里**没有台词**；台词只进 `detailed_description`（且本线默认无台词）
+
+## 实测参数（00060 / 00061 内嵌元数据，2026-10-19 读出）
+
+| 项 | 值 |
+|---|---|
+| 一采分辨率 | `9:16 · 0.5 MP · multiple 32` |
+| 二采 | `MinimaxH3LatentUpscaler3D`：`scale by multiplier 1.5`、`align 32`、`force_unload true`、`cuda / fp16` |
+| 成片 | **832×1440 · 8.00 s · 192 帧 · 24 fps · 带音轨** |
+| 调度 | `BasicScheduler` steps 10 / denoise 1.0 / simple；`SplitSigmas` step 6（一采 6 步、二采 4 步） |
+| seed | `999`（RandomNoise） |
+| 模型 | UNET `minimax_h3_fl2va_pruned_int8_convrot` · CLIP `qwen3vl_32b_minimax_h3_nvfp4_awq` · LoRA `minimax_h3_fl2v_turbo_8step_v1.0` 1.0 |
+| 参考图 | `<Subject 1>` = 人像特写（`ComfyUI-Z-Image_00024_.png`）；`<Subject 2>` = 四视图板（`Qwen_image_2.1_00321.png`） |
+
+**怎么自己核**：mp4 的 `format.tags` 里带 `prompt` 与 `workflow` 两段 JSON（`ffprobe -show_format` 就能看），二采是否真的跑了看节点 `263` 在不在、`mode.scale` 是不是 1.5。**别再从日志或 PNG 里找 —— 找不到。**
