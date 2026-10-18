@@ -33,7 +33,7 @@
 ## 四、不变量（原样粘）
 
 - 提示词**必须以 `head_swap:` 开头** —— 这是 LoRA 的训练触发前缀。
-- `<image1>` / `<image2>` 是**锚点 token**，不能改成"第一张图"之类的自然语言。
+- <image1> / <image2> 是**锚点 token**，不能改成"第一张图"之类的自然语言。
 - 采样器用 `euler`（本机实例没有 `deis_2m`），scheduler `simple`，**cfg 必须 1**（cfg=1 时负向提示词无效，留空即可）。
 - LoRA 强度起点 **1.0**；BFS LoRA 叠在 Pruna 8 步 LoRA **之后**（顺序：UNet → Pruna → BFS）。
 - 目标图分辨率**不要低于原图**：Resize 只用来对齐 32 的倍数，不要顺手降采样。
