@@ -14,7 +14,7 @@
 | `01-canvas` | 场景画布（空镜） | ✅ | 00336（正向 = 交付版 498 词逐字一致） |
 | `02-ghost-mannequin` | 服装照 → 幽灵服装台 | ✅ | 00235（基础）/ 00241（件数锁 + 鞋补全）；**三件套配方** 00393（白T + 浅蓝直筒牛仔 + 白板鞋）→ `templates/02-ghost-set-trio.md` |
 | `03-two-source-merge` | 上装 + 下装/鞋 两源合并 | ✅ | 00315 |
-| `04-character-sheet` | 角色四视图（角色板，三槽：画布 / 人物参考 / 服装板） | ✅ | 00307 / 00308 / 00321 → `templates/04-character-sheet.md`（含「脸词外溢」铁律） |
+| `04-character-sheet` | 角色四视图（角色板，三槽：画布 / 人物参考 / 服装板） | ✅ | 00307 / 00308 / 00321 / **00418** → `templates/04-character-sheet.md`（含「脸词外溢」铁律 + 服装类型判定：两件式稳、连身裙不稳） |
 | `05-display-wall` | 六格陈列墙 | ✅ 维持现状 | 00339（n=1）。单格返修已弃用 → 要能改单格，改成「六格各自生成 + 拼墙」 |
 | `06-tap-select` | 手指点选高亮 | ✅ | 00341 |
 | `07-portrait-headshot` | **AI 人物建模特写**（写法指南：九段骨架 + 三旋钮 + 有/无 LoRA 双版） | ✅ | 00397（暖米·中分·LoRA 1.0）；对照 00390 / 00392（邋遢版）、00394（侧分·脸型漂移）→ `templates/07-portrait-headshot.md` |
@@ -54,6 +54,7 @@ sources/       官方原文与出处（含 GitHub 链接）
 enhancers/     两个改写器原文
 docs/          生产设定、未验证清单
 evidence/      对照结论与登记表（图/视频不进库）
+scripts/       校验器（技能规范 / 模板结构）
 ```
 
 ## 依赖（不在本仓库）
@@ -64,3 +65,34 @@ evidence/      对照结论与登记表（图/视频不进库）
 
 - **2026-10-17**：仓库建立；导入 5 个已修正技能；官方原文入库；A/B 视频对照完成；A 版转"暂定存档"、B 版为默认；撞色受控实验标记为"不做"。
 - **2026-10-18**：人像特写（无 LoRA）验证通过；编辑线"真人全身换装"用实测数字否决（头宽比 0.19×→0.24×，衣服漂到 240,237,233）；**新增 `11-faceswap-head` 换头线并跑通**（BFS LoRA，00367）—— 衣服 ΔRGB ≤5.2、身份迁移成立、脸偏"网红化"；ReActor 插件线仅完成调研未安装。
+
+## 技能与模板规范（agentskills.io）
+
+技能按 [agentskills.io/specification](https://agentskills.io/specification) 组织，本仓库的 5 个 `skills/` 与其上游副本都过校验。
+
+**硬性要求**
+
+| 项 | 规则 |
+|---|---|
+| 目录 | 一个技能 = 一个目录，必须含 `SKILL.md`（YAML frontmatter + 正文） |
+| `name` | 1–64 字符，仅小写字母/数字/连字符，不以连字符开头或结尾，无 `--`，**必须等于父目录名** |
+| `description` | 1–1024 字符，非空，包含"做什么 + 何时用"（`Use when …` / `当…时`） |
+| 正文 | 建议 ≤500 行；超出拆到 `references/` |
+| 引用 | 相对路径、只深入一层；**跨技能写成 `skill-name:references/x.md`** |
+| 编码 | 文件开头不得有 BOM（否则 `---` 不被识别为 frontmatter） |
+
+**一键校验**
+
+```bash
+python scripts/validate_skills.py                 # 本仓库 skills/
+python scripts/validate_skills.py <技能目录> …     # 指定目录（单技能目录也认）
+python scripts/check_templates.py                 # templates/ 的四态 + 三段结构
+```
+
+当前状态：`skills/` **5/5 通过**，`templates/` **7/7 通过**。
+
+**模板三段结构**（`check_templates.py` 会查）
+
+1. 头 10 行内有 `**状态**`，且是 ✅ / 🗄️ / ⚠️ / ⛔ 之一
+2. 有"变量"表：换服装/换场景只改哪几处
+3. 有自查/判据清单；除 `09-video-*` 外必须有负向段

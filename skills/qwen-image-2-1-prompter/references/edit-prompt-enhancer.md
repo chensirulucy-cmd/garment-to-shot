@@ -4,7 +4,7 @@
 
 用户 ComfyUI 编辑工作流里，**提示词节点前面还挂了一个「改写器」**：一个约 1 万字符的元提示词（`PrimitiveStringMultiline`），标题为 **`Edit Prompt Enhancer — General (v2, 精简版)`**。它把你写的编辑提示词**先重写一遍**，再交给 Qwen-Edit 节点。
 
-- 完整原文已从 00341 的 PNG 元数据抽出：`F:\Sakura_Project\prompt_extract\D2_00341_tap.txt`（其中 `PrimitiveStringMultiline.value` 那一段，10494 字符）。
+- 完整原文已从 00341 的 PNG 元数据抽出：`Sakura_Project/prompt_extract/D2_00341_tap.txt（本机工作区，不入库）`（其中 `PrimitiveStringMultiline.value` 那一段，10494 字符）。
 - 实例：00339 → 00341（手指点选）→ 00341 的节点里就是「Enhancer + 我的手指点选提示词」两层。
 
 ## 它的两条硬规则（和我方 skill 一致，不用重复设计）

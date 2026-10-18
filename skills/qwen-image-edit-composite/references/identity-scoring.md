@@ -4,7 +4,7 @@
 
 ## 现成脚本
 
-`F:\Sakura_Project\sim_score.py` —— OpenCV dnn 跑 buffalo_l：SCRFD 检脸 + ArcFace 特征 + 与基准脸的余弦相似度。
+`Sakura_Project/sim_score.py` —— OpenCV dnn 跑 buffalo_l：SCRFD 检脸 + ArcFace 特征 + 与基准脸的余弦相似度。
 
 - 只需 `opencv` + `numpy`（不需要 onnxruntime、不需要 insightface 包）。
 - 顶部三个旋钮：`REF_IMAGE`（基准脸，通常就是身份锚图）、`SCORE_DIR`（候选图目录）、`THRESHOLD`（同人阈值，0.55–0.60 起调）。
@@ -12,7 +12,7 @@
 
 ## 跑之前先确认模型就位
 
-脚本按它自己配置里的路径找两个 ONNX：`det_10g.onnx`（检测）与 `w600k_r50.onnx`（识别），默认写在 `F:\ComfyUI-Data\models\insightface\models\buffalo_l\`。**目录不存在就把 buffalo_l 模型包补到该路径再跑，脚本本身不用改。** 改路径时用 raw string（Windows 反斜杠），并且用能 `import cv2` 的解释器跑。
+脚本按它自己配置里的路径找两个 ONNX：`det_10g.onnx`（检测）与 `w600k_r50.onnx`（识别），默认写在 `<COMFYUI_MODELS>/insightface/models/buffalo_l/`。**目录不存在就把 buffalo_l 模型包补到该路径再跑，脚本本身不用改。** 改路径时用 raw string（Windows 反斜杠），并且用能 `import cv2` 的解释器跑。
 
 ## A/B 判读
 
