@@ -7,7 +7,7 @@
 - 画幅：2.0–2.5 MP。
 - LoRA：**这一步插**（`LoraLoaderModelOnly`，`strength 1.0`）；**正向里不写任何五官清单**。
 - 触发词写法**只有一种**：作为锚句的主语名词**内联**——`The image is a square realistic studio photograph of sakurawomanC, a young East Asian woman in her mid-twenties, framed as a tight facial portrait …`。**不许另起一行、不许写成「触发词独立首行」**（实测：独立首行 + 删掉年龄 + 把取景放宽到带上胸，脸会明显变通用、不像本人）。
-- 下方模板是**冻结原文**：换服装、换场景都不改它；只有换角色或换触发词时才动那一个词。
+- 下方是**基准样张**，不是要复读的字符串：换 IP／换风格／新建人物时，按仓库 `templates/07-portrait-headshot.md` 的**九段骨架**重写对应段落（背景/取景/发型/表情/皮肤/光），其余句式照抄。改人物只动发型、表情、皮肤三段。
 
 ## 正向（一段到底 · 观察者描述）
 
