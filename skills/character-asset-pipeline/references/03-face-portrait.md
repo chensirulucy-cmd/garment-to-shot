@@ -31,3 +31,9 @@ low resolution, blurry, blurry face, soft focus, noise, compression artifacts, s
 | 脸变小、变成半身像 | 用 16:9 出图，或提示词里出现了服装/身体的描述 | 改 1:1，删掉服装相关句 |
 | 出成「AI 模板美女」 | 正向写了五官清单 / `beautiful` 这类吹词 | 删掉五官清单；身份交给触发词 |
 | 脸不像、但 LoRA 已挂对 | 参考图路径不对，或强度 <0.8 | `strength 1.0`，再不行提到 1.15；LoRA 要在缓存节点之前 |
+
+## 人物状态 = 三个旋钮（不要改别处）
+
+骨相锁死，能让"人变了"的只有三段：**② 发型**（最伤身份，改头型轮廓）→ **① 表情**（calm ↔ tired ↔ smiling 决定气质）→ **③ 皮肤**（light & unretouched ↔ tired cast ↔ luminous，写 luminous 会越做越白）。
+
+改人物只动这三段，其余逐字保留。完整表与冻结原文见仓库 `templates/07-portrait-headshot.md`。

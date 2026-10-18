@@ -1,50 +1,77 @@
-# 模板 · 人像近脸特写（影棚美妆头）
+# 模板 · AI 人物建模特写（单工作流专用）
 
-> **状态**：✅ 已验证（2026-10-17）。验证案例见 `cases/07-portrait-2026-10-17.md`。
-> **用途**：产出一张可直接当"身份插槽"的正面特写 —— 裸肩无衣物，避免服装污染。
-> **本模板不含具体人物**：人物形象按剧本变量填。
+> **状态**：✅ 已验证（2026-10-17 通过，2026-10-18 修订为「三段旋钮」结构）
+> **工作流**：Qwen-Image 2.1 · 文生图（T2I）· 1:1 · 1280×1280 · cfg 3.5 / 30 步 / euler-simple · LoRA 可选
+> **用途**：产出一张「建模级」正脸特写 —— 脸大、背景干净、无衣物、无道具，下游给四视图第 4 格、换脸的 `image2`、视频参考帧。
+> **不含具体人物**：触发词与人物状态按 IP 填。
 
-## 一、变量表
+## 一、两个版本
 
-| 变量 | 必填 | 写法要求 | 坑 |
-|---|---|---|---|
-| `{{年龄阶段}}` | ✅ | `in her mid-twenties` 这类人生阶段，不写岁数 | 写"25岁"→ 模型不认识 |
-| `{{发型句}}` | ✅ | 具体到**分缝 / 是否后梳 / 耳朵露不露 / 碎发位置** | 只写"black hair"→ 每张都不一样 |
-| `{{脸型句}}` | ✅ | 脸型 + 下颌线 + 下巴（3 项） | 只写"oval face"→ 脸会变通用 |
-| `{{眉/眼句}}` | ✅ | 眉：粗细+弧度+眉尾；眼：大小+眼皮+眼尾+睫毛+眼线 | 漏眼线 → 眼神变呆 |
-| `{{鼻/唇句}}` | ✅ | 鼻梁高矮 + 鼻头 + 鼻翼；唇厚薄 + 唇峰 + 唇色（**带修饰词**，如 coral brick orange-red） | 写"red lips"→ 会跑到正红 |
-| `{{独特标记}}` ★ | ✅ | **按 IP 填**：痣 / 疤 / 发际线形状 / 胎毛，位置用**观者视角**写（`the viewer's left eye`）；**该 IP 没有就写 `none`，并在负向加 `mole, beauty mark, freckle, birthmark`** | 多个 IP 共用一套模板时，**绝不许沿用上一个 IP 的标记** —— 痣是某一个 IP 的特征，不是默认值；写错就等于换了一个人 |
-| `{{皮肤句}}` | ✅ | 真实版：可见毛孔 + 皮肤纹理 + 哑光缎面，只在额头/鼻梁/颧骨留柔和光泽 | 想要"磨皮版"就删掉毛孔半句，但别两头都要 |
-| `{{妆容}}` | ◻︎ | 眼影/睫毛/腮红/唇；不写就按素颜 | 与唇色句重复描述会打架 |
-| `{{取景}}` | ✅ | 头顶留白 % + 下缘切到哪 + 脸占画面高 % | 脸占比 <25% → 身份不保 |
-| `{{光线}}` | ✅ | 方向 + 软硬 + 色温 + 眼神光 | 写"studio light"太笼统 |
-| `{{背景}}` | ✅ | 颜色 + 是否渐变 + **无道具/无字** | 忘了禁字 → 冒出 logo |
+| 版本 | 正向里写什么 | 什么时候用 |
+|---|---|---|
+| **有 LoRA** | 触发词内联锚句主语 + **不写任何五官清单** + 三段状态句 | 有该 IP 的 LoRA（首选） |
+| **无 LoRA** | 触发词删掉，**补回五官清单**（脸型/眉/眼/鼻/唇/独特标记）+ 三段状态句 | 没有 LoRA 或 LoRA 基座不对 |
 
-## 二、不变量（原样粘）
+触发词**只有一种写法**：`... of sakurawomanC, a young East Asian woman in her mid-twenties, framed as a tight facial portrait ...`（主语内联）。独立成行、或删掉年龄，脸会变通用。
 
-- 唯一光句：`The lighting is …`（单独一句，写方向/软硬/色温/高光落点）
-- 唯一收束句：`The overall composition is …`（一句，写对称/居中/两侧边距）
-- 禁词：`cinematic / beautiful / 8K / masterpiece / highly detailed`
-- 比例只进 `wh_ratio`，正文只写 `square / vertical` 这类方向词
+## 二、人物三段旋钮（"换了个人"就出在这三段）
 
-## 三、骨架（一段到底，400–500 词）
+脸的骨头（骨相）在这条线上是**锁死**的：LoRA 版不写五官、无 LoRA 版照抄清单。真正让人物"变了"的只有下面三段 —— 改人物只改这三段，别处一个字不动。
 
+| 旋钮 | 默认（冻结原文里的句子） | 改成什么会怎样 |
+|---|---|---|
+| **① 表情** | `her expression stays calm and closed-mouthed, her lips resting together with a faint natural colour and no tension in the mouth or brow` | 换成 `half-awake, flat, unbothered, worn out` → 立刻变成"疲惫、没精神"的另一个人；换成 `a light smile lifts the apples of her cheeks` → 变成"亲和、甜美" |
+| **② 发型** | `long straight black hair parted down the middle and tucked back behind both ears, so her whole face, her cheekbones and the line of her jaw stay uncovered` | 换成高丸子头 → **头型轮廓全变**，LoRA 的脸会被拉扯，这是最伤身份的一段；换刘海/遮额 → 脸被切掉一角 |
+| **③ 皮肤状态** | `skin appears light and unretouched, with its natural texture and fine detail visible … and the faintest warmth in the shaded side of her neck` | 加 `tired cast under the eyes` → 憔悴/临床感；加 `luminous / even / no dullness` → 越做越白；两句都不写 → 模型默认往瓷白走 |
+
+**顺序**：先定发型（影响最大）→ 再定表情（决定气质）→ 最后调皮肤（决定"健康/疲惫"）。一次只改一段，改完对比。
+
+## 三、冻结原文（有 LoRA · 白底 · 裸肩）
+
+```text
+The image is a square realistic studio photograph of sakurawomanC, a young East Asian woman in her mid-twenties, framed as a tight facial portrait against a plain white backdrop. The background is a flat seamless pure white field with nothing standing in it, its tone even from the upper-left corner to the lower-right corner of the frame, with only a faint falloff behind her head and no object of any kind anywhere in the picture. She is placed at the centre of the frame and faces the camera directly, her head upright and level, her neck straight and her chin neither raised nor lowered, and the lower edge of the frame closes just below the base of her neck, so her face and hair fill most of the picture and only the very tops of her shoulders reach the bottom edge. Her long straight black hair is parted down the middle and tucked back behind both ears, so her whole face, her cheekbones and the line of her jaw stay uncovered, with the rest of it falling away behind her neck and shoulders and a soft sheen running along the crown and through the hair at the temples. A few fine strands lift clear of the hairline, and the parting itself is clean and narrow. Her eyes look level into the lens with a small highlight in each of them, and her expression stays calm and closed-mouthed, her lips resting together with a faint natural colour and no tension in the mouth or brow. Her skin appears light and unretouched, with its natural texture and fine detail visible across the forehead, down the bridge of the nose, across both cheeks and along the jaw, and the faintest warmth in the shaded side of her neck. Her eyebrows sit in their natural shape and her lashes stay separate and unclumped. The lighting is soft and even and comes from just above and slightly to the left of the lens, filling the whole of her face from the hairline to the jaw without a hard shadow, holding a soft highlight on the forehead, the cheekbones and the tip of her nose, and leaving only a faint shading beneath the jaw and behind the ears. That same light raises the sheen along the crown of her hair and holds the backdrop at one even value behind her. Nothing else enters the frame — no hands, no arms and no garments beyond the tops of her bare shoulders at the very bottom edge — and no text, signage or prop appears anywhere in it. The overall composition is centred and symmetrical, with her head and shoulders filling the frame edge to edge and a calm, uncluttered studio mood.
 ```
-The image is a {{square|vertical}} studio beauty headshot of a {{年龄阶段}} East Asian woman, seen front-on and centred, against a {{背景色}} seamless background in soft neutral light. The frame runs from {{头顶留白}} above her hair down to {{下缘位置}}, so her face fills about {{脸占比}} of the picture height and sits on the vertical centre axis, with {{颈部/肩/锁骨可见到什么程度}} and no jewellery and no clothing anywhere in the picture. Her hair {{发型句}}. Her face {{脸型句}}. Her eyebrows {{眉}}. Her eyes {{眼}}. Her nose {{鼻}}. Her lips {{唇 + 唇色}}. {{独特标记}}. Her skin {{皮肤句}}. The lighting is {{光线句}}. The background is {{背景句}}, with no prop, no horizon line and no lettering anywhere. The overall composition is {{收束句}}.
+
+> 背景默认取**纯白**。要中性灰（更耐看、更少反光）就把 `plain white backdrop` / `pure white field` 换回 `plain neutral backdrop` / `mid-neutral field`，其余不动。
+
+## 四、无 LoRA 版怎么改
+
+只改两处：
+1. 删掉锚句里的触发词（`of sakurawomanC, `）；
+2. 在发型句后插入五官清单（变量表见 `templates/07` 的旧版变量表）：脸型 + 下颌 + 下巴、眉（粗细/弧度/眉尾）、眼（大小/眼皮/眼尾/睫毛/眼神光）、鼻（鼻梁/鼻头/鼻翼）、唇（厚薄/唇峰/唇色）、**独特标记**（该 IP 没有就写 `none`，并在负向禁 `mole, beauty mark, freckle, birthmark`）。
+
+## 五、负向（必含"保脸"词）
+
+```text
+low resolution, blurry, blurry face, soft focus, noise, compression artifacts, small face, distant framing, wide shot, waist-up framing, full body, half body, arms, hands, visible hands, torso, chest below the collarbones, clothing, collar, strap, textile, deformed face, distorted facial features, facial asymmetry, waxy skin, plastic skin, over-smoothed skin, airbrushed skin, poreless skin, doll-like appearance, porcelain skin, milky skin, bleached skin, washed out, overexposed face, face brighter than the neck, illustration, painting, anime, cartoon, CGI, obvious 3D render, text, watermark, logo, border, frame, hat, headwear, earrings, necklace, props, multiple people, duplicate person
 ```
 
-## 四、参数（实测）
+`small face / distant framing / waist-up framing / full body / arms / hands / torso` 这几条**不能删** —— 删了就会退成半身像、脸变小。
+
+## 六、参数
 
 | 项 | 值 |
 |---|---|
-| 模型 | Qwen-Image 2.1 |
-| cfg / steps / sampler | **3.5 / 30 / euler · simple**（cfg>1 负向才生效） |
-| 尺寸 | 1:1 → 1280×1280（1.64 MP）｜2:3 → 832×1216｜≤2.2 MP |
-| LoRA | 有 LoRA 时：触发词**内联锚句主语**，并**删掉整个脸型/眉/眼/鼻/唇段**（否则跟 LoRA 抢身份） |
+| 尺寸 | **1:1 · 1280×1280**（脸最大；3:4 可多约 15% 脸像素） |
+| cfg / steps / sampler | **3.5 / 30 / euler · simple** |
+| LoRA | `LoraLoaderModelOnly`，strength **1.0**（不足再 1.15），**挂在缓存节点之前** |
+| 负向 | cfg>1 才生效，所以这条线负向**要写** |
 
-## 五、判据（四条，10 秒）
+## 七、判据（六条）
 
-1. **独特标记在不在**（痣/疤/发际线）← 第一眼就看这个
-2. 发型状态对不对（分缝 / 后梳 / 耳朵露不露）
-3. 皮肤：不蜡不塑料；真实版要有毛孔
-4. 背景：中心到边缘有没有那道渐变；眼里有没有眼神光
+1. 脸占画面高 ≥45%，下缘收在颈根以下（不能到胸）
+2. 只有肩膀最上沿入画，无衣物、无首饰
+3. 背景是一整块纯色（白或中性灰），无渐变、无道具、无投影
+4. 发型与旋钮②一致；额头/颧骨/下颌线没被头发遮掉
+5. 表情与旋钮①一致，眉眼无紧张
+6. 脸**不亮于**脖子（判"有没有被白背景带白"）
+
+## 八、已知失败模式
+
+| 现象 | 根因 | 修法 |
+|---|---|---|
+| 越做越白、像瓷娃娃 | 正向写 `luminous / even / flawless`，负向又压 `dull / grey / pores`，两头夹击 | 删掉这些词；只留 `light and unretouched … faintest warmth` |
+| 像"临床/证件照" | 写了 `tired cast / dark circles / visible pores` 清单 | 删掉；疲惫感由旋钮①的表情承担，不由皮肤清单 |
+| 人物"不是她" | 改了旋钮②（发型） | 发型是头型轮廓，改它必伤身份；要换发型就重训/换 LoRA |
+| 脸变小、变半身 | 负向删了 `small face / waist-up / torso`，或正向出现服装 | 恢复负向；删掉任何衣物句 |
+| 出成"AI 模板美女" | 正向写了五官清单（有 LoRA 时）或 `beautiful` 类吹词 | 删清单，身份交给触发词 |
