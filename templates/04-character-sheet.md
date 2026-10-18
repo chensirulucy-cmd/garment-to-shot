@@ -77,20 +77,22 @@ Edit the four-figure sheet in <image1> into a finished character reference sheet
 three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, a head in the first three panels, a face in the first three panels, hair falling over the shoulders in the first three panels, head added above the shoulders, repaired crop, figure rescaled to fit the whole body, different person between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, wardrobe from <image2>, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, warped buttons, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render
 ```
 
-## 八、服装类型判定：两件式稳、连身裙不稳（2026-10-19 实测）
+## 八、同一件衣服连试两次不行就换，别在这一张图上硬磕（2026-10-19）
 
-| 服装 | 类型 | 结果 |
-|---|---|---|
-| 黑针织上衣 + 米白 A 字裙（00307 / 00308） | 两件式 | ✅ 无头 |
-| 香槟缎面睡衣上衣 + 长裤（00321 / 00325） | 两件式 | ✅ 无头 |
-| 白长袖 + 浅蓝牛仔 + 小白鞋（00418） | 两件式 | ✅ 无头（首次即中） |
-| 奶油短袖 T 恤**连身裙**（00402 / 00403 / 00410 / 00411 / 00416） | 一件式 | ⚠️ 仅 00402 成功一次，其余三格冒头 |
+**观察到的**（只对这几件具体衣服成立，不能推广成"某类服装都不行"）：
 
-**规则**：
+| 衣服 | 结果 |
+|---|---|
+| 黑针织上衣 + 米白 A 字裙（00307 / 00308） | ✅ 无头 |
+| 香槟缎面睡衣上衣 + 长裤（00321 / 00325） | ✅ 无头 |
+| 白长袖 + 浅蓝牛仔 + 小白鞋（00418） | ✅ 无头 |
+| 奶油短袖 **T 恤连身裙**（00402 / 00403 / 00410 / 00411 / 00416） | ⚠️ 00402 中过一次，其余冒头 |
 
-1. **两件式**（上衣与下装分开写）→ 按本页骨架直接跑，稳。
-2. **一件式连身裙** → 不稳定，同一份提示词同 seed 会一次无头一次冒头。二选一：
-   - 同一份提示词**跑 3–5 张挑一张**（00402 证明能做对，是概率问题）；
-   - 或把连身裙**改写成两件式描述**（同色上衣 + 同色半裙/同色下摆），再跑。
-3. 换服装时只改**第 5 句（服装名词段）+ 第 6 句（颜色保真句）**，其余 6 句一个字不动。00418（385 词）与 00402（386 词）的差别只有这两处。
-4. 不要用后期裁切/铺背景补救冒头 —— 已验证三种像素修法都留半截长发或硬边，不可交付。
+**不能得出的结论**：不能说"一件式连身裙都不行"。上面失败的 5 次**用的是同一件衣服**（同一张幽灵台、同一张画布、同一套骨架），变量只有 run 次数 —— 所以更可能是**这一张服装图本身**（圆领位置正好压在裁切线上、版型太素）不适合这个画布，而不是"连身裙这一类"有问题。样本量 1 件，不够下类结论。
+
+**规则（写死）**：
+
+1. 同一件衣服**连试两次**还在冒头 → **换衣服 / 换画布**，不要在那一张图上继续加实验。继续堆只会在一个本来就跑不通的输入上消耗时间。
+2. 一件式连身裙第一次就冒头时，直接换**胸口裁切画布**（前三格从顶部再裁 ~17%，领口不入画），不要先改提示词。
+3. 只有换过 ≥3 件**不同**的连身裙、都失败，才允许写"连身裙这一类不稳"。
+
