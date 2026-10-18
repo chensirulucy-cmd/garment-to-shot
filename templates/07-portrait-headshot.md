@@ -96,3 +96,32 @@ The image is a square realistic studio photograph of sakurawomanC, a young East 
 | 人物"不是她" | 动了发型（第 4 段），头型轮廓变了 | 回到保脸档（中分掖耳）；换发型＝换 LoRA |
 | 脸变小 / 半身 | 负向删了 `small face / waist-up / torso`，或正向出现服装 | 恢复负向；删衣物句 |
 | AI 模板脸 | 有 LoRA 还写五官清单，或用了 `beautiful` 类吹词 | 删清单，身份交给触发词 |
+
+## 九、变量 / 不变量 / 真正决定画面的三句
+
+**变量（换 IP、换风格只动这 5 个）**：① 背景色 ② 发型档 ③ 表情档 ④ 肤色档 ⑤ 光的方向。
+
+**不变量（六条，逐字保留）**：
+
+| # | 不变量 | 为什么 |
+|---|---|---|
+| 1 | 触发词**内联**在 `of …` 主语位 | 独立成行 → 脸变通用 |
+| 2 | 取景下缘收在**颈根以下**、只留肩最上沿 | 收低了就退半身、脸变小 |
+| 3 | 无衣物 / 无手 / 无臂 / 无首饰 / 无道具 | 出现任何一件就抢走视线 |
+| 4 | 收边句（`Nothing else enters the frame …`） | 不写就长出东西 |
+| 5 | 收束句（构图 + 情绪一句） | 不写构图会散 |
+| 6 | 负向里 `small face / waist-up / torso / chest below the collarbones` | 删了脸立刻变小 |
+
+**真正决定画面的只有三句**（改别的只是调气质，改这三句才换人）：
+
+1. `of {{触发词}}, a young East Asian woman in her mid-twenties, framed as a tight facial portrait` —— 决定**像不像**
+2. `the lower edge of the frame closes just below the base of her neck … only the very tops of her bare shoulders` —— 决定**脸多大**
+3. 发型句里的「**掖到双耳后 + 全脸露出**」—— 决定**骨相有没有被遮**
+
+## 十、实测偏差（2026-10-18）
+
+| 观察 | 结论 |
+|---|---|
+| 暖米底 + 平光下，皮肤读作「干净无瑕」，`unretouched` 没落地 | 质感靠**光**（第 7 段换侧光），不靠加词；加 `visible pores` 只会把它推成临床照 |
+| 侧分 + 一侧头发垂在颊前（00394 那一版），脸型轻微漂移 | **头发不许遮骨相**：额头/颧骨/下颌线两侧至少一侧完整露出；垂颊前＝让模型重估半张脸 |
+| 写「极浅笑抬起苹果肌」也会改变脸型 | 表情只写 `no tension in the mouth or brow`，不写肌肉动作 |
