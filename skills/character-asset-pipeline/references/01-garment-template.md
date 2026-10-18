@@ -92,7 +92,9 @@ Add the footwear from <image2>: take the exact pair of shoes shown in <image2> a
 | 连衣裙被切成上衣+裙子 | 旧版正向写了「top garment above / bottom garment below / 上衣下摆压住裙腰」——**这句假定两件套** | 用本文的「件数保持」段 |
 | 凭空长出一双鞋 / 尖头细跟配休闲装 | 旧版正向写了「the pair of shoes standing side by side」——**这句假定有鞋** | 用「有则照抄，无则配一双中性款」段或鞋图变体 |
 | 灰衣服出成黑色 | 没点颜色 + 输入底色偏深（实测亮度 87）+ 输出像素不足 | 正向点名 `mid-grey`，写「不是黑也不是白」 |
-| 输出跟着输入图变成奇怪比例 | `custom_size=false` 时尺寸跟第 1 张输入图 | 确认第 1 张的比例，或开 `custom_size` |
+| 输出跟着输入图变成奇怪比例 | 输出尺寸**继承某一张参考图**（可能是 `<image1>` 画布，也可能是 `<image3>` 服装图），`ResolutionSelector` 不参与 | 先把参考图统一到目标像素，别在 selector 上调 |
+| 幽灵台下方长出一双脚（鞋里有脚趾 / 脚踝） | ① 鞋是**开口 / 细带**款：不画脚就立不住；② 正向写了 `in the position feet would occupy`、`as if a foot had just stepped out of it`、`open toe / low vamp` —— 等于点名要脚。**与 cfg 无关**：实测 cfg 3.5、负向里已有 `feet, toes, skin`，仍然出脚 | ① 鞋换**包头尖头细跟**（closed toe，不给脚留位置）；② 正向把鞋写成**空物件**：`empty shoes standing on the studio floor … the toe boxes fully closed with nothing visible inside them`；③ 删掉 `feet would occupy` / `stepped out of it` 这类句式，只写 `side by side on the floor beneath the hem, angled slightly outward`；④ 负向补 `a foot inside a shoe, toes visible, skin visible in the shoes, open-toe shoes, strappy sandals` |
+| 源图只有上半身（只到胯），出图下半身是编的 | 裙长、下摆、鞋全部没有参考 | 提示词里**写死**裙长（及膝 / 小腿中部 / 踝上）与鞋型，并在交付时说清「这两处是补的，不是复刻」；不要声称整套照原图还原 |
 
 
 ---
