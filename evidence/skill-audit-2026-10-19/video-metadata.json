@@ -1,0 +1,937 @@
+[
+  {
+    "file": "MiniMax_H3_00060_.mp4",
+    "sha256": "006f8693be69d12edcc0c0da9fd0e0368747be984387ea8fbcc7d9d6fc54ed20",
+    "graph": {
+      "115": {
+        "inputs": {
+          "aspect_ratio": "9:16 (Portrait Widescreen)",
+          "megapixels": 0.5,
+          "multiple": 32
+        },
+        "class_type": "ResolutionSelector",
+        "_meta": {
+          "title": "Resolution Selector (Size)"
+        }
+      },
+      "119": {
+        "inputs": {
+          "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "加载VAE"
+        }
+      },
+      "120": {
+        "inputs": {
+          "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "加载VAE"
+        }
+      },
+      "123": {
+        "inputs": {
+          "sampler_name": "euler"
+        },
+        "class_type": "KSamplerSelect",
+        "_meta": {
+          "title": "K采样器选择"
+        }
+      },
+      "124": {
+        "inputs": {
+          "scheduler": "simple",
+          "steps": 10,
+          "denoise": 1.0,
+          "model": [
+            "141",
+            0
+          ]
+        },
+        "class_type": "BasicScheduler",
+        "_meta": {
+          "title": "基本调度器"
+        }
+      },
+      "125": {
+        "inputs": {
+          "noise": [
+            "129",
+            0
+          ],
+          "guider": [
+            "126",
+            0
+          ],
+          "sampler": [
+            "123",
+            0
+          ],
+          "sigmas": [
+            "208",
+            0
+          ],
+          "latent_image": [
+            "136",
+            1
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "自定义采样器（高级）"
+        }
+      },
+      "126": {
+        "inputs": {
+          "model": [
+            "141",
+            0
+          ],
+          "conditioning": [
+            "136",
+            0
+          ]
+        },
+        "class_type": "BasicGuider",
+        "_meta": {
+          "title": "基本引导器"
+        }
+      },
+      "127": {
+        "inputs": {
+          "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+          "weight_dtype": "default"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNet加载器"
+        }
+      },
+      "128": {
+        "inputs": {
+          "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+          "type": "minimax",
+          "device": "default"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "加载CLIP"
+        }
+      },
+      "129": {
+        "inputs": {
+          "noise_seed": 999
+        },
+        "class_type": "RandomNoise",
+        "_meta": {
+          "title": "随机噪波"
+        }
+      },
+      "131": {
+        "inputs": {
+          "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+          "values.a": [
+            "132",
+            0
+          ]
+        },
+        "class_type": "ComfyMathExpression",
+        "_meta": {
+          "title": "数学表达式"
+        }
+      },
+      "132": {
+        "inputs": {
+          "value": 8.0
+        },
+        "class_type": "PrimitiveFloat",
+        "_meta": {
+          "title": "Float (Duration)"
+        }
+      },
+      "136": {
+        "inputs": {
+          "prompt": [
+            "138",
+            0
+          ],
+          "width": [
+            "115",
+            0
+          ],
+          "height": [
+            "115",
+            1
+          ],
+          "length": [
+            "131",
+            1
+          ],
+          "ref_image_size": "max",
+          "clip": [
+            "128",
+            0
+          ],
+          "vae": [
+            "119",
+            0
+          ],
+          "audio_vae": [
+            "120",
+            0
+          ],
+          "ref_images.ref_image_0": [
+            "139",
+            0
+          ],
+          "ref_images.ref_image_1": [
+            "256",
+            0
+          ]
+        },
+        "class_type": "MiniMaxH3ReferenceToVideo",
+        "_meta": {
+          "title": "MiniMax H3 参考转视频"
+        }
+      },
+      "138": {
+        "inputs": {
+          "value": "subject_definitions:\n<Subject 1> is the young woman defined by the face close-up — an East Asian woman in her mid-twenties with an oval face, almond eyes with double eyelids, straight soft eyebrows, a straight nose, full lips in a natural dusty-pink tone, fair warm-toned skin, and very long jet-black hair with a centre part falling behind her shoulders. The portrait defines her face, hair and skin only, so its plain white background and the grey knit top she wears in it never appear in the video.\n<Subject 2> is the pyjama set shown in the four-panel product sheet — the champagne satin pyjamas: a long-sleeved shirt with a notched collar, a single row of buttons and one left chest pocket, with a matching pair of wide straight trousers. The sheet defines these garments only, so its four-panel layout, its white background and the model in its fourth panel never appear in the video.\n<Subject 3> is the living room described here: a pale grey fabric sofa filling the left half of the frame in the midground, a low wooden coffee table in the near foreground along the bottom edge, a tall window with a sheer white curtain and a street lamp beyond it on the right, a pale wall with a potted plant on the left, a pale rug on a light wooden floor.\n\nsummary:\n[reference generation] The target video is one continuous eight-second shot of <Subject 1> sitting on the sofa in <Subject 3> in <Subject 2>, watching television, noticing a phone light up on the table, reaching for it and breaking into a warm smile. <Subject 1>, <Subject 2> and <Subject 3> are references only; none of them is aligned to any moment of the video.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - her facial identity, hair, skin tone and build stay exactly as the portrait defines them, and her mood moves only from relaxed toward warmly pleased.\n<Subject 2> (appears in [Shot 1]): fully_preserved - the champagne satin shirts and trousers keep their exact colour, cut, sheen and garment count.\n<Subject 3> (appears in [Shot 1]): partially_preserved - the sofa, coffee table, window and curtain, street lamp, plant and rug keep their positions and their light while the camera pushes in.\n\ndetailed_description:\nLive-action, real available light, natural skin with visible pores and no beauty smoothing, matte finish with no oily highlights, true-to-life colour, no over-sharpening and no HDR glow.\n\n[Shot 1] The frame opens as a medium shot at eye level in the living room of <Subject 3>, with <Subject 1> in <Subject 2> curled into the left half of the sofa, her knees drawn up, one hand around a mug on the cushion, her eyes on the off-frame television whose pale light flickers across her face from the front left and the street lamp through the sheer curtain laying a warm rim along her right shoulder. Zero to one second: she watches the screen, her face still and loose; the camera holds a static shot; the room tone and muffled television dialogue carry under; this second locks her settled posture and her eyeline toward the off-frame screen. One to two seconds: the phone on the coffee table lights up with a short buzz and shifts a few millimetres on the wood; the camera holds; her eyes flick down to it while her head still faces the screen. Two to three seconds: a second, longer buzz; her chin turns a quarter toward the lower right, her shoulders staying in the cushion; the phone's glow is the only new light in the frame. Three to four seconds: she leans forward out of the cushion, sets the mug down on the table with a soft ceramic click and her right hand crosses toward the phone; the camera pushes in with small amplitude at slow speed. Four to five seconds: she lifts the phone to her chest and tilts the screen toward herself so only its light reaches her face, the screen itself turned away from the lens, and the furniture slips below the bottom edge of the frame. Five to six seconds: her thumb moves once across the glass, her eyebrows lift a little and her lips part by a few millimetres. Six to seven seconds: the smile reaches the corners of her mouth and the outer corners of her eyes and her shoulders drop out of the cushion as the camera eases to a close-up. Seven to eight seconds: she holds the look with her eyes on the phone and one quiet breath in, the smile still on her face and her thumb still on the glass, the camera coming to rest. The shot uses one push in with small amplitude at slow speed and no other camera movement. Her face remains identical to <Subject 1> in every frame, and her very long jet-black hair keeps the exact same length, centre part and style, with no flickering and no morphing. The motion stays buttery smooth and continuous: constant speed, no stuttering, no frame jumps. She says nothing and her lips stay closed except for the small parting at five to six seconds, and no lettering appears anywhere in the frame.\n\noverall_soundscape:\nA quiet indoor room tone holds under everything, with a muffled television dialogue from off-frame, the faint hum of the street beyond the window, two phone buzzes on the wooden table, one soft ceramic click as the mug meets the wood, the light rustle of satin as she moves, and one calm breath. No dialogue and no other voices are heard.\n\nnon_diegetic_music:\nN/A.\n\n"
+        },
+        "class_type": "PrimitiveStringMultiline",
+        "_meta": {
+          "title": "Input Text (Prompt)"
+        }
+      },
+      "139": {
+        "inputs": {
+          "image": "ComfyUI-Z-Image_00024_.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "加载图像"
+        },
+        "is_changed": [
+          "287d9f18594eafddf5338105edd1bde3d1377f819b0eafc51bc24e9578fcefec"
+        ]
+      },
+      "141": {
+        "inputs": {
+          "max_resolution": 1024,
+          "jpeg_quality": 80,
+          "suppress_default_preview": true,
+          "preview_frames": [
+            "131",
+            1
+          ],
+          "preview_fps": 12,
+          "model": [
+            "178",
+            0
+          ]
+        },
+        "class_type": "ModelPreviewOverrideKJ",
+        "_meta": {
+          "title": "Model Preview Override"
+        }
+      },
+      "147": {
+        "inputs": {
+          "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+          "strength_model": 1.0000000000000002,
+          "model": [
+            "127",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoRA加载器（仅模型）"
+        }
+      },
+      "149": {
+        "inputs": {
+          "shift_video": 12.0,
+          "shift_audio": 3.0,
+          "model": [
+            "147",
+            0
+          ]
+        },
+        "class_type": "MiniMaxH3SigmaShift",
+        "_meta": {
+          "title": "MiniMax H3 Sigma Shift"
+        }
+      },
+      "178": {
+        "inputs": {
+          "attention": "comfy kitchen attention",
+          "model": [
+            "149",
+            0
+          ]
+        },
+        "class_type": "ModelAttentionBackend",
+        "_meta": {
+          "title": "模型注意力后端"
+        }
+      },
+      "208": {
+        "inputs": {
+          "step": 6,
+          "sigmas": [
+            "254",
+            0
+          ]
+        },
+        "class_type": "SplitSigmas",
+        "_meta": {
+          "title": "分离Sigma"
+        }
+      },
+      "209": {
+        "inputs": {
+          "noise": [
+            "129",
+            0
+          ],
+          "guider": [
+            "126",
+            0
+          ],
+          "sampler": [
+            "123",
+            0
+          ],
+          "sigmas": [
+            "208",
+            1
+          ],
+          "latent_image": [
+            "212",
+            0
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "自定义采样器（高级）"
+        }
+      },
+      "211": {
+        "inputs": {
+          "av_latent": [
+            "125",
+            1
+          ]
+        },
+        "class_type": "LTXVSeparateAVLatent",
+        "_meta": {
+          "title": "分离 AV 潜空间"
+        }
+      },
+      "212": {
+        "inputs": {
+          "video_latent": [
+            "263",
+            0
+          ],
+          "audio_latent": [
+            "211",
+            1
+          ]
+        },
+        "class_type": "LTXVConcatAVLatent",
+        "_meta": {
+          "title": "拼接 AV 潜空间"
+        }
+      },
+      "218": {
+        "inputs": {
+          "samples": [
+            "209",
+            0
+          ],
+          "vae": [
+            "120",
+            0
+          ]
+        },
+        "class_type": "VAEDecodeAudio",
+        "_meta": {
+          "title": "VAE解码（音频）"
+        }
+      },
+      "219": {
+        "inputs": {
+          "samples": [
+            "209",
+            0
+          ],
+          "vae": [
+            "119",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAE解码"
+        }
+      },
+      "220": {
+        "inputs": {
+          "fps": 24.0,
+          "bit_depth": 8,
+          "color_space": "sRGB",
+          "codec": "none",
+          "images": [
+            "219",
+            0
+          ],
+          "audio": [
+            "218",
+            0
+          ]
+        },
+        "class_type": "CreateVideo",
+        "_meta": {
+          "title": "创建视频"
+        }
+      },
+      "221": {
+        "inputs": {
+          "filename_prefix": "video/MiniMax_H3",
+          "format": "auto",
+          "format.codec": "auto",
+          "codec": "auto",
+          "video": [
+            "220",
+            0
+          ]
+        },
+        "class_type": "SaveVideo",
+        "_meta": {
+          "title": "保存视频"
+        }
+      },
+      "254": {
+        "inputs": {
+          "extra_steps": 1,
+          "start_at_sigma": 0.7,
+          "end_at_sigma": 0.0,
+          "spacing": "cosine",
+          "sigmas": [
+            "124",
+            0
+          ]
+        },
+        "class_type": "H3SigmaRefiner",
+        "_meta": {
+          "title": "H3 Sigma Refiner"
+        }
+      },
+      "256": {
+        "inputs": {
+          "image": "Qwen_image_2.1_00321.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "加载图像"
+        },
+        "is_changed": [
+          "19c16abbc863b85f02fbeef6c662b623a5c3d0b746da9909d57e50c92ef2b4f8"
+        ]
+      },
+      "263": {
+        "inputs": {
+          "model_name": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+          "mode": "scale by multiplier",
+          "mode.scale": 1.5,
+          "align": 32,
+          "enable_temporal_chunking": true,
+          "force_unload": true,
+          "device": "cuda",
+          "precision": "fp16",
+          "latent": [
+            "211",
+            0
+          ]
+        },
+        "class_type": "MinimaxH3LatentUpscaler3D",
+        "_meta": {
+          "title": "Minimax H3 Latent Upscaler (3D)"
+        }
+      }
+    }
+  },
+  {
+    "file": "MiniMax_H3_00061_.mp4",
+    "sha256": "1e589ca7be5fe9a7a9dfb7f28e7cbbb65683bdc14b63435ff533bd724f4194c9",
+    "graph": {
+      "115": {
+        "inputs": {
+          "aspect_ratio": "9:16 (Portrait Widescreen)",
+          "megapixels": 0.5,
+          "multiple": 32
+        },
+        "class_type": "ResolutionSelector",
+        "_meta": {
+          "title": "Resolution Selector (Size)"
+        }
+      },
+      "119": {
+        "inputs": {
+          "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "加载VAE"
+        }
+      },
+      "120": {
+        "inputs": {
+          "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "加载VAE"
+        }
+      },
+      "123": {
+        "inputs": {
+          "sampler_name": "euler"
+        },
+        "class_type": "KSamplerSelect",
+        "_meta": {
+          "title": "K采样器选择"
+        }
+      },
+      "124": {
+        "inputs": {
+          "scheduler": "simple",
+          "steps": 10,
+          "denoise": 1.0,
+          "model": [
+            "141",
+            0
+          ]
+        },
+        "class_type": "BasicScheduler",
+        "_meta": {
+          "title": "基本调度器"
+        }
+      },
+      "125": {
+        "inputs": {
+          "noise": [
+            "129",
+            0
+          ],
+          "guider": [
+            "126",
+            0
+          ],
+          "sampler": [
+            "123",
+            0
+          ],
+          "sigmas": [
+            "208",
+            0
+          ],
+          "latent_image": [
+            "136",
+            1
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "自定义采样器（高级）"
+        }
+      },
+      "126": {
+        "inputs": {
+          "model": [
+            "141",
+            0
+          ],
+          "conditioning": [
+            "136",
+            0
+          ]
+        },
+        "class_type": "BasicGuider",
+        "_meta": {
+          "title": "基本引导器"
+        }
+      },
+      "127": {
+        "inputs": {
+          "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+          "weight_dtype": "default"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNet加载器"
+        }
+      },
+      "128": {
+        "inputs": {
+          "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+          "type": "minimax",
+          "device": "default"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "加载CLIP"
+        }
+      },
+      "129": {
+        "inputs": {
+          "noise_seed": 999
+        },
+        "class_type": "RandomNoise",
+        "_meta": {
+          "title": "随机噪波"
+        }
+      },
+      "131": {
+        "inputs": {
+          "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+          "values.a": [
+            "132",
+            0
+          ]
+        },
+        "class_type": "ComfyMathExpression",
+        "_meta": {
+          "title": "数学表达式"
+        }
+      },
+      "132": {
+        "inputs": {
+          "value": 8.0
+        },
+        "class_type": "PrimitiveFloat",
+        "_meta": {
+          "title": "Float (Duration)"
+        }
+      },
+      "136": {
+        "inputs": {
+          "prompt": [
+            "138",
+            0
+          ],
+          "width": [
+            "115",
+            0
+          ],
+          "height": [
+            "115",
+            1
+          ],
+          "length": [
+            "131",
+            1
+          ],
+          "ref_image_size": "max",
+          "clip": [
+            "128",
+            0
+          ],
+          "vae": [
+            "119",
+            0
+          ],
+          "audio_vae": [
+            "120",
+            0
+          ],
+          "ref_images.ref_image_0": [
+            "139",
+            0
+          ],
+          "ref_images.ref_image_1": [
+            "256",
+            0
+          ]
+        },
+        "class_type": "MiniMaxH3ReferenceToVideo",
+        "_meta": {
+          "title": "MiniMax H3 参考转视频"
+        }
+      },
+      "138": {
+        "inputs": {
+          "value": "subject_definitions:\n<Subject 1> is the young woman defined by the face close-up — an East Asian woman in her mid-twenties with an oval face, almond eyes with double eyelids, straight soft eyebrows, a straight nose, full lips in a natural dusty-pink tone, fair warm-toned skin, and very long jet-black hair with a centre part falling behind her shoulders. The portrait defines her face, hair and skin only, so its plain white background and the grey knit top she wears in it never appear in the video.\n<Subject 2> is the pyjama set shown in the four-panel product sheet — the champagne satin pyjamas: a long-sleeved shirt with a notched collar, a single row of buttons and one left chest pocket, with a matching pair of wide straight trousers. The sheet defines these garments only, so its four-panel layout, its white background and the model in its fourth panel never appear in the video.\n<Subject 3> is the living room described here: a pale grey fabric sofa in the left half of the frame, a low wooden coffee table in the near foreground, a tall window with a sheer white curtain and a street lamp beyond it on the right, a wall with a potted plant on the left and a pale rug on a light wooden floor.\n\nsummary:\n[reference generation] The target video is one continuous eight-second shot of <Subject 1> sitting on the sofa in <Subject 3> in <Subject 2>, watching television, picking up a phone and smiling. All three references are references only; none is aligned to any moment of the video.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - her facial identity, hair, skin tone and build stay exactly as the portrait defines them.\n<Subject 2> (appears in [Shot 1]): fully_preserved - the champagne satin shirts and trousers keep their exact colour, cut, sheen and garment count.\n<Subject 3> (appears in [Shot 1]): partially_preserved - the sofa, table, window and curtain, street lamp, plant and rug keep their positions and light while the camera pushes in.\n\ndetailed_description:\nLive-action, real available light, natural skin with visible pores and no beauty smoothing, matte finish with no oily highlights, true-to-life colour, no over-sharpening and no HDR glow.\n\n[Shot 1] The frame opens as a medium shot at eye level: <Subject 1> sits curled into the left half of the pale grey sofa in <Subject 3>, wearing <Subject 2>, her knees drawn up and one hand around a mug on the cushion beside her, her eyes on the off-frame television whose pale light flickers across her face from the front left, with the street lamp through the sheer curtain laying a warm rim along her right shoulder and the coffee table crossing the bottom of the frame in front of her shins. She watches the screen with her face still and loose. The phone on the coffee table lights up and buzzes twice, and her eyes move down to it; she leans forward, sets the mug down on the wood with a soft click and reaches across so her fingertips close on the phone. She lifts it to her chest and tilts the screen toward herself so that only its light reaches her face, and the glow on her cheek shifts from the cool television light to the warmer light of the phone. Her thumb moves once across the glass, her eyebrows lift a little, and the smile arrives at the corners of her mouth and the outer corners of her eyes as her shoulders drop out of the cushion. The camera pushes in with small amplitude at slow speed throughout, easing from the medium shot to a close-up so the coffee table slides below the bottom of the frame, and the room light stays on the same direction and the same colour temperature as the shot begins. She holds the look with her eyes on the phone and one quiet breath in, the smile still on her face, and the shot ends on that held expression. Her face remains identical to <Subject 1> in every frame, and her very long jet-black hair keeps the exact same length, centre part and style, with no flickering and no morphing. The motion stays buttery smooth and continuous: constant speed, no stuttering, no frame jumps. She says nothing and her lips stay closed, and no lettering appears anywhere in the frame.\n\noverall_soundscape:\nA quiet indoor room tone holds under everything, with a muffled television dialogue from off-frame, the faint hum of the street beyond the window, two phone buzzes on the wooden table, one soft ceramic click as the mug meets the wood, the light rustle of satin, and one calm breath. No dialogue and no other voices are heard.\n\nnon_diegetic_music:\nN/A.\n\n\n"
+        },
+        "class_type": "PrimitiveStringMultiline",
+        "_meta": {
+          "title": "Input Text (Prompt)"
+        }
+      },
+      "139": {
+        "inputs": {
+          "image": "ComfyUI-Z-Image_00024_.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "加载图像"
+        },
+        "is_changed": [
+          "287d9f18594eafddf5338105edd1bde3d1377f819b0eafc51bc24e9578fcefec"
+        ]
+      },
+      "141": {
+        "inputs": {
+          "max_resolution": 1024,
+          "jpeg_quality": 80,
+          "suppress_default_preview": true,
+          "preview_frames": [
+            "131",
+            1
+          ],
+          "preview_fps": 12,
+          "model": [
+            "178",
+            0
+          ]
+        },
+        "class_type": "ModelPreviewOverrideKJ",
+        "_meta": {
+          "title": "Model Preview Override"
+        }
+      },
+      "147": {
+        "inputs": {
+          "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+          "strength_model": 1.0000000000000002,
+          "model": [
+            "127",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoRA加载器（仅模型）"
+        }
+      },
+      "149": {
+        "inputs": {
+          "shift_video": 12.0,
+          "shift_audio": 3.0,
+          "model": [
+            "147",
+            0
+          ]
+        },
+        "class_type": "MiniMaxH3SigmaShift",
+        "_meta": {
+          "title": "MiniMax H3 Sigma Shift"
+        }
+      },
+      "178": {
+        "inputs": {
+          "attention": "comfy kitchen attention",
+          "model": [
+            "149",
+            0
+          ]
+        },
+        "class_type": "ModelAttentionBackend",
+        "_meta": {
+          "title": "模型注意力后端"
+        }
+      },
+      "208": {
+        "inputs": {
+          "step": 6,
+          "sigmas": [
+            "254",
+            0
+          ]
+        },
+        "class_type": "SplitSigmas",
+        "_meta": {
+          "title": "分离Sigma"
+        }
+      },
+      "209": {
+        "inputs": {
+          "noise": [
+            "129",
+            0
+          ],
+          "guider": [
+            "126",
+            0
+          ],
+          "sampler": [
+            "123",
+            0
+          ],
+          "sigmas": [
+            "208",
+            1
+          ],
+          "latent_image": [
+            "212",
+            0
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "自定义采样器（高级）"
+        }
+      },
+      "211": {
+        "inputs": {
+          "av_latent": [
+            "125",
+            1
+          ]
+        },
+        "class_type": "LTXVSeparateAVLatent",
+        "_meta": {
+          "title": "分离 AV 潜空间"
+        }
+      },
+      "212": {
+        "inputs": {
+          "video_latent": [
+            "263",
+            0
+          ],
+          "audio_latent": [
+            "211",
+            1
+          ]
+        },
+        "class_type": "LTXVConcatAVLatent",
+        "_meta": {
+          "title": "拼接 AV 潜空间"
+        }
+      },
+      "218": {
+        "inputs": {
+          "samples": [
+            "209",
+            0
+          ],
+          "vae": [
+            "120",
+            0
+          ]
+        },
+        "class_type": "VAEDecodeAudio",
+        "_meta": {
+          "title": "VAE解码（音频）"
+        }
+      },
+      "219": {
+        "inputs": {
+          "samples": [
+            "209",
+            0
+          ],
+          "vae": [
+            "119",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAE解码"
+        }
+      },
+      "220": {
+        "inputs": {
+          "fps": 24.0,
+          "bit_depth": 8,
+          "color_space": "sRGB",
+          "codec": "none",
+          "images": [
+            "219",
+            0
+          ],
+          "audio": [
+            "218",
+            0
+          ]
+        },
+        "class_type": "CreateVideo",
+        "_meta": {
+          "title": "创建视频"
+        }
+      },
+      "221": {
+        "inputs": {
+          "filename_prefix": "video/MiniMax_H3",
+          "format": "auto",
+          "format.codec": "auto",
+          "codec": "auto",
+          "video-preview": "",
+          "video": [
+            "220",
+            0
+          ]
+        },
+        "class_type": "SaveVideo",
+        "_meta": {
+          "title": "保存视频"
+        }
+      },
+      "254": {
+        "inputs": {
+          "extra_steps": 1,
+          "start_at_sigma": 0.7,
+          "end_at_sigma": 0.0,
+          "spacing": "cosine",
+          "sigmas": [
+            "124",
+            0
+          ]
+        },
+        "class_type": "H3SigmaRefiner",
+        "_meta": {
+          "title": "H3 Sigma Refiner"
+        }
+      },
+      "256": {
+        "inputs": {
+          "image": "Qwen_image_2.1_00321.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "加载图像"
+        },
+        "is_changed": [
+          "19c16abbc863b85f02fbeef6c662b623a5c3d0b746da9909d57e50c92ef2b4f8"
+        ]
+      },
+      "263": {
+        "inputs": {
+          "model_name": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+          "mode": "scale by multiplier",
+          "mode.scale": 1.5,
+          "align": 32,
+          "enable_temporal_chunking": true,
+          "force_unload": true,
+          "device": "cuda",
+          "precision": "fp16",
+          "latent": [
+            "211",
+            0
+          ]
+        },
+        "class_type": "MinimaxH3LatentUpscaler3D",
+        "_meta": {
+          "title": "Minimax H3 Latent Upscaler (3D)"
+        }
+      }
+    }
+  }
+]

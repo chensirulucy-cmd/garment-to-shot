@@ -1,0 +1,27 @@
+{
+  "base_commit": "2337f1c493ab1f86c3095bb5e3fe0b2a362680e3",
+  "four_view_files": {
+    "templates/04-character-sheet.md": "71663b435e7822d6aa3bd7e90006384d3aaf6a02045f18c6290a3e7d372e5a78",
+    "skills/character-asset-pipeline/references/04-four-panel-sheet.md": "9179d19b73e7665eece655de639a7bf4552f40e413262f3ab309b6a65d7d9e8c",
+    "skills/character-asset-pipeline/references/05-derivation-rules.md": "7373e2953c8090623955d8251c65b9ca34cbd0cd7d3412b5417d9f2b9074856c",
+    "skills/character-asset-pipeline/references/06-params-and-pitfalls.md": "2bd3645d850d3567a7959bba32556adf3e8eec9270beedef42506e467016736a",
+    "skills/qwen-image-2-1-prompter/references/four-view-character-board.md": "a5adff477438137729ee20f7f9db583e8e6c088455a2ec122b9147b415e84892"
+  },
+  "existing_prompt_files": {
+    "prompts/09-video-prompt/A-version-per-second.md": "fe11df6e60311c6f983722754e18bc5c8a57f802ed868488cdffed7af0c34e34",
+    "prompts/09-video-prompt/A-version-ref2va.txt": "b6cf483c63fda4b7b113a655bd731bfb4140476cdd40ddb53a09441358d91b35",
+    "prompts/09-video-prompt/B-version-continuous.md": "1227ee56710c30e2c636dc0049e3049d3d62bfeb85372b471141023d4a08ddae",
+    "prompts/09-video-prompt/B-version-ref2va.txt": "79f6b87a8b849a205bbb9ad35a605555be541924e44e31045c72a2c9776e5105",
+    "prompts/11-faceswap/workflow-api-00367.json": "9aff1c21cd00dad118fe2ac3369bcbf50e506d799a0eb07c5372f2978c92ab39",
+    "prompts/12-white-model/garment-board-negative.txt": "d183fe64fa0e520a0f26ba48f7e714d6a81b3e3d50eed2ecc31e48ab2162c66b",
+    "prompts/12-white-model/garment-board-positive.txt": "c96ab332fd4b01818ecc7a8b6970a7f1181a6227aa7e7ccd1f919713c08f22f3",
+    "prompts/12-white-model/mannequin-01-hand-on-waist.txt": "e1c1a975c5840f2bda9a8f9b2ab08f44658f94ba16ce08a413edfa88454e2aa1",
+    "prompts/12-white-model/mannequin-02-mid-step.txt": "bac318636637bf839d48bbbefd88fcc0a91eedd41fe7a3b3ad37360fb3c9e987",
+    "prompts/12-white-model/mannequin-03-three-quarter-turn.txt": "faabb1f38e202a2367e288948cacf923103728e8b1e61ef59434d7a3cbdfb68e",
+    "prompts/12-white-model/mannequin-04-arms-folded.txt": "bb5899546fb87a5006a06bda0c9928b9760fcd9d01c14af60982e1a90a82e678",
+    "prompts/12-white-model/wearer-negative.txt": "59ffdb8d2eb05f2314f7e3a4b0fe7c56e28f1189f32c2d94f16cf1f34ae7d0cd",
+    "prompts/12-white-model/wearer-positive.txt": "b8c0c52a50824816f73040528052ca17500ed2b082527bf809cba19d9b4ea965",
+    "prompts/12-white-model/workflow-api-00378-mannequin.json": "a04448751633e2f4f9da2e1aede13f1baf262ed62e3c19b2a79ccbb0da42b566",
+    "prompts/12-white-model/workflow-api-00383-two-stage.json": "c824a3848be5464120d901de60d1eb2b2632ed95afbc8d857f282fa587950c27"
+  }
+}

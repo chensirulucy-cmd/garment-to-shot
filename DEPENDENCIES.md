@@ -1,10 +1,17 @@
-# 依赖（外部，不复制进本仓库）
+# 外部依赖与本地入口
 
-| 技能 | 所在仓库 | 用途 |
+外部技能名称不代表本机已安装。现有材料未给出可核实仓库URL/版本，统一登记为external-unverified；不猜地址、不自动安装。机器可读登记见 dependencies.json。
+
+| 外部技能 | 当前状态 | 本仓库处理 |
 |---|---|---|
-| `character-reference-sheet` | knowledge-base | 四视图通用规则 |
-| `minimax-h3-video-prompt` | knowledge-base | H3 六段/三字段语法 |
-| `ai-video-forensics` | knowledge-base | 抽帧验收 |
-| `qwen-image-edit-compositing` | knowledge-base | 合成通用规则 |
+| `ai-video-forensics` | 来源/版本/可用性未验证 | 需要专属能力时先查目标环境；本地结构检查不证明其可用 |
+| `character-reference-sheet` | 来源/版本/可用性未验证 | 需要专属能力时先查目标环境；本地结构检查不证明其可用 |
+| `comfyui-custom-node-debug` | 来源/版本/可用性未验证 | 需要专属能力时先查目标环境；本地结构检查不证明其可用 |
+| `comfyui-face-swap` | 来源/版本/可用性未验证 | 当前上身/换头直接读templates/12与11，使用其已保存基线 |
+| `comfyui-model-forensics` | 来源/版本/可用性未验证 | 需要专属能力时先查目标环境；本地结构检查不证明其可用 |
+| `comfyui-output-verification` | 来源/版本/可用性未验证 | 需要专属能力时先查目标环境；本地结构检查不证明其可用 |
+| `finance-ip-short-video` | 来源/版本/可用性未验证 | 需要专属能力时先查目标环境；本地结构检查不证明其可用 |
+| `minimax-h3-video-prompt` | 来源/版本/可用性未验证 | 需要专属能力时先查目标环境；本地结构检查不证明其可用 |
+| `qwen-image-edit-compositing` | 来源/版本/可用性未验证 | 需要专属能力时先查目标环境；本地结构检查不证明其可用 |
 
-> 版本以 knowledge-base 的提交为准；本仓库不复制正文，避免两处漂移。
+跨技能冒号引用是本仓库约定，不是Agent Skills规范保证的客户端功能。验证器检查本地引用和依赖登记；缺少未登记依赖报错，登记但未安装的外部依赖报告警告。

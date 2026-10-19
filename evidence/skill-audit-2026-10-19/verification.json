@@ -1,0 +1,134 @@
+{
+  "four_view_files": {
+    "templates/04-character-sheet.md": true,
+    "skills/character-asset-pipeline/references/04-four-panel-sheet.md": true,
+    "skills/character-asset-pipeline/references/05-derivation-rules.md": true,
+    "skills/character-asset-pipeline/references/06-params-and-pitfalls.md": true,
+    "skills/qwen-image-2-1-prompter/references/four-view-character-board.md": true
+  },
+  "existing_prompt_files": {
+    "prompts/09-video-prompt/A-version-per-second.md": true,
+    "prompts/09-video-prompt/A-version-ref2va.txt": true,
+    "prompts/09-video-prompt/B-version-continuous.md": true,
+    "prompts/09-video-prompt/B-version-ref2va.txt": true,
+    "prompts/11-faceswap/workflow-api-00367.json": true,
+    "prompts/12-white-model/garment-board-negative.txt": true,
+    "prompts/12-white-model/garment-board-positive.txt": true,
+    "prompts/12-white-model/mannequin-01-hand-on-waist.txt": true,
+    "prompts/12-white-model/mannequin-02-mid-step.txt": true,
+    "prompts/12-white-model/mannequin-03-three-quarter-turn.txt": true,
+    "prompts/12-white-model/mannequin-04-arms-folded.txt": true,
+    "prompts/12-white-model/wearer-negative.txt": true,
+    "prompts/12-white-model/wearer-positive.txt": true,
+    "prompts/12-white-model/workflow-api-00378-mannequin.json": true,
+    "prompts/12-white-model/workflow-api-00383-two-stage.json": true
+  },
+  "restored_prompt_files": {
+    "prompts/02-ghost-set/00393-positive.txt": {
+      "equals_metadata_utf8": true,
+      "sha256": "d72c71bcb7a1847e3513b71b36db181ad29a88477c9f28be5678d2e673350638",
+      "chars": 2961
+    },
+    "prompts/02-ghost-set/00393-negative.txt": {
+      "equals_metadata_utf8": true,
+      "sha256": "70e6170002f7b795287288e13b68741a3e9ce0d266cce8a0f4a950f974712d35",
+      "chars": 815
+    },
+    "prompts/11-faceswap/00373-positive.txt": {
+      "equals_metadata_utf8": true,
+      "sha256": "643388e94bbad3a1f6695777e7f4b1c983bbcd3b1f834406341d3d7efab19c40",
+      "chars": 368
+    },
+    "prompts/11-faceswap/00373-negative.txt": {
+      "equals_metadata_utf8": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "chars": 0
+    },
+    "prompts/12-white-model/00383-positive.txt": {
+      "equals_metadata_utf8": true,
+      "sha256": "d89f7203c6527447376d86f3d969dcd1211dbec678cf58a904250a6a62df791f",
+      "chars": 2635
+    },
+    "prompts/12-white-model/00383-negative.txt": {
+      "equals_metadata_utf8": true,
+      "sha256": "aabe716d75eb3e9568cba053ab1942be7b61db3c2417ca1259df13c073e2b72b",
+      "chars": 681
+    },
+    "prompts/12-white-model/00382-wardrobe-positive.txt": {
+      "equals_metadata_utf8": true,
+      "sha256": "e6196dce01fb91cc7956865178cc531a6a103b724f57e1d27490a0de0f750d1d",
+      "chars": 3563
+    },
+    "prompts/12-white-model/00382-wardrobe-negative.txt": {
+      "equals_metadata_utf8": true,
+      "sha256": "3a9a66aa6940d634c550625944e0a0cbd3bb37b6e669001ef24bb75978c48a2e",
+      "chars": 1778
+    }
+  },
+  "00382_00383_graph_equal": true,
+  "templates/07-portrait-headshot.md_prompt_fences_preserved": true,
+  "templates/11-faceswap-head.md_prompt_fences_preserved": true,
+  "00393_full_original_archived": true,
+  "video_loras": {
+    "MiniMax_H3_00060_.mp4": [
+      "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors"
+    ],
+    "MiniMax_H3_00061_.mp4": [
+      "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors"
+    ]
+  },
+  "wiring_snippet_output": "478:474 images.image_1 direct edge: ['480', 0] upstream dependencies: [('480', 'Qwen_image_2.1_00254.png')]\n515:513 images.image_1 direct edge: ['514', 0] upstream dependencies: [('514', 'Qwen_image_2.1_00378.png')]\n515:513 images.image_2 direct edge: ['477', 0] upstream dependencies: [('480', 'Qwen_image_2.1_00254.png')]\n",
+  "broken_changed_markdown_links": [],
+  "checks": {
+    "regression": {
+      "exit_code": 0,
+      "log": "regression.log"
+    },
+    "skills": {
+      "exit_code": 0,
+      "log": "skills.log"
+    },
+    "templates": {
+      "exit_code": 0,
+      "log": "templates.log"
+    },
+    "whitespace": {
+      "exit_code": 0,
+      "log": "whitespace.log"
+    },
+    "staged_whitespace": {
+      "exit_code": 0,
+      "exact_source_trailing_newlines": "preserved via file-specific .gitattributes"
+    }
+  },
+  "codex_quick_validate_existing_hermes_format": [
+    {
+      "skill": "character-asset-pipeline",
+      "exit_code": 1,
+      "output": "Unexpected key(s) in SKILL.md frontmatter: author, version. Allowed properties are: allowed-tools, description, license, metadata, name"
+    },
+    {
+      "skill": "cinematic-narrative-h3",
+      "exit_code": 1,
+      "output": "Unexpected key(s) in SKILL.md frontmatter: author, version. Allowed properties are: allowed-tools, description, license, metadata, name"
+    },
+    {
+      "skill": "multi-source-image-composition",
+      "exit_code": 1,
+      "output": "Unexpected key(s) in SKILL.md frontmatter: author, version. Allowed properties are: allowed-tools, description, license, metadata, name"
+    },
+    {
+      "skill": "qwen-image-2-1-prompter",
+      "exit_code": 1,
+      "output": "Unexpected key(s) in SKILL.md frontmatter: author, version. Allowed properties are: allowed-tools, description, license, metadata, name"
+    },
+    {
+      "skill": "qwen-image-edit-composite",
+      "exit_code": 1,
+      "output": "Unexpected key(s) in SKILL.md frontmatter: author, version. Allowed properties are: allowed-tools, description, license, metadata, name"
+    }
+  ],
+  "scope": "Non-four-view documentation and offline tools only; existing Hermes frontmatter retained. No generation, installation, or ComfyUI workflow mutation.",
+  "base_commit": "2337f1c493ab1f86c3095bb5e3fe0b2a362680e3",
+  "restored_bytes_verified_in_git_index": true
+}

@@ -30,7 +30,9 @@ metadata:
 
 四视图的产出**不能当上身照用**，上身也不需要先做四视图。设计「同一套衣服跨步骤掉色」这类验收前，先确认这两条链不是一条：按「幽灵台 → 四视图 → 上身」去要样本，就会向用户索要他从来没做过、也不需要做的图（他做的是四视图，四视图不是上身）。同一套衣服能凑成一条链的只有：服装照 → 幽灵台 → 白模上身。
 
-派生规则（换一版服装要改哪几处）见 `references/05-derivation-rules.md`；参数、接线、踩过的坑见 `references/06-params-and-pitfalls.md`。要「白模 + 服装板 → 真人全身 → 换脸」时**不要另写模板**，直接走技能 `comfyui-face-swap:references/two-stage-garment-to-body.md`（已含 V1–V7 变量、I1–I10 不变量、脸像素门槛、尺寸掉档与补痣排查）。
+上游服装板的可变块按 references/02-garment-board.md 当前说明执行，不受早期“服装类零改动”的字数/次数限制。四视图相关骨架暂不在本轮更新。
+
+派生规则（换一版服装要改哪几处）见 `references/05-derivation-rules.md`；参数、接线、踩过的坑见 `references/06-params-and-pitfalls.md`。要「白模 + 服装板 → 真人全身 → 换脸」时**不要另写模板**，优先读本仓库 `templates/12-white-model-to-body.md` 和 `templates/11-faceswap-head.md`。外部 `comfyui-face-swap:references/two-stage-garment-to-body.md` 的安装状态未验证，不能因它缺失而跳过仓库已有的完整配方。
 
 ## When to Use / 何时用
 
@@ -44,7 +46,7 @@ metadata:
 | 任务 | 规则 | 写法 |
 |---|---|---|
 | **文生图**（场景静帧、面部人像） | Qwen T2I 规则 | **一段到底的观察者描述**：开篇约 20 词锚句（`The image is a ⟨vertical⟩ ⟨style⟩ ⟨photograph⟩ of ⟨subject⟩, ⟨background⟩.`）、8–14 个位置短语、光单独一句、结尾一句整体构图；**不用标签、不用祈使句、不写比例数字** |
-| **图编辑**（服装模板、服装板、四视图） | Qwen Edit 规则 | **以动作开头的一段指令**：`<image1>`/`<image2>`… 分工明确、指明画布、**肯定陈述**；**要改的写细、要留的写粗**（一句总括保留句）；单段无换行 |
+| **图编辑**（服装模板、服装板、四视图） | Qwen Edit 规则 | **以动作开头的一段指令**：`<image1>`/`<image2>`… 分工明确、指明画布、**肯定陈述**；**要改的写细、要留的写粗**（一句总括保留句）；通用建议单段；已验证专用配方保留原换行 |
 
 把「编辑式标签清单」塞进 T2I、或把「观察者长描述」塞进编辑，都会掉效果——这是最容易犯的格式错。
 

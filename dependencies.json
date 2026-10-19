@@ -1,0 +1,47 @@
+{
+  "ai-video-forensics": {
+    "status": "external-unverified",
+    "source": null,
+    "revision": null
+  },
+  "character-reference-sheet": {
+    "status": "external-unverified",
+    "source": null,
+    "revision": null
+  },
+  "comfyui-custom-node-debug": {
+    "status": "external-unverified",
+    "source": null,
+    "revision": null
+  },
+  "comfyui-face-swap": {
+    "status": "external-unverified",
+    "source": null,
+    "revision": null
+  },
+  "comfyui-model-forensics": {
+    "status": "external-unverified",
+    "source": null,
+    "revision": null
+  },
+  "comfyui-output-verification": {
+    "status": "external-unverified",
+    "source": null,
+    "revision": null
+  },
+  "finance-ip-short-video": {
+    "status": "external-unverified",
+    "source": null,
+    "revision": null
+  },
+  "minimax-h3-video-prompt": {
+    "status": "external-unverified",
+    "source": null,
+    "revision": null
+  },
+  "qwen-image-edit-compositing": {
+    "status": "external-unverified",
+    "source": null,
+    "revision": null
+  }
+}

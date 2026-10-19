@@ -20,6 +20,7 @@ from __future__ import annotations
 import os
 import re
 import sys
+import json
 
 try:
     import yaml
@@ -28,7 +29,7 @@ except ImportError:  # 无 PyYAML 时退化为最小解析
 
 FM_RE = re.compile(r"^(?:\ufeff)?---\r?\n(.*?)\r?\n---\r?\n", re.S)
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-REF_RE = re.compile(r"`([A-Za-z0-9_./-]+\.(?:md|py|json|txt|yaml|yml|png|jpg))`")
+REF_RE = re.compile(r"`([A-Za-z0-9_:./-]+\.(?:md|py|json|txt|yaml|yml|png|jpg))`")
 LEGACY_REFS = {"cheat_sheet.md", "edit_rules.md", "t2i_rules.md"}  # 旧命名，保留兼容（有跨技能引用，不改名）
 
 WHEN_HINTS = ("use when", "use this skill", "whenever", "当", "用于", "适用于", "需要")
@@ -63,17 +64,26 @@ def find_skill_root(skills_root: str, name: str):
     return None
 
 
-def check(skill_dir: str, skills_root: str, strict: bool = False):
+def check(skill_dir: str, skills_root: str, strict: bool = False, dependencies=None):
     errors: list[str] = []
     warns: list[str] = []
     skill_md = os.path.join(skill_dir, "SKILL.md")
     if not os.path.isfile(skill_md):
         return ["缺少 SKILL.md"]
 
-    text = open(skill_md, encoding="utf-8", errors="replace").read()
+    with open(skill_md, encoding="utf-8", errors="replace") as stream:
+        text = stream.read()
     fm, err = parse_frontmatter(text)
     if err:
         return [err]
+
+    if yaml is None:
+        warns.append("未安装PyYAML：仅检查字段，未完整验证YAML")
+    for key in sorted(set(fm) - {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}):
+        warns.append(f"非通用规范顶层字段 {key}：保留现有Hermes格式，跨客户端兼容性未验证")
+    meta = fm.get("metadata")
+    if yaml is not None and meta is not None and (not isinstance(meta, dict) or any(not isinstance(k, str) or not isinstance(v, str) for k, v in meta.items())):
+        warns.append("metadata不是通用规范字符串映射；保留现有Hermes嵌套元数据")
 
     dirname = os.path.basename(os.path.normpath(skill_dir))
     name = fm.get("name")
@@ -123,6 +133,13 @@ def check(skill_dir: str, skills_root: str, strict: bool = False):
     # 引用检查（忽略 fenced code 之外的纯文本）
     body = text[len(FM_RE.match(text).group(0)):]
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if dependencies is None:
+        try:
+            with open(os.path.join(repo_root, "dependencies.json"), encoding="utf-8") as stream:
+                dependencies = json.load(stream)
+        except (OSError, ValueError) as exc:
+            dependencies = {}
+            errors.append(f"依赖登记不可读：{exc}")
     for ref in sorted(set(REF_RE.findall(body))):
         if ref.startswith(("http://", "https://")):
             continue
@@ -130,7 +147,10 @@ def check(skill_dir: str, skills_root: str, strict: bool = False):
             skill_name, _, rel = ref.partition(":")
             target = find_skill_root(skills_root, skill_name)
             if not target:
-                errors.append(f"跨技能引用找不到技能：{skill_name}")
+                if skill_name in dependencies:
+                    warns.append(f"外部依赖未验证可用：{ref}")
+                else:
+                    errors.append(f"跨技能引用找不到技能且未登记：{skill_name}")
             elif not os.path.exists(os.path.join(target, rel)):
                 errors.append(f"跨技能引用文件不存在：{ref}")
             continue
@@ -166,7 +186,7 @@ def main(argv: list[str]) -> int:
     skills_root = roots[0]
     if os.path.isfile(os.path.join(skills_root, "SKILL.md")):
         skills_root = os.path.dirname(os.path.abspath(skills_root))
-    total = failed = 0
+    total = failed = warning_count = 0
     for root in roots:
         for dirpath, dirnames, filenames in os.walk(root):
             if "SKILL.md" not in filenames:
@@ -175,12 +195,13 @@ def main(argv: list[str]) -> int:
             total += 1
             issues = check(dirpath, skills_root, strict)
             hard = [i for i in issues if not i.startswith("⚠")]
+            warning_count += sum(i.startswith("⚠") for i in issues)
             if issues:
                 failed += 1 if hard else 0
                 print(("❌ " if hard else "⚠  ") + os.path.relpath(dirpath, root))
                 for i in issues:
                     print("     -", i)
-    print(f"\n共 {total} 个技能，失败 {failed} 个。" + ("  ✅ 全部通过" if failed == 0 else ""))
+    print(f"\n共 {total} 个技能，结构错误 {failed} 个，警告 {warning_count} 条。检查不证明生成效果、外部依赖可用或跨客户端兼容。")
     return 1 if failed else 0
 
 

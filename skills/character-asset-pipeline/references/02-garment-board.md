@@ -2,6 +2,14 @@
 
 与①的区别：①是一张成品展示图；**②是一张多格「服装板」**，给角色表当服装来源（前后侧 + 细节格），所以它必须**多视角、单底色、颜色保真**。
 
+## 使用前先核输入与基线
+
+本页正负向是历史双槽示例，不可无条件整段用于任意衣服。上身路线已保存的单槽服装板基线见 [00382正向](../../../prompts/12-white-model/00382-wardrobe-positive.txt)、[00382负向](../../../prompts/12-white-model/00382-wardrobe-negative.txt)。先按现有接线选单槽或双槽，不能凭模板新增第二张图。
+
+不变量是三整装（正/背/侧）+细节列、同底色、无人、人台不可见、服装件数与鞋完整。可变块是鞋来源/鞋描述、实际细节清单、服装结构与色彩、配套服装负向；不能用“服装板零改动”限制这些必要替换。细节列的布局句保留，列举的物件按实物填：无领无袖服装不机械保留领、纽扣、袖口。
+
+负向按真实件数与颜色清理：两件套不能禁two-piece set，黑衣不能禁black garment，要求的印花/刺绣不能被通用禁词删除。全局清除品牌文字、鞋等规则若与用户目标冲突，以具体任务为准。换款交付完整正负向，不能只给修改片段；派生结果尚未实测就不标通过。
+
 ## 变量
 
 | 变量 | 取值 |
@@ -10,7 +18,7 @@
 | 鞋 | 输入图自带 / 文字点名 / `<image2>` 鞋图（推荐） |
 | 版式 | 三整装（正/背/侧）+ 一列细节格（固定，别写「flexible layout」） |
 
-> ⚠️ **版式是「分解」这个动作的唯一载体**：正向里那段 `Use a multi-panel layout: one full-outfit front view, one full-outfit back view and one full-outfit side view … plus a column of zoomed detail tiles for …` **必须整段保留**。把它换成「竖排单品 + 少量细节格」＝服装不再分解（实测只得到一张平铺图）。注意区分：**「竖排单品」是 `01-garment-template.md`（单帧成品图）的布局，不是服装板的布局**。本模板为冻结原文，禁止改写。
+> ⚠️ **版式是「分解」这个动作的唯一载体**：正向里那段 `Use a multi-panel layout: one full-outfit front view, one full-outfit back view and one full-outfit side view … plus a column of zoomed detail tiles for …` **必须整段保留**。把它换成「竖排单品 + 少量细节格」＝服装不再分解（实测只得到一张平铺图）。注意区分：**「竖排单品」是 `01-garment-template.md`（单帧成品图）的布局，不是服装板的布局**。冻结的是版式结构；细节对象与鞋/颜色依实际来源填写。
 | 底色 | **单一浅灰**（写死，否会出现右列黑底） |
 
 ## 正向
@@ -45,7 +53,7 @@ missing footwear, bare feet, only one shoe, mismatched pair, two different shoes
 
 ## 已知失败模式
 
-| 现象 | 根因 | 修法 |
+| 历史现象 | 当时解释（不等于受控因果） | 写法检查 |
 |---|---|---|
 | 右列细节格是黑底、左列白底 | 正向只写 `neutral studio background`（形容词不是数值），且版式写「flexible」 | 用本文的单底色段 + 固定版式段 |
 | 长出黑色无头人台 | 只说 `no face, no skin, no visible body`，没禁人台 | 正向写 `no mannequin, no dress form …`；负向加 `mannequin, dress form, display figure, mannequin torso` |
@@ -53,7 +61,7 @@ missing footwear, bare feet, only one shoe, mismatched pair, two different shoes
 | 品牌刺绣被带进下游 | 输入图左胸有小刺绣 | 正向 `no embroidery, no lettering`；负向 `embroidery, lettering, chest logo` |
 | 成品颜色比原衣亮/粉（同一件红裙：产品图 RGB 144.8/18.8/41.0 → 上身图 162.1/64.7/59.6） | 服装板和上身**各做一次「光照正常化」**，饱和度被抬两遍 | 两段各写色彩保真句（`stays X and never turns Y/Z`）+ 负向同色禁词；**面料必须单写一句**（`crisp matte crepe, not satin, no sheen`）—— 模板只固定结构，不管材质，不写就自由发挥；产品图 vs 上身图**不可套 Δ≤10**（那条只用于同一张图的前后对比，两者光照不同） |
 
-**复刻边界（对用户怎么说）**：件数 / 剪裁 / 领型 / 袖长 / 下摆 / 鞋型 —— 可复刻，量出来对得上；**颜色** —— 会被两段重绘抬亮，必须靠保真句和负向压；**面料织法** —— 不可承诺，源图多数看不出，成品也不会自己���对；**背面** —— 源图没有的部分是模型编的，不要声称「完全复刻」。
+**复刻边界（对用户怎么说）**：件数 / 剪裁 / 领型 / 袖长 / 下摆 / 鞋型 —— 可复刻，量出来对得上；**颜色** —— 会被两段重绘抬亮，必须靠保真句和负向压；**面料织法** —— 不可承诺，源图多数看不出，成品也不会自行保证一致；**背面** —— 源图没有的部分是模型编的，不要声称「完全复刻」。
 
 ## 变体：没有鞋图时（纯文字点名鞋）
 

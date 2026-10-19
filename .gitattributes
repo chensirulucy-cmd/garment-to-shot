@@ -1,0 +1,9 @@
+# Keep exact original metadata strings, including their trailing newlines.
+prompts/02-ghost-set/00393-positive.txt -text whitespace=-blank-at-eof
+prompts/02-ghost-set/00393-negative.txt -text whitespace=-blank-at-eof
+prompts/11-faceswap/00373-positive.txt -text whitespace=-blank-at-eof
+prompts/11-faceswap/00373-negative.txt -text whitespace=-blank-at-eof
+prompts/12-white-model/00383-positive.txt -text whitespace=-blank-at-eof
+prompts/12-white-model/00383-negative.txt -text whitespace=-blank-at-eof
+prompts/12-white-model/00382-wardrobe-positive.txt -text whitespace=-blank-at-eof
+prompts/12-white-model/00382-wardrobe-negative.txt -text whitespace=-blank-at-eof

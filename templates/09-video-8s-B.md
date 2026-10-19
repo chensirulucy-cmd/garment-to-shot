@@ -10,8 +10,8 @@
 
 | 变量 | 必填 | 说明 | 常见坑 |
 |---|---|---|---|
-| `{{人物}}` | ✅ | 身份：脸锚图里那个人；有 LoRA 时触发词**内联在锚句主语里** | 触发词独立成行 → 脸变通用；正文复述五官 → 脸被重画 |
-| `{{身份补充}}` | ◻︎ | 无 LoRA 时才写五官（脸型/眉/眼/鼻/唇/肤色/发） | 有 LoRA 还写五官 = 跟 LoRA 抢身份 |
+| `{{人物}}` | ✅ | 人像参考定义的角色；命名用于指代 | 不把图像模型的LoRA触发词当作H3已加载的人物权重 |
+| `{{身份补充}}` | ◻︎ | 与实际人物参考一致的必要说明 | 00060/00061仅见H3 turbo加速LoRA，未见人物LoRA绑定；不得继承图像LoRA规则 |
 | `{{服装}}` | ✅ | 逐件枚举：件数 → 品类 → 颜色（带修饰词）→ 材质 → 结构细节 → 鞋 | 只写"上衣"→ 模型自由发挥下装；漏鞋 |
 | `{{服装素材类型}}` | ✅ | 服装是从哪种素材给的（四联排 / 单件产品图 / 实拍） | 忘了写"版式/白底/模特不出现"→ 版式渗透 |
 | `{{场景}}` | ✅ | 场景卡：3–6 个地标 + **屏幕相对位置** + 光基线 | 写成散文 → 无法跨镜继承 |
@@ -42,7 +42,7 @@
 
 ```
 subject_definitions:
-<Subject 1> is the {{人物}} defined by the portrait — {{身份补充（无 LoRA 时写；有 LoRA 写触发词内联）}}. The portrait defines the face, hair and skin only, so its plain background and any garment it shows never appear in the video.
+<Subject 1> is the {{人物}} defined by the portrait — {{身份参考说明：实际接入的人像素材及需要保留的特征}}. The portrait defines the face, hair and skin only, so its plain background and any garment it shows never appear in the video.
 <Subject 2> is the {{服装}} shown in {{服装素材类型}} — {{逐件枚举：件数、品类、颜色（带修饰词）、材质、结构细节、鞋}}. The sheet defines these garments only, so its layout, its background and any model in it never appear in the video.
 <Subject 3> is the {{场景}} described here: {{场景卡：地标 + 屏幕相对位置 + 光基线}}.
 
@@ -89,5 +89,7 @@ N/A.
 | seed | `999`（RandomNoise） |
 | 模型 | UNET `minimax_h3_fl2va_pruned_int8_convrot` · CLIP `qwen3vl_32b_minimax_h3_nvfp4_awq` · LoRA `minimax_h3_fl2v_turbo_8step_v1.0` 1.0 |
 | 参考图 | `<Subject 1>` = 人像特写（`ComfyUI-Z-Image_00024_.png`）；`<Subject 2>` = 四视图板（`Qwen_image_2.1_00321.png`） |
+
+**模型范围**：本轮重读00060/00061嵌入API图，仅记录H3 turbo LoRA，没有图像人物LoRA节点。角色名可以是普通指代，但不能据此宣称触发人物权重。原有成功视频及案例原文不变。
 
 **怎么自己核**：mp4 的 `format.tags` 里带 `prompt` 与 `workflow` 两段 JSON（`ffprobe -show_format` 就能看），二采是否真的跑了看节点 `263` 在不在、`mode.scale` 是不是 1.5。**别再从日志或 PNG 里找 —— 找不到。**
