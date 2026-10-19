@@ -130,6 +130,7 @@ Add the footwear from <image2>: take the exact pair of shoes shown in <image2> a
 ## 实测参数与一个致命细节（来自 00235 / 00241 的 PNG 内嵌元数据）
 
 - 实际运行：`steps 25 · cfg 1.0 · euler / simple · denoise 1.0` · `9:16 / 1.0 MP` · 参考图 1 张（原服装照）。
+- **线别先分清**：`00393`（492 词）是**文生图线**（9 节点、无 `LoadImage`、`EmptyLatentImage` 吃 `ResolutionSelector` 9:16·1MP·multiple 8 → 768×1376）；`00449`（511 词）/ `00472`（745 词）才是**编辑线**，尺寸跟随输入图按 32 对齐。别拿文生图线的 768×1376 当编辑线的尺寸基线。
 - **cfg = 1.0 时负向权重为 0**：00241 那段 1355 字符的负向（`two-piece set / split into a top and a skirt / only one shoe / two different shoes …`）**完全没有生效** —— 防拆件、防补鞋全靠正向句在扛。
 - 推论（C 级）：要负向兜底就必须把 cfg 提到 >1（会拉紧色彩风格，需重调）；否则别在负向上花字数，把约束都写成正向句。
 - 正向里真正起作用的四段（A2 结构，可直接复用）：①**去人清单**（head/face/skin/arms/hands/legs/feet/toes/body）②**件数锁**（单件连衣裙：一个领口、一条肩线、连续前后片、腰线只是构造线，无横向断裂、无独立腰头压在裙上；分开就保持原数量）③**保真清单**（末尾必须有 `add or divide` 的反向约束）④**鞋的两支**（有鞋原样；无鞋→补一双朴素深中性、取自本套自身色板、无 logo 无装饰，一双并排、朝外八、带接触阴影）。
@@ -151,7 +152,7 @@ Add the footwear from <image2>: take the exact pair of shoes shown in <image2> a
 
 1. **A 版的负向不能用在两件套上**：`two-piece set / split into a top and a skirt / separated bodice and skirt / two garments where the image shows one` 这四条在 cfg>1 时会把两件合并成一件 —— 用户实测两件套被解成一整件，根因就是这四条 + 正向只有一句条件句。
 2. **C 版正向绝对不能写 `open empty neckline … nothing inside the garments`**：这句要求「领口里什么都没有」，模型会照做，把内搭（衬衫/T恤）整层删掉，只剩外层。正确写法是 `the neckline belongs to the layers, not to the empty space` + `the inner garment fills that opening`。
-3. **C 版必须 30 步 / cfg 3.5**：cfg 1.0 时负向权重为 0，而 C 版的「拉链不许拉到顶」「内搭不许丢」全靠负向兜底（实测 25/1.0 + 早期文案 → 内搭整层消失）。
+3. **C 版必须 30 步 / cfg 3.5**：cfg 1.0 时负向权重为 0，而 C 版的「拉链不许拉到顶」「内搭不许丢」全靠负向兜底。实测同一份叠穿文案：25 步 / cfg 1.0 跑出来的两套（衬衫+连帽、衬衫+毛衣）内搭整层消失、领口只剩外层立领；改成 30 / 3.5 后（修正版 745 词）白 T 的领口与下摆才稳定露出。
 
 ### 交付前读三个数
 
