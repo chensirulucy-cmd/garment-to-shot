@@ -93,7 +93,9 @@ python scripts/check_output_meta.py "F:\ComfyUI-Data\output" --glob "Qwen_image_
 
 - 正向指纹 = `sha256(prompt)[:12]`；负向在 `TextEncodeQwenImage21.negative_prompt` 字段，不在 `prompt`
 - 版本规则见 `templates/02-ghost-set-trio.md`（A）、`02b-ghost-two-piece.md`（B）、`02c-ghost-layered.md`（C）
-- 模板正文分别逐字取自 `00449`（A）/ `00453`（B）/ `00472`（C）
+- 逐字原文（编辑线，A/B/C 各一份正负向）在 `prompts/02-ghost-set/`：`A-00449-*`（511/186 词）· `B-00453-*`（547/192 词）· `C-00472-*`（745/255 词）
+- 文生图线的原文另存：`prompts/02-ghost-set/T2I-00393-positive.txt`（492 词，与编辑线不是同一份词）
+- 模板：`02a`（A）/ `02b`（B）/ `02c`（C）各含「标准模式（逐字成品）+ 骨架版（槽位）」；`02` 为文生图线
 
 ## 六、未解
 

@@ -1,20 +1,23 @@
-# 模板 · 幽灵服装台三件套
+# 02 · 幽灵服装台（文生图线 · 三件套骨架）
 
-> **状态**：✅ 00393 修身三件套单次成功；✅ **A 版（一件套/通用）** 与 `00449` 同源（511 词 + 负向 186 词）；⚠️ 直筒及其他派生款需各自验收。
-> **基线（按 00393 元数据反推）**：`00393` 是**文生图线** —— 9 节点、无 `LoadImage`、`TextEncodeQwenImage21` 只有 `prompt`/`negative_prompt`；尺寸由 `ResolutionSelector`（9:16 · 1.0 MP · multiple 8）喂 `EmptyLatentImage` 得 **768×1376**；30 步 / cfg 3.5 / euler-simple / denoise 1.0，seed `919066758927647`。
-> **编辑线**（有 `LoadImage`，如 `00449`/`00472`）尺寸**跟随输入图按 32 对齐**（1200×1600→1216×1600）；`ResolutionSelector` 被 `ComfySwitchNode(switch=False)` 旁路，调它无效。原始正负向保存在 [00393 正向](../prompts/02-ghost-set/00393-positive.txt)、[00393 负向](../prompts/02-ghost-set/00393-negative.txt)。
-> 单张幽灵台不是多视角服装板；需要服装板时读 [服装板骨架](../skills/character-asset-pipeline/references/02-garment-board.md)。
->
-> **先选版本（按输入图的件数/层数，三步选一）**
->
-> | 输入图 | 用哪版 | 文件 | 取证 |
-> |---|---|---|---|
-> | 一件（连衣裙 / 连体裤） | **A 版**（本文件） | `02-ghost-set-trio.md` | `00449 / 00446 / 00473 / 00474` |
-> | 上衣 + 下装，不叠穿 | **B 版** | `02b-ghost-two-piece.md` | `00453 / 00454 / 00455` |
-> | 上身叠穿 2–3 层 | **C 版** | `02c-ghost-layered.md` | `00470 / 00472` |
->
-> 三版差别只在「件数/层数」与「领口怎么写」，骨架句相同。取证：`evidence/2026-10-19-ghost-ABC-baseline.md`。
-> **⛔ 不要三版混用**：A 版负向含 `two-piece set, split into a top and a skirt`，用在两件套上会把两件合并成一件；C 版早期版（660 词）把领口写成 `nothing inside`，会把内搭整层抹掉。
+> **状态**：✅ 已验证（`00393` 修身三件套单次成功）；⚠️ 直筒及其他派生款需各自验收。
+> **线**：Qwen-Image 2.1 **文生图线** —— 9 节点、**无 `LoadImage`**、`TextEncodeQwenImage21` 只有 `prompt`/`negative_prompt`；尺寸由 `ResolutionSelector`（9:16 · 1.0MP · multiple 8）喂 `EmptyLatentImage` 得 **768×1376**；30 步 / cfg 3.5 / euler-simple / denoise 1.0，seed `919066758927647`
+> **逐字原文**：`prompts/02-ghost-set/T2I-00393-positive.txt` / `T2I-00393-negative.txt`
+> 单张幽灵台不是多视角服装板；需要服装板时读 [服装板骨架](../skills/character-asset-pipeline/references/02-garment-board.md)
+
+## 先选版本（按输入图：有图走编辑线，无图走本文件）
+
+| 输入 | 用哪份 | 文件 | 取证 |
+|---|---|---|---|
+| **有参考图** · 一件（连衣裙/连体裤） | **A 版**（编辑线） | `02a-ghost-one-piece.md` | `00449 / 00446 / 473 / 474` |
+| **有参考图** · 上衣 + 下装，不叠穿 | **B 版**（编辑线） | `02b-ghost-two-piece.md` | `00453 / 00454 / 00455` |
+| **有参考图** · 上身叠穿 2–3 层 | **C 版**（编辑线） | `02c-ghost-layered.md` | `00470 / 00472` |
+| **无参考图** · 纯文字生成 | **本文件**（文生图线） | `02-ghost-set-trio.md` | `00393` |
+
+- 编辑线的出图尺寸**跟随输入图按 32 对齐**（1200×1600→1216×1600）；`ResolutionSelector` 被 `ComfySwitchNode(switch=False)` 旁路，调它无效
+- 三份编辑线模板都是「标准模式（逐字成品）+ 骨架版（槽位）」两套写法，换服装只动槽位
+- **⛔ 不要混用**：A 版负向含 `two-piece set, split into a top and a skirt`，用在两件套上会把两件合并；C 版的领口句一旦写成 `nothing inside`，内搭会整层消失
+- 全部取证：`evidence/2026-10-19-ghost-ABC-baseline.md`
 
 ## 变量与骨架
 
