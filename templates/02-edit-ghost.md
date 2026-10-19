@@ -1,4 +1,4 @@
-# 02E · 幽灵服装台（编辑线 · 有参考图）
+# 02-edit · 幽灵服装台（编辑线 · 有参考图）
 
 > **状态**：✅ 已验证 —— A `00449 / 446 / 473 / 474`（511+186 词）· B `00453 / 454 / 455`（547+192 词）· C `00470 / 472`（745+255 词）
 > **线**：Qwen-Image 2.1 **编辑线**（`LoadImage` → `TextEncodeQwenImage21.images.image_1` → `ComfySwitchNode(switch=False)` → `KSampler`）

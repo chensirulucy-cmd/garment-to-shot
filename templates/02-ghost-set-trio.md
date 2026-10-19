@@ -5,7 +5,7 @@
 > **逐字原文**：`prompts/02-ghost-set/T2I-00393-positive.txt` / `T2I-00393-negative.txt`
 > 单张幽灵台不是多视角服装板；需要服装板时读 [服装板骨架](../skills/character-asset-pipeline/references/02-garment-board.md)
 
-## 两条线（本文件是①，编辑线见 02E）
+## 两条线（本文件是① 文生图；编辑线是另一份文件）
 
 | | 工作流 | 什么时候用 | 文件 |
 |---|---|---|---|
