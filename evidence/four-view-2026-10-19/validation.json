@@ -1,0 +1,105 @@
+{
+  "generation_calls": 0,
+  "checks": [
+    {
+      "pair": [
+        "00405",
+        "00406"
+      ],
+      "changed_fields": [
+        "/515:513/inputs/negative_prompt",
+        "/515:513/inputs/prompt"
+      ]
+    },
+    {
+      "pair": [
+        "00408",
+        "00410"
+      ],
+      "changed_fields": [
+        "/478:474/inputs/negative_prompt",
+        "/478:474/inputs/prompt",
+        "/480/inputs/image",
+        "/480/is_changed",
+        "/515:513/inputs/negative_prompt",
+        "/515:513/inputs/prompt"
+      ]
+    },
+    {
+      "pair": [
+        "00410",
+        "00411"
+      ],
+      "changed_fields": [
+        "/514/inputs/image",
+        "/514/is_changed"
+      ]
+    },
+    {
+      "pair": [
+        "00411",
+        "00416"
+      ],
+      "changed_fields": [
+        "/480/inputs/image",
+        "/480/is_changed"
+      ]
+    },
+    {
+      "pair": [
+        "00422",
+        "00423"
+      ],
+      "changed_fields": [
+        "/518/inputs/seed"
+      ]
+    },
+    {
+      "pair": [
+        "00425",
+        "00426"
+      ],
+      "changed_fields": [
+        "/515:513/inputs/prompt",
+        "/518/inputs/seed"
+      ]
+    },
+    {
+      "text_self_check": "00418",
+      "result": "words        : baseline 385 / candidate 385\nsimilarity   : 1.000  (min 0.90)\nslot         : none given, skipping the outside-the-slot identity check\nanchors      : bare 9 / markdown-wrapped 0\nbanned       : none\nRESULT: TEXT_CHECK_PASS\nImage quality and body integrity require visual validation of the actual output.\n"
+    },
+    {
+      "text_self_check": "00422",
+      "result": "words        : baseline 409 / candidate 409\nsimilarity   : 1.000  (min 0.90)\nslot         : none given, skipping the outside-the-slot identity check\nanchors      : bare 9 / markdown-wrapped 0\nbanned       : none\nRESULT: TEXT_CHECK_PASS\nImage quality and body integrity require visual validation of the actual output.\n"
+    },
+    {
+      "actual_source_mask_math": "mask0=3(original), mask1=99(fake model), mask0.5=51",
+      "scope": "CPU scalar arithmetic only; not VAE/model generation"
+    },
+    {
+      "preserved_prompt_blocks": "templates/04-character-sheet.md",
+      "exact": true
+    },
+    {
+      "preserved_prompt_blocks": "cases/04-four-view-2026-10-19-tee-jeans.md",
+      "exact": true
+    },
+    {
+      "command": "python -X utf8 scripts/check_templates.py",
+      "exit_code": 0,
+      "output": "✅ 02-ghost-set-trio.md\n✅ 04-character-sheet.md\n✅ 07-portrait-headshot.md\n✅ 09-video-8s-A.md\n✅ 09-video-8s-B.md\n✅ 11-faceswap-head.md\n✅ 12-white-model-to-body.md\n\n共 7 个模板，失败 0 个。  ✅ 全部通过\n"
+    },
+    {
+      "command": "python -X utf8 scripts/validate_skills.py",
+      "exit_code": 0,
+      "output": "\n共 5 个技能，失败 0 个。  ✅ 全部通过\n"
+    },
+    {
+      "command": "python -X utf8 -m unittest discover -s tests -p test_four_view_evidence.py -v",
+      "exit_code": 0,
+      "output": "test_backticks_warn_without_claiming_broken_wiring (test_four_view_evidence.EvidenceTools.test_backticks_warn_without_claiming_broken_wiring) ... ok\ntest_explicit_restriction_is_still_enforced (test_four_view_evidence.EvidenceTools.test_explicit_restriction_is_still_enforced) ... ok\ntest_face_words_are_not_an_automatic_failure (test_four_view_evidence.EvidenceTools.test_face_words_are_not_an_automatic_failure) ... ok\ntest_full_graph_changes_are_not_lost (test_four_view_evidence.EvidenceTools.test_full_graph_changes_are_not_lost) ... ok\ntest_same_graph_is_not_reported_as_same_output (test_four_view_evidence.EvidenceTools.test_same_graph_is_not_reported_as_same_output) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.010s\n\nOK\n"
+    }
+  ],
+  "originals_unchanged": true,
+  "status": "OFFLINE_EVIDENCE_CHECKS_PASS; R1_IMAGE_RESULT_UNTESTED"
+}

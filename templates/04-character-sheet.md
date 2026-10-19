@@ -1,6 +1,6 @@
 # 模板 · 角色四视图（角色板）
 
-> **状态**：✅ 已验证（00307 / 00308 / 00321 / **00418**，以「正确产出过无头」的那版原文为准）
+> **状态**：✅ 已验证成功案例：00264 / 00308 / 00321 / 00325 / 00408 / 00418；不代表换装后稳定。逐样本原文与哈希见 [证据复核](../evidence/four-view-2026-10-19/README.md)。
 > **工作流**：Qwen-Image 2.1 **编辑**线（两支 KSampler：478 服装板 → 515 角色板）· 30 步 · cfg 3.5 · euler-simple · denoise 1.0 · 16:9 · 2 MP
 > **本页只讲角色板（515）**；服装板见 `02-ghost-set-trio.md`。
 
@@ -33,40 +33,19 @@ Edit the four-figure sheet in <image1> into a finished character reference sheet
 4. 画布锁定句（`keep <image1> as the canvas … camera height … plain white background`）
 5. 收尾句 `Nothing else is added, removed, restyled or re-lit.`
 
-## 五、「脸词外溢」这条已被推翻（2026-10-19 反证）
+## 五、证据边界（2026-10-19 纠错）
 
-旧结论：`her skin condition` / `her expression` 会让前三格长出人头。
+00418 含 skin condition / expression 仍成功，00422 不含也失败。这否定“这些词必然导致冒头”，不能据此宣布衣服类别是主因。
 
-**反证**：`00418`（白长袖 + 浅蓝牛仔）用的正是这句完整写法 ——
+00402、00307 分别是服装板，不是角色板成功样本。不得与下游 00403、00308 组成“同 seed 忽成忽败”或“角色尺寸随机”的证据。
 
-`her facial identity, her skin condition, her expression and her hair are those shown in <image2> … with nothing added and nothing restyled`
+00405→00406 清理反引号后仍冒头；当前编码器由图像输入构建视觉槽，反引号不会断开输入连线。裸写 <imageN> 保留为格式约定，不作为修复保证。
 
-结果**前三格干净无头**。而 `00416`（奶油连身裙）同样的写法 → 三格冒头。
-
-| 样本 | 服装 | 含 skin/expression | 结果 |
-|---|---|---|---|
-| 00402 | 奶油连身裙 | 含 | ✅ 无头 |
-| 00403 / 00410 / 00411 / 00416 | 奶油连身裙 | 含 | ❌ 冒头 |
-| **00418** | 白长袖 + 浅蓝牛仔（两件式） | 含 | **✅ 无头** |
-
-**现在的结论**：脸词**不是**主因；主因是**服装类型**（两件式稳 / 一件式连身裙不稳），见第八节。这句写法可以照用，但**别再用它解释冒头**。
-
-## 五之二、锚点 token 必须裸写（2026-10-18 更正）
-
-`<image1>` / `<image2>` / `<image3>` 是**锚点 token**。交付时若被写成 `` `<image1>` ``（反引号）、`**<image1>**`（加粗）、或被换行拆开，模型收到的就只是**普通文字**，槽位绑定失效 —— 它会按文字自己发挥，四格里就都会长出人头。
-
-实测对照（同一支工作流、同一套参数）：
-
-| 交付写法 | 结果 |
-|---|---|
-| 裸 token：`Edit the four-figure sheet in <image1> …` | ✅ 前三格无头（00308） |
-| 8 处 token 被包成 `` `<image1>` `` | ❌ 前三格出现人头（本轮） |
-
-**规则**：从仓库复制提示词时，token 前后不留任何 markdown 修饰；在聊天里交付也一律裸写，我不用反引号包裹。
+旧骨架的无头约束集中在第三格描述后，且把服装领口当作身体上边界，吊带裙上存在语义不适配；这是待验证的修订方向。上面的成功历史原文保留，候选没有实测通过之前不替换它。
 
 ## 六、判据（四条）
 
-1. 前三格肩上**没有头**、第四格**只有一个头**
+1. 前三格肩上**没有头**，肩部轮廓、手臂、手及身体保持完整；第四格**只有一个头**。侧面按自然遮挡验收。00426 无头但缺肩臂手，判失败。
 2. 衣服四格一致（件数/颜色/鞋），无混搭
 3. 剪裁与留白没动（和 <image1> 逐格对齐）
 4. 第四格的脸 = <image2>，不是"另一个人"
@@ -77,22 +56,8 @@ Edit the four-figure sheet in <image1> into a finished character reference sheet
 three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, a head in the first three panels, a face in the first three panels, hair falling over the shoulders in the first three panels, head added above the shoulders, repaired crop, figure rescaled to fit the whole body, different person between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, wardrobe from <image2>, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, warped buttons, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render
 ```
 
-## 八、同一件衣服连试两次不行就换，别在这一张图上硬磕（2026-10-19）
+## 八、下一步约束
 
-**观察到的**（只对这几件具体衣服成立，不能推广成"某类服装都不行"）：
+保留 478 服装板 → 515 一次生成完整四视图，永久排除分格生成后拼接。不把换衣服、胸口裁掉约 17%、把连身裙伪写成两件式、同 seed 多跑挑图作为已验证修法。
 
-| 衣服 | 结果 |
-|---|---|
-| 黑针织上衣 + 米白 A 字裙（00307 / 00308） | ✅ 无头 |
-| 香槟缎面睡衣上衣 + 长裤（00321 / 00325） | ✅ 无头 |
-| 白长袖 + 浅蓝牛仔 + 小白鞋（00418） | ✅ 无头 |
-| 奶油短袖 **T 恤连身裙**（00402 / 00403 / 00410 / 00411 / 00416） | ⚠️ 00402 中过一次，其余冒头 |
-
-**不能得出的结论**：不能说"一件式连身裙都不行"。上面失败的 5 次**用的是同一件衣服**（同一张幽灵台、同一张画布、同一套骨架），变量只有 run 次数 —— 所以更可能是**这一张服装图本身**（圆领位置正好压在裁切线上、版型太素）不适合这个画布，而不是"连身裙这一类"有问题。样本量 1 件，不够下类结论。
-
-**规则（写死）**：
-
-1. 同一件衣服**连试两次**还在冒头 → **换衣服 / 换画布**，不要在那一张图上继续加实验。继续堆只会在一个本来就跑不通的输入上消耗时间。
-2. 一件式连身裙第一次就冒头时，直接换**胸口裁切画布**（前三格从顶部再裁 ~17%，领口不入画），不要先改提示词。
-3. 只有换过 ≥3 件**不同**的连身裙、都失败，才允许写"连身裙这一类不稳"。
-
+先从真实失败 PNG 恢复全图和参考文件哈希，每轮只改一处明确的提示词块，固定两个 seed，保留完整正负向；测试后验收肩臂手与衣服，不能只测顶部是否空白。技术遮罩只有在提示词方案不足时再验证，必须保持一张整图生成。

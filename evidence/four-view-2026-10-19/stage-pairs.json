@@ -1,0 +1,122 @@
+[
+  {
+    "a": "Qwen_image_2.1_00307.png",
+    "b": "Qwen_image_2.1_00308.png",
+    "size_a": [
+      1216,
+      1600
+    ],
+    "size_b": [
+      2080,
+      1184
+    ],
+    "sha256_a": "690592976e61fab3290e2d820f21c3baf4a8c0fc286a575515540c907cea3791",
+    "sha256_b": "e201c96def44e062ad0bcf110aaadd7dea0408783f5de88918d6589994b37caf",
+    "same_prompt_graph": true
+  },
+  {
+    "a": "Qwen_image_2.1_00320.png",
+    "b": "Qwen_image_2.1_00321.png",
+    "size_a": [
+      1088,
+      1920
+    ],
+    "size_b": [
+      2080,
+      1184
+    ],
+    "sha256_a": "5d5aa121ac11b47262d9f1a831c2a87a6d26a45dab411ea1a454775ceb67b223",
+    "sha256_b": "19c16abbc863b85f02fbeef6c662b623a5c3d0b746da9909d57e50c92ef2b4f8",
+    "same_prompt_graph": true
+  },
+  {
+    "a": "Qwen_image_2.1_00324.png",
+    "b": "Qwen_image_2.1_00325.png",
+    "size_a": [
+      1088,
+      1920
+    ],
+    "size_b": [
+      2080,
+      1184
+    ],
+    "sha256_a": "146b67869bcf5ad5bb54e30dade6255654d56b66c91d9a318b6383111094f60f",
+    "sha256_b": "d065daa8c84d825fcc0e989349c9ea6524df55e32fa3fb0cd595fd4f9f5e068a",
+    "same_prompt_graph": true
+  },
+  {
+    "a": "Qwen_image_2.1_00402.png",
+    "b": "Qwen_image_2.1_00403.png",
+    "size_a": [
+      768,
+      1376
+    ],
+    "size_b": [
+      2080,
+      1184
+    ],
+    "sha256_a": "82e5422e73e14f87d16a05ec6247ae6535b7cd8db2951716210ec7dbb3e27e7b",
+    "sha256_b": "c5a86da49fbe0e880764fdbc37eda2229faa6f370a25d617c7f24dad9a9ec394",
+    "same_prompt_graph": true
+  },
+  {
+    "a": "Qwen_image_2.1_00407.png",
+    "b": "Qwen_image_2.1_00408.png",
+    "size_a": [
+      1216,
+      1600
+    ],
+    "size_b": [
+      2080,
+      1184
+    ],
+    "sha256_a": "e301c0ba5d50c9f76cc1778bc07e219b097330a1a6ee0a86dc1fe86f1fc543d5",
+    "sha256_b": "5108319d52d294affc750d1ac7d505eefc76fe2c5b16d70df801f3dec1643d93",
+    "same_prompt_graph": true
+  },
+  {
+    "a": "Qwen_image_2.1_00409.png",
+    "b": "Qwen_image_2.1_00410.png",
+    "size_a": [
+      768,
+      1376
+    ],
+    "size_b": [
+      2080,
+      1184
+    ],
+    "sha256_a": "391c43c75c993030205470de8c281665112c2da975542c5c16d4d77051976fba",
+    "sha256_b": "416cb1369ceb8f7016caf19ddea64a6f2c8246e7e028f5d4d935844cfaf9341b",
+    "same_prompt_graph": true
+  },
+  {
+    "a": "Qwen_image_2.1_00417.png",
+    "b": "Qwen_image_2.1_00418.png",
+    "size_a": [
+      1088,
+      1920
+    ],
+    "size_b": [
+      2080,
+      1184
+    ],
+    "sha256_a": "89fd74fa28a1778bfba585f417e1696c2f69cbf7c4ae232fe963f11c728b3512",
+    "sha256_b": "7862327788c3d76f6054e97e8c2507b53bba9d660552a3f5afc60f450d745121",
+    "same_prompt_graph": true
+  },
+  {
+    "a": "Qwen_image_2.1_00421.png",
+    "b": "Qwen_image_2.1_00422.png",
+    "size_a": [
+      832,
+      1216
+    ],
+    "size_b": [
+      2080,
+      1184
+    ],
+    "sha256_a": "1e70a9f42a6eca702cd5c9ba84fa792d457f0f50f49cf005b8920784991afcff",
+    "sha256_b": "312921fc9fec64d0dbd58798f96cdc5de7c9af5d17cc8c31bbdeb1ee8eaf9871",
+    "same_prompt_graph": true
+  }
+]

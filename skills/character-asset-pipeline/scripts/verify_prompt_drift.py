@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 """Check a candidate prompt against a verified baseline before delivery.
 
-Why: the expensive failures in this pipeline are never "the words were ugly" --
-they are "I rewrote the skeleton", "a markdown backtick broke an anchor token",
-or "the slot I was allowed to change is not the only thing that changed".
-This script turns all three into numbers so you can report them instead of claiming
-"I did not touch anything else".
+This checks text drift only. It cannot predict heads, anatomy or image quality.
+Backticks are formatting, not evidence of disconnected image inputs.
 
 Usage
 -----
@@ -18,9 +15,9 @@ Usage
     # baseline from a text file
     python verify_prompt_drift.py baseline.txt candidate.txt --slot "START:::END"
 
-Exit code 0 = all hard checks pass, 1 = do not deliver.
+Exit code 0 = configured text checks pass, 1 = configured text checks fail.
 Hard checks: similarity >= --min-sim, every slot's outside text byte-identical,
-zero markdown-wrapped anchor tokens, zero banned phrases.
+zero explicitly banned phrases. This does not certify a generated image.
 """
 
 import argparse
@@ -29,18 +26,8 @@ import json
 import re
 import sys
 
-DEFAULT_BAN = [
-    # body verbs in a garment slot -> the model paints a person
-    "tee-dress",
-    "falls from the shoulders",
-    "wraps around the body",
-    # negations -> the model paints the thing you denied
-    "no waist seam",
-    "no belt",
-    "no drawstring",
-    # face words in a four-view prompt -> heads appear in the headless panels
-    "skin condition",
-]
+# No universal causal ban is established by the four-view evidence.
+DEFAULT_BAN = []
 
 
 def load_text(path, pick=None):
@@ -62,7 +49,8 @@ def load_text(path, pick=None):
         if not texts:
             sys.exit(f"no prompt text found in {path} (pick={pick!r})")
         return max(texts, key=len).strip()
-    return open(path, encoding="utf-8").read().strip()
+    with open(path, encoding="utf-8") as handle:
+        return handle.read().strip()
 
 
 def main(argv=None):
@@ -87,7 +75,7 @@ def main(argv=None):
     print(f"words        : baseline {len(bw)} / candidate {len(cw)}")
     print(f"similarity   : {sim:.3f}  (min {a.min_sim:.2f})")
     if sim < a.min_sim:
-        print("  FAIL: too far from the baseline -- you rewrote it instead of filling the slot")
+        print("  FAIL: below configured text similarity threshold; not an image-quality verdict")
         ok = False
 
     if not a.slot:
@@ -113,20 +101,20 @@ def main(argv=None):
     bare = re.findall(r"(?<!`)<image\d>", cand)
     print(f"anchors      : bare {len(bare)} / markdown-wrapped {len(wrapped)}")
     if wrapped:
-        print("  FAIL: backticks become part of the text -- slot binding silently dies")
-        ok = False
+        print("  WARNING: markdown is present in prompt text; this does not disconnect image inputs")
 
     allowed = {p.lower() for p in a.allow_ban}
     bans = list(DEFAULT_BAN) + list(a.ban)
     hits = [p for p in bans if p.lower() not in allowed and p.lower() in cand.lower()]
     if hits:
         print("banned       : " + " | ".join(hits))
-        print("  FAIL: these are the exact phrases that reintroduce a person / negate themselves")
+        print("  FAIL: explicitly configured phrase restriction; no causal image claim")
         ok = False
     else:
         print("banned       : none")
 
-    print("RESULT:", "PASS" if ok else "FAIL")
+    print("RESULT:", "TEXT_CHECK_PASS" if ok else "TEXT_CHECK_FAIL")
+    print("Image quality and body integrity require visual validation of the actual output.")
     if not ok:
         print("Do not deliver. Take the baseline, change only the named slot, re-run this.")
     return 0 if ok else 1

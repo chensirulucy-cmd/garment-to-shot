@@ -1,0 +1,99 @@
+{
+  "workflow_file": "Character_Sheets_headless.json",
+  "sha256": "0554b8619d873a67ef1ff3871b6c3ea00af8d08e4db8931d766f55fa3a0a34f4",
+  "node_count": 40,
+  "added_mask_nodes": {
+    "519": {
+      "inputs": {
+        "pixels": [
+          "514",
+          0
+        ],
+        "vae": [
+          "515:507",
+          0
+        ]
+      },
+      "class_type": "VAEEncode",
+      "_meta": {
+        "title": "VAE编码（画布转Latent）"
+      }
+    },
+    "520": {
+      "inputs": {
+        "image": "headzone-mask-v3-alpha-fixed.png"
+      },
+      "class_type": "LoadImageMask",
+      "_meta": {
+        "title": "加载头区遮罩（v3极性修正）"
+      }
+    },
+    "521": {
+      "inputs": {
+        "samples": [
+          "519",
+          0
+        ],
+        "mask": [
+          "520",
+          0
+        ]
+      },
+      "class_type": "SetLatentNoiseMask",
+      "_meta": {
+        "title": "布：头区强制保留画布"
+      }
+    }
+  },
+  "sampler_latent": [
+    "521",
+    0
+  ],
+  "mask_channel_present": false,
+  "mask_file_exists_input": false,
+  "mask_file_exists_downloads": false,
+  "comfyui_commit": "8713616fcc321624e306bbd36be5906203dcb0dc",
+  "source_files": [
+    {
+      "path": "nodes.py",
+      "sha256": "ee9bfd76eff1dd213b7fc5eb800799f63938b6f485170b5de73463d73c7aba2f"
+    },
+    {
+      "path": "comfy/samplers.py",
+      "sha256": "f2c264ca9d394612f828e3ffe167c856a278a10e1711b269f0ba65dccb66393f"
+    },
+    {
+      "path": "comfy/sampler_helpers.py",
+      "sha256": "ac5b2be3f21e1fd8c7070b155146294692f35408db69db6a5c5e7384d199f377"
+    },
+    {
+      "path": "comfy/utils.py",
+      "sha256": "9320cf5c624e96acc1d9ec92ff120ed6387a2142707f3194cb21dd0d11ac2500"
+    },
+    {
+      "path": "comfy/sd.py",
+      "sha256": "99ac1b53d523c2295acd036af3550d0dc07f3df7b87729380813ad8003778556"
+    },
+    {
+      "path": "comfy_extras/nodes_qwen.py",
+      "sha256": "54ce02aa9e167c0b497ce026ac6b558f539427d2d1ed4fc1fcc2ec8e6bc529da"
+    },
+    {
+      "path": "comfy/text_encoders/qwen_image21.py",
+      "sha256": "c64016aa703f913859c9afb7efe5d1e5120c8fa2820f9f7acc00792987d39136"
+    }
+  ],
+  "validation": "static source inspection only; no ComfyUI queue or model execution",
+  "vae_input_size": [
+    2075,
+    1184
+  ],
+  "raw_vae_center_crop_size": [
+    2064,
+    1184
+  ],
+  "text_encode_first_reference_size": [
+    2080,
+    1184
+  ]
+}

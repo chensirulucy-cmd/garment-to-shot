@@ -7,14 +7,14 @@
 
 打出:
   1) 尺寸 / 节点数
-  2) 节点级 diff: 只在 A / 只在 B、class_type 变化、每个标量入参的变化
+  2) 完整图 diff: 节点、类型、连接、图像哈希与所有字段
   3) 文本入参: 词数、<imageN> token 计数、归一化相似度
   4) 句子级 diff (只列差异句)
   5) LoadImage 槽位各接了哪个文件
 
 只用标准库解析 PNG 的 tEXt/iTXt chunk，不依赖 PIL。
-判读规则: 若标量入参逐字段相同且文本相似度 = 1.0000，则两次结果的差异
-不能归因于提示词或参数 - 先做同输入复跑，再谈原因。
+判读规则: 完整 prompt 图相同也不证明同一输出节点或同一执行。
+先确认保存阶段、实际输入内容和运行记录，不能自动推断随机性。
 """
 import sys, os, re, json, zlib, struct, difflib, glob
 
@@ -70,6 +70,23 @@ def scalars(d):
     return rows
 
 
+def graph_diff(a, b, path=''):
+    """Compare every JSON field; preserve missing-vs-null and list wiring."""
+    missing = object()
+    if isinstance(a, dict) and isinstance(b, dict):
+        result = []
+        for key in sorted(a.keys() | b.keys()):
+            va, vb = a.get(key, missing), b.get(key, missing)
+            child = path + '/' + key
+            if va is missing or vb is missing:
+                result.append((child, '<MISSING>' if va is missing else va,
+                               '<MISSING>' if vb is missing else vb))
+            else:
+                result.extend(graph_diff(va, vb, child))
+        return result
+    return [] if type(a) is type(b) and a == b else [(path, a, b)]
+
+
 def texts(d):
     out = {}
     for nid, n in d.items():
@@ -119,15 +136,11 @@ def report(pa, pb):
         ca, cb = a[nid].get('class_type'), b[nid].get('class_type')
         if ca != cb:
             print('  node %s class: %s -> %s' % (nid, ca, cb))
-    sa, sb = scalars(a), scalars(b)
-    diffs = []
-    for k in sorted(set(sa) | set(sb), key=lambda x: (nkey(x[0]), x[1])):
-        if sa.get(k) != sb.get(k):
-            diffs.append((k, sa.get(k), sb.get(k)))
+    diffs = graph_diff(a, b)
     if not diffs:
-        print('  标量入参: 逐字段相同')
-    for (nid, key), va, vb in diffs:
-        print('  %s.%s: %s -> %s' % (nid, key, str(va)[:70], str(vb)[:70]))
+        print('  完整 prompt 图: 逐字段相同')
+    for path, va, vb in diffs:
+        print('  %s: %s -> %s' % (path, str(va)[:70], str(vb)[:70]))
 
     print('\n== 文本入参 ==')
     ta, tb = texts(a), texts(b)
@@ -148,7 +161,7 @@ def report(pa, pb):
         print('    chars  A=%d B=%d | words A=%d B=%d' % (
             len(va), len(vb), len(va.split()), len(vb.split())))
         print('    tokens A=%d B=%d' % (len(TOKEN.findall(va)), len(TOKEN.findall(vb))))
-        print('    similarity = %.4f%s' % (ratio, '  (逐字相同)' if ratio > 0.9999 else ''))
+        print('    normalized similarity = %.4f; raw text equal = %s' % (ratio, va == vb))
         d = [ln for ln in difflib.ndiff(sents(va), sents(vb)) if ln[:1] in '+-?']
         if d:
             print('    句级 diff:')
@@ -165,14 +178,17 @@ def report(pa, pb):
             if img:
                 print('  %s node %s %s -> %s' % (tag, nid, n.get('class_type'), img))
 
-    same = (not diffs) and all(
-        difflib.SequenceMatcher(None, norm(texts(a)[k]), norm(texts(b)[k])).ratio() > 0.9999
-        for k in set(texts(a)) & set(texts(b)))
+    same = not diffs
     print('\n== 判读 ==')
     if same:
-        print('  同输入（参数与文本逐字相同）→ 两次结果不同也不能归因，先做同输入复跑。')
+        print('  完整 prompt 图相同，但不证明同一输出节点或同一次执行。')
+        print('  先核对保存阶段与实际输入文件；禁止据此自动宣称随机性或要求复跑。')
     else:
-        print('  有差异项（见上）。一轮只改一个变量，否则结论作废。')
+        print('  完整图有 %d 个差异项（见上）；多变量结果只能作观察，不能作单因素归因。' % len(diffs))
+    for tag, dd in (('A', a), ('B', b)):
+        sinks = {nid: n.get('inputs', {}).get('images') for nid, n in dd.items()
+                 if 'SaveImage' in n.get('class_type', '')}
+        print('  %s 保存节点候选（不是此 PNG 的输出节点证明）: %s' % (tag, sinks))
 
 
 def main():
