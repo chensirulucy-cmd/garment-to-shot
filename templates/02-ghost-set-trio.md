@@ -5,19 +5,12 @@
 > **逐字原文**：`prompts/02-ghost-set/T2I-00393-positive.txt` / `T2I-00393-negative.txt`
 > 单张幽灵台不是多视角服装板；需要服装板时读 [服装板骨架](../skills/character-asset-pipeline/references/02-garment-board.md)
 
-## 先选版本（按输入图：有图走编辑线，无图走本文件）
+## 两条线（本文件是①，编辑线见 02E）
 
-| 输入 | 用哪份 | 文件 | 取证 |
+| | 工作流 | 什么时候用 | 文件 |
 |---|---|---|---|
-| **有参考图** · 一件（连衣裙/连体裤） | **A 版**（编辑线） | `02a-ghost-one-piece.md` | `00449 / 00446 / 473 / 474` |
-| **有参考图** · 上衣 + 下装，不叠穿 | **B 版**（编辑线） | `02b-ghost-two-piece.md` | `00453 / 00454 / 00455` |
-| **有参考图** · 上身叠穿 2–3 层 | **C 版**（编辑线） | `02c-ghost-layered.md` | `00470 / 00472` |
-| **无参考图** · 纯文字生成 | **本文件**（文生图线） | `02-ghost-set-trio.md` | `00393` |
-
-- 编辑线的出图尺寸**跟随输入图按 32 对齐**（1200×1600→1216×1600）；`ResolutionSelector` 被 `ComfySwitchNode(switch=False)` 旁路，调它无效
-- 三份编辑线模板都是「标准模式（逐字成品）+ 骨架版（槽位）」两套写法，换服装只动槽位
-- **⛔ 不要混用**：A 版负向含 `two-piece set, split into a top and a skirt`，用在两件套上会把两件合并；C 版的领口句一旦写成 `nothing inside`，内搭会整层消失
-- 全部取证：`evidence/2026-10-19-ghost-ABC-baseline.md`
+| ① | **文生图**（无参考图） | 你没有图片，要我从零写一套服装 | **本文件** `02-ghost-set-trio.md` |
+| ② | **编辑**（有参考图） | 你有图片，要把衣服解成幽灵台 | `02-edit-ghost.md`（A 一件 / B 两件 / C 叠穿） |
 
 ## 变量与骨架
 
