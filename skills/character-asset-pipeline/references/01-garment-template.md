@@ -151,7 +151,7 @@ Add the footwear from <image2>: take the exact pair of shoes shown in <image2> a
 
 1. **A 版的负向不能用在两件套上**：`two-piece set / split into a top and a skirt / separated bodice and skirt / two garments where the image shows one` 这四条在 cfg>1 时会把两件合并成一件 —— 用户实测两件套被解成一整件，根因就是这四条 + 正向只有一句条件句。
 2. **C 版正向绝对不能写 `open empty neckline … nothing inside the garments`**：这句要求「领口里什么都没有」，模型会照做，把内搭（衬衫/T恤）整层删掉，只剩外层。正确写法是 `the neckline belongs to the layers, not to the empty space` + `the inner garment fills that opening`。
-3. **C 版必须 30 步 / cfg 3.5**：cfg 1.0 时负向权重为 0，而 C 版的「拉链不许拉到顶」「内搭不许丢」全靠负向兜底（实测 00466 用 25/1.0 + 早期文案 → 内搭消失）。
+3. **C 版必须 30 步 / cfg 3.5**：cfg 1.0 时负向权重为 0，而 C 版的「拉链不许拉到顶」「内搭不许丢」全靠负向兜底（实测 25/1.0 + 早期文案 → 内搭整层消失）。
 
 ### 交付前读三个数
 
