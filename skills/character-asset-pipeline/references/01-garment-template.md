@@ -130,6 +130,7 @@ Add the footwear from <image2>: take the exact pair of shoes shown in <image2> a
 ## 实测参数与一个致命细节（来自 00235 / 00241 的 PNG 内嵌元数据）
 
 - 实际运行：`steps 25 · cfg 1.0 · euler / simple · denoise 1.0` · `9:16 / 1.0 MP` · 参考图 1 张（原服装照）。
+- **线别先分清**：`00393`（492 词）是**文生图线**（9 节点、无 `LoadImage`、`EmptyLatentImage` 吃 `ResolutionSelector` 9:16·1MP·multiple 8 → 768×1376）；`00449`（511 词）/ `00472`（745 词）才是**编辑线**，尺寸跟随输入图按 32 对齐。别拿文生图线的 768×1376 当编辑线的尺寸基线。
 - **cfg = 1.0 时负向权重为 0**：00241 那段 1355 字符的负向（`two-piece set / split into a top and a skirt / only one shoe / two different shoes …`）**完全没有生效** —— 防拆件、防补鞋全靠正向句在扛。
 - 推论（C 级）：要负向兜底就必须把 cfg 提到 >1（会拉紧色彩风格，需重调）；否则别在负向上花字数，把约束都写成正向句。
 - 正向里真正起作用的四段（A2 结构，可直接复用）：①**去人清单**（head/face/skin/arms/hands/legs/feet/toes/body）②**件数锁**（单件连衣裙：一个领口、一条肩线、连续前后片、腰线只是构造线，无横向断裂、无独立腰头压在裙上；分开就保持原数量）③**保真清单**（末尾必须有 `add or divide` 的反向约束）④**鞋的两支**（有鞋原样；无鞋→补一双朴素深中性、取自本套自身色板、无 logo 无装饰，一双并排、朝外八、带接触阴影）。
