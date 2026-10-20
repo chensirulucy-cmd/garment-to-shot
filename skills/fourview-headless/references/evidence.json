@@ -1,0 +1,4518 @@
+{
+  "date": "2026-10-21",
+  "source": "Original local ComfyUI PNG prompt metadata, no new model runs",
+  "baseline_repo": "d138d5529fb05f73a1710d41278bb7b9c927669c",
+  "source_package_files": [
+    {
+      "path": "final_samples_prompts.md",
+      "bytes": 26924,
+      "sha256": "3171c5948416004b172f026805ced0d2c55d23bf143577b4bef5a1d685b6141e"
+    },
+    {
+      "path": "fourview-report-2026-10-19.md",
+      "bytes": 18810,
+      "sha256": "4beddf03c708b4d52e485aaee75b14f2b66c975bd9335a18095b1ba149231863"
+    },
+    {
+      "path": "fourview-skill-reference.md",
+      "bytes": 14051,
+      "sha256": "d3cb264fa96712bef04f70d25b5112c7a215ccbc530e359eaab9852462586fee"
+    },
+    {
+      "path": "fourview-skill-reference_1.md",
+      "bytes": 19001,
+      "sha256": "89e335c294647f990ccf5609cf857aeb010d106b5175fe143d49f2b7bdb985b4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1724,
+      "sha256": "d6a01eb102f6b910429eb9ea965e0b5bd756381606a029a7d403f2d754e90188"
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 6586,
+      "sha256": "1e42e57785371724644905e1a9db90cac840024f206202b9ec8f201f1354ec61"
+    },
+    {
+      "path": "fourview-headless\\README.md",
+      "bytes": 1724,
+      "sha256": "d6a01eb102f6b910429eb9ea965e0b5bd756381606a029a7d403f2d754e90188"
+    },
+    {
+      "path": "fourview-headless\\SKILL.md",
+      "bytes": 6586,
+      "sha256": "1e42e57785371724644905e1a9db90cac840024f206202b9ec8f201f1354ec61"
+    },
+    {
+      "path": "fourview-headless\\references\\evidence.md",
+      "bytes": 4592,
+      "sha256": "b5158da895038b87eff45c403557a78e4b7204e1e691b062badcac1f095d85d7"
+    },
+    {
+      "path": "fourview-headless\\references\\failure_catalog.md",
+      "bytes": 4020,
+      "sha256": "0938619f6dff0e4793a8e0847b32cb0ea8b6742109d3dc6ccb8a8e1d8557d30f"
+    },
+    {
+      "path": "fourview-headless\\references\\neckline_families.md",
+      "bytes": 1683,
+      "sha256": "e0ca6cb895d3bb255ed47dc233874d643288cf61168d4da541089718efa61751"
+    },
+    {
+      "path": "fourview-headless\\references\\parameters.md",
+      "bytes": 4018,
+      "sha256": "cb597734f37d6f6711f9396b640039989289f9bcce549627563f6ad2d0b23696"
+    },
+    {
+      "path": "fourview-headless\\references\\verification.md",
+      "bytes": 3592,
+      "sha256": "23d72fbede17c4762087a1aa4fe88244d003bfefe27bb05931df3b1039dae2a7"
+    },
+    {
+      "path": "fourview-headless\\templates\\skeleton_515.txt",
+      "bytes": 3837,
+      "sha256": "cac43a1196a77c9038173b6dd2a7bcb67b3388510fe766e567849c631ca0f884"
+    },
+    {
+      "path": "fourview-headless\\templates\\wardrobe_478.txt",
+      "bytes": 3929,
+      "sha256": "9962464ca35dae8677619286581b9c0795b46462ca0f3b6972270b502fa231ab"
+    },
+    {
+      "path": "fourview-headless\\templates\\families\\round.txt",
+      "bytes": 2469,
+      "sha256": "4baa821c942fc1c007e5e678dce9fe870d808d80041a8e7a7951df587b2b4108"
+    },
+    {
+      "path": "fourview-headless\\templates\\families\\strap.txt",
+      "bytes": 1991,
+      "sha256": "9d1184fd153b63ffc704763f48dba9127f2d957ad479b20d2a2f1da5eeb772e1"
+    },
+    {
+      "path": "fourview-headless\\templates\\families\\vneck.txt",
+      "bytes": 2227,
+      "sha256": "b6fa59c4a6d3411964c7110fb40422c1bd52408232b52733093fd0f3715cd8d6"
+    }
+  ],
+  "templates": {
+    "skeleton_515.txt": "cac43a1196a77c9038173b6dd2a7bcb67b3388510fe766e567849c631ca0f884",
+    "wardrobe_478.txt": "9962464ca35dae8677619286581b9c0795b46462ca0f3b6972270b502fa231ab"
+  },
+  "samples": [
+    {
+      "id": "00436",
+      "sha256": "4058103a22bda83feaeefca881014aeb07c154d9aaf10c1d8e23fcdeeb5ee674",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00401.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "391f6cf038d1abfa7d8186eaba5671b1911f2192ce2a0848622fe427e77eac60"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-cut-no-neck.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b76afed3dcbe9ef5959adee2f06dafef15f61c3f0522a6264b2242ed50088399"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "清透白底东方面容肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "e243d38d838e8c7591fac86fb48fe13cadfed780cfa50e38d6858597aac6ca12"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "1ef553da21194811eb141ff4b541a0d62320d98c2623c1742653c809c5d6f41b",
+          "length": 1618,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "89f91245f725b5a978a85f5d9e10daba25b4e96a30c74d7b02f3201425639b41",
+          "length": 1224,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "6d900476936b3367b34fef28bf715ec1748b8bc541b64f7995825a86ae14e449",
+          "length": 3144,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "536add369b9e1eba7ebd01e5c98a5ab6ca686070ebbd55e01e179d71ab580f23",
+          "length": 1266,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00440",
+      "sha256": "70fbc434eb8ac61aee77bf3ab4565334d296eefba19060348fd0f8b554345b67",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00420.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "708db91a31fe37dd626d7e936019f37045168d44de9466378d91ef90987f8bb7"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-cut-no-neck.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b76afed3dcbe9ef5959adee2f06dafef15f61c3f0522a6264b2242ed50088399"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "清透白底东方面容肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "e243d38d838e8c7591fac86fb48fe13cadfed780cfa50e38d6858597aac6ca12"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "d1a3a880edfa6c8e356dbd70225353a74eba5ec976c3ffa4aaa0495423801d7c",
+          "length": 2970,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "78e8a911e775599c594e264c71039feb617905cc3981ae9ad8a55bf6d7ba4268",
+          "length": 1326,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "cdaeea38cc0b3085e0b8f6173b827b142cc0c3d8d1c4fdc5ed804b95da7ebec8",
+          "length": 3346,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "a5b82c35a395dda961fa163e9f4ba7f7aa8d62428f1b74b661fc7e210ae99d42",
+          "length": 1610,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00441",
+      "sha256": "d4394efab04867e02bc57c4bd2962bf08c20b75cfba7503f38a3c98c8e8d8179",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00420.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "708db91a31fe37dd626d7e936019f37045168d44de9466378d91ef90987f8bb7"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "清透白底东方面容肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "e243d38d838e8c7591fac86fb48fe13cadfed780cfa50e38d6858597aac6ca12"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "d1a3a880edfa6c8e356dbd70225353a74eba5ec976c3ffa4aaa0495423801d7c",
+          "length": 2970,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "78e8a911e775599c594e264c71039feb617905cc3981ae9ad8a55bf6d7ba4268",
+          "length": 1326,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "cdaeea38cc0b3085e0b8f6173b827b142cc0c3d8d1c4fdc5ed804b95da7ebec8",
+          "length": 3346,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "a5b82c35a395dda961fa163e9f4ba7f7aa8d62428f1b74b661fc7e210ae99d42",
+          "length": 1610,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00443",
+      "sha256": "3e02ae4f54e30fae5aad95339f79b597bd17f1d569fd84c289fe255cf35f38c6",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00253.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "fc71ce87014e4011d22fca2b2bf377aaa08328c07e9677a8e1c89f989e0a1e15"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "清透白底东方面容肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "e243d38d838e8c7591fac86fb48fe13cadfed780cfa50e38d6858597aac6ca12"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "51863c4d3c9170e887624bc4ee9542196b80d417c210968d57a8995d2d4e7f92",
+          "length": 3167,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "da6537a16879f98d925a1505b9b5e7a0785318ffcc31c77142c1ff1030dcf912",
+          "length": 1430,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "5fe4f97c33ae1b755220f2ba3b8f4137e10c9019a41677f9da4b3c59deaf40ef",
+          "length": 3875,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "d8509c77d28d74dfb06143cefb372e2277f64f9910049d8bf66408b5bbcb4cb6",
+          "length": 1788,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00476",
+      "sha256": "a1a7fd6abc6c05a1765593316b32cc3478a97905ddb78641a715a81212096d30",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00474.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "8441618f8d3f67e9d4c12e5459757ae2b93c5f4047ffedd34ff175c700af6449"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "清透白底东方面容肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "e243d38d838e8c7591fac86fb48fe13cadfed780cfa50e38d6858597aac6ca12"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "d711a816fdab80aef90374e6793fb7c8b8fffcbe927d7a42e0721b26b2a62b64",
+          "length": 2831,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "b2a3fb9ff461149a9707b2e93b53f72ee62865976f7fcd3ede1fc439071bc0f4",
+          "length": 1480,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "da0e95b92fe5af506e3247af891864daa65e506e230c55a8d9ef47e2dac05ed8",
+          "length": 3282,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "e8f0f74eca790b1e49f8af9243d5447239ca1c8d418b8ff9d045d0ace2d496df",
+          "length": 1843,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00478",
+      "sha256": "516452706b15f4ab1523584e53b9072d5c4c296c0b320b5093e40e657a41990b",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00449.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "fb306aae8e0eff6b0656b6eb1e07269d7682b634c26e2692263620a9e3eff575"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "清透白底东方面容肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "e243d38d838e8c7591fac86fb48fe13cadfed780cfa50e38d6858597aac6ca12"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "6ccb17e7ec57336fd4bf459e138cf7a2956eafac543b21402a1b0190e63cc292",
+          "length": 2792,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "365c8a1dd5d62e741c8e3ef8df0c27b9fc3bf233952e44a00d2d74ea416319bf",
+          "length": 1465,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "4f03381251b978d9792bf43da001c3a6bca9e1b34cb7cc9c7a94ceff950df080",
+          "length": 3274,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "75c2f5298809639218ba8a27aa01680f518b1b5bfc950145cff037674328df12",
+          "length": 1839,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00480",
+      "sha256": "f2375e8c248b9c07620eb4b3a6e48910fbafd927ee32a69763ab758b92d444ff",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00468.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "aef39143979b7d429fac559980d54688ffcae3e11820273b9b9b89528e0324e1"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "Sakura.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "a76ba414525f71cd864656019f2c82198b6f642d9d78f96413c6999698539189"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "71a6e736751856c8b2516d346d9b7c5d37bf37ff33779f30a7c08b3b9691927f",
+          "length": 1739,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "b92d0db06973b55be9c25e7b5708a471d7d5bc3a0debc2b3eaea87d45c6addc7",
+          "length": 1385,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "a9d38e4ef36059c57b6b661f386207b08c41d1ad5dff9627a87eb0fbbcf809d3",
+          "length": 3214,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "d5a8e810e1b5f16434f66de58e1eda7212be9af7f0b07bc92208338bacd84402",
+          "length": 1650,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00481",
+      "sha256": "efa7324d1eb652da6bd5a8fcefe22c82f93fe6738782a80f384a3a6694aaf17b",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00468.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "aef39143979b7d429fac559980d54688ffcae3e11820273b9b9b89528e0324e1"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "Sakura.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "a76ba414525f71cd864656019f2c82198b6f642d9d78f96413c6999698539189"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "81c28d1a5e85f30bb960106289d769f159bb04ce212271e362638a1b134542fb",
+          "length": 1814,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "b92d0db06973b55be9c25e7b5708a471d7d5bc3a0debc2b3eaea87d45c6addc7",
+          "length": 1385,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "a9d38e4ef36059c57b6b661f386207b08c41d1ad5dff9627a87eb0fbbcf809d3",
+          "length": 3214,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "d5a8e810e1b5f16434f66de58e1eda7212be9af7f0b07bc92208338bacd84402",
+          "length": 1650,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00485",
+      "sha256": "61a9a70f29e813a86d447b7d63cf46193e4eaf918334646fbfc893da6a684fbb",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00468.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "aef39143979b7d429fac559980d54688ffcae3e11820273b9b9b89528e0324e1"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "Sakura.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "a76ba414525f71cd864656019f2c82198b6f642d9d78f96413c6999698539189"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "e42299bce79bc8d738afe7aac0d234a783737d29366aac2611dcd8bd41e1bfc0",
+          "length": 2793,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "db0e9ea6d1cf66c8f8d15780c6204af878aef4e9200a609a95518b9ec62c16b6",
+          "length": 1384,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "a9d38e4ef36059c57b6b661f386207b08c41d1ad5dff9627a87eb0fbbcf809d3",
+          "length": 3214,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "d5a8e810e1b5f16434f66de58e1eda7212be9af7f0b07bc92208338bacd84402",
+          "length": 1650,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00487",
+      "sha256": "70f9cc829bdfdff6a5c80543010409dcf5e7b0a3a7ed1b1cf5b0d79faa76eed3",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00470.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "860346bda200d0d3f07b5d1f0104f7d6eec427994bb0b48db063c9ab3a6f67a0"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "Sakura.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "a76ba414525f71cd864656019f2c82198b6f642d9d78f96413c6999698539189"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "949b4d172e21f0825833c88c4cd1db5186e9a3003d519a14beb1b32d8a916f15",
+          "length": 2908,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "e50f7264a80d0c428b3b65cc1de7f2c294be5a8a89b8c9c495d5b5aa3f200649",
+          "length": 1497,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "06318dad4a87493e8ed027bba30bb5cfed37f3e2669b07cda73eb35d8be05489",
+          "length": 2993,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "15db6465ed4918a513390f19867fc3b3d05316976e03176c9088297353568d78",
+          "length": 1556,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00489",
+      "sha256": "da2ceb68f4d26bcb5ac04bd4f5440a82716b1d32674c4b15056646f408165605",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00470.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "860346bda200d0d3f07b5d1f0104f7d6eec427994bb0b48db063c9ab3a6f67a0"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "Sakura.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "a76ba414525f71cd864656019f2c82198b6f642d9d78f96413c6999698539189"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "58df3a27cad7bf22f15d5bccfd4f26ee28c9c0d9d6b21fc3676a6ecc5c57c546",
+          "length": 3286,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "8f9cef9a77d62636b1e90fde93e6d2a6984c2f8c5cec457814cfc64a02b0e3c2",
+          "length": 1648,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "85d45a7913880eb53a9949da3a33c9bfeb502d75cecaeed91779df42671c9f6d",
+          "length": 3302,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "227bcfbdaaee9bbb0ea8319fab7b4760b6a917ea4bc8be6c11d3e90f6ffe46e3",
+          "length": 1699,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00491",
+      "sha256": "2c14ae1d6dbbb255d5b0dd3c3ccbc4093539b056debf6091bab14ea4f848d13b",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00449.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "fb306aae8e0eff6b0656b6eb1e07269d7682b634c26e2692263620a9e3eff575"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "清透白底东方面容肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "e243d38d838e8c7591fac86fb48fe13cadfed780cfa50e38d6858597aac6ca12"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "9552db1c1ef9d619567bb1fa3a6542928ca51e239db2ba15a0825723ea0fb605",
+          "length": 2971,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "dee0ebeb513adcf073c2f018747c48ab1e22eaca52f7f2ca4a7c00727935a9ab",
+          "length": 1631,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "4f03381251b978d9792bf43da001c3a6bca9e1b34cb7cc9c7a94ceff950df080",
+          "length": 3274,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "75c2f5298809639218ba8a27aa01680f518b1b5bfc950145cff037674328df12",
+          "length": 1839,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00492",
+      "sha256": "ca7f6048b8200af074efaed1f0891589003a022e5848650725a58d94b86153ae",
+      "size": [
+        1440,
+        1440
+      ],
+      "load_images": {
+        "470": {
+          "inputs": {
+            "image": "图片_20261019213148_120_4.jpg"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "cf389eac4a21c33a9a8b2c3b9d7eaf970df851d3f1609294669c26b1a89edb80"
+          ]
+        }
+      },
+      "samplers": {
+        "459:458": {
+          "inputs": {
+            "seed": 1082559298008331,
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "459:469",
+              0
+            ],
+            "positive": [
+              "459:474",
+              0
+            ],
+            "negative": [
+              "459:474",
+              1
+            ],
+            "latent_image": [
+              "459:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "459:458": {
+          "inputs": {
+            "seed": 1082559298008331,
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "459:469",
+              0
+            ],
+            "positive": [
+              "459:474",
+              0
+            ],
+            "negative": [
+              "459:474",
+              1
+            ],
+            "latent_image": [
+              "459:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "prompts": {}
+    },
+    {
+      "id": "00494",
+      "sha256": "16ae10fbfee471764dae273aaae364c194a3152748bd37833e45aa02e75e7ff6",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00492.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "ca7f6048b8200af074efaed1f0891589003a022e5848650725a58d94b86153ae"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "Sakura.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "a76ba414525f71cd864656019f2c82198b6f642d9d78f96413c6999698539189"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "58df3a27cad7bf22f15d5bccfd4f26ee28c9c0d9d6b21fc3676a6ecc5c57c546",
+          "length": 3286,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "8f9cef9a77d62636b1e90fde93e6d2a6984c2f8c5cec457814cfc64a02b0e3c2",
+          "length": 1648,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "85d45a7913880eb53a9949da3a33c9bfeb502d75cecaeed91779df42671c9f6d",
+          "length": 3302,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "227bcfbdaaee9bbb0ea8319fab7b4760b6a917ea4bc8be6c11d3e90f6ffe46e3",
+          "length": 1699,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00496",
+      "sha256": "5fbf9550ea917bebbb0c0b18f3f519e0ca480138ec07869a4718a4dd0164f7a5",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00472.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "4c6a57e7db489282aaddb69d97cfa3c07d372de02e7a776386abde81c4625895"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "东亚男性白底证件肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "746a26dfed406e6254cc10928fc36386fae4d69b9862b0cb6db09d4a11e603b2"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "deb1400593926c91680842b5cffaacf41e175c5a3e503123186a84b02aef2a09",
+          "length": 2860,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "38294db06b567c3845ea6f48db0269dcee91b33d778dd6395bcb6f51d2c3fff4",
+          "length": 1471,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "01483480c10fb650b569e772589e3744a60a5de09fd43775ef40b95afdf6b770",
+          "length": 3048,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "19ce30cdfe959e13623e3edb128ea2293e932f4a051e168d6a1269f8fd328050",
+          "length": 1417,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00498",
+      "sha256": "9447315fb13129ed1c1592c86a4c8bc631ac073fd9a81a1f4bd56c7f42464aaf",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00461.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "0add5b2a35a7dc78c071829614472046afc8dd8bf60318cbbfa7f9b172e27642"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "东亚男性白底证件肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "746a26dfed406e6254cc10928fc36386fae4d69b9862b0cb6db09d4a11e603b2"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "ce6d5ad0b34c230919a2c646defbb5ae37775d1d847ffa2d91b7ca1d3dcd0d19",
+          "length": 2087,
+          "skeleton_matches": false
+        },
+        "515_NEGATIVE": {
+          "sha256": "32241b4cb88d8fd4d90249c6a6c0cb8c0d1a02a5c779b6ae2b2a5b60cc2b0f52",
+          "length": 1393,
+          "skeleton_matches": false
+        },
+        "478_POSITIVE": {
+          "sha256": "134a521efb38d5cd26f0d1d338bea10acbd07d3086971418fb3d32e7a33518c7",
+          "length": 2875,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "1d105168c152269f5a107ca0ec048cf68aa3c60a96a5ffcd428dc7093504e583",
+          "length": 1393,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00499",
+      "sha256": "e2fba6fbfdd679b11c9f0ec19296b118353647b97031a500d987a42db1576de0",
+      "size": [
+        768,
+        1376
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00461.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "0add5b2a35a7dc78c071829614472046afc8dd8bf60318cbbfa7f9b172e27642"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "IMG_1987.PNG"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "abf136a5ac52941173e03cd75d1c92f56cbb0e6377f21a06602f3d2317f45efb"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "a308de2f00b66c04ff9ce0f7ac88e7be8b97dbdc80a9c699c642cfd7aa3eb357",
+          "length": 2650,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "9ffda3e94e8dc5d64944dba5a6f2ff11360de3c64a9c203770bbf8faaf1c70da",
+          "length": 1405,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "134a521efb38d5cd26f0d1d338bea10acbd07d3086971418fb3d32e7a33518c7",
+          "length": 2875,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "1d105168c152269f5a107ca0ec048cf68aa3c60a96a5ffcd428dc7093504e583",
+          "length": 1393,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00500",
+      "sha256": "174c69e92793356cfb067d8baf673cc137114b1c22027c4ccad7325d766f08c3",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00461.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "0add5b2a35a7dc78c071829614472046afc8dd8bf60318cbbfa7f9b172e27642"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "IMG_1987.PNG"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "abf136a5ac52941173e03cd75d1c92f56cbb0e6377f21a06602f3d2317f45efb"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "a308de2f00b66c04ff9ce0f7ac88e7be8b97dbdc80a9c699c642cfd7aa3eb357",
+          "length": 2650,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "9ffda3e94e8dc5d64944dba5a6f2ff11360de3c64a9c203770bbf8faaf1c70da",
+          "length": 1405,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "134a521efb38d5cd26f0d1d338bea10acbd07d3086971418fb3d32e7a33518c7",
+          "length": 2875,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "1d105168c152269f5a107ca0ec048cf68aa3c60a96a5ffcd428dc7093504e583",
+          "length": 1393,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00501",
+      "sha256": "b61ecff857500f4c6266c5ffb4e6eb56830929da82bbacc04124ea96a13058aa",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00461.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "0add5b2a35a7dc78c071829614472046afc8dd8bf60318cbbfa7f9b172e27642"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "IMG_1987.PNG"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "abf136a5ac52941173e03cd75d1c92f56cbb0e6377f21a06602f3d2317f45efb"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "8058532827dde2b4961e9b1bb35305ee90db8c8097f8ebc073a6f7750c0fbf4b",
+          "length": 2823,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "9ffda3e94e8dc5d64944dba5a6f2ff11360de3c64a9c203770bbf8faaf1c70da",
+          "length": 1405,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "134a521efb38d5cd26f0d1d338bea10acbd07d3086971418fb3d32e7a33518c7",
+          "length": 2875,
+          "skeleton_matches": false
+        },
+        "478_NEGATIVE": {
+          "sha256": "1d105168c152269f5a107ca0ec048cf68aa3c60a96a5ffcd428dc7093504e583",
+          "length": 1393,
+          "skeleton_matches": false
+        }
+      }
+    },
+    {
+      "id": "00503",
+      "sha256": "13058f6a2e9e3a778af03b4ce0bf757dc31d2505f7bb0b9747c6e4219397a7f6",
+      "size": [
+        1216,
+        1600
+      ],
+      "load_images": {
+        "470": {
+          "inputs": {
+            "image": "IMG_6179.JPG"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "516b4cfc78226bdb49012eb2b9e7017becaff97f0a7400b4bbe19b0625a0e6f2"
+          ]
+        }
+      },
+      "samplers": {
+        "459:458": {
+          "inputs": {
+            "seed": 753944227189969,
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "459:469",
+              0
+            ],
+            "positive": [
+              "459:474",
+              0
+            ],
+            "negative": [
+              "459:474",
+              1
+            ],
+            "latent_image": [
+              "459:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "459:458": {
+          "inputs": {
+            "seed": 753944227189969,
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "459:469",
+              0
+            ],
+            "positive": [
+              "459:474",
+              0
+            ],
+            "negative": [
+              "459:474",
+              1
+            ],
+            "latent_image": [
+              "459:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "prompts": {}
+    },
+    {
+      "id": "00506",
+      "sha256": "65ab04000a8a0e6994cc59479f6ee2009bf57b8622123979ab932ea9856eb69a",
+      "size": [
+        1216,
+        1600
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00503.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "13058f6a2e9e3a778af03b4ce0bf757dc31d2505f7bb0b9747c6e4219397a7f6"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "IMG_1987.PNG"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "abf136a5ac52941173e03cd75d1c92f56cbb0e6377f21a06602f3d2317f45efb"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "0a43c58dda394393e4715c6ca914dceb95744f66a4f47541ba535d08f8c5359b",
+          "length": 2767,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "47d9e195214347cfa1807aff8f1191a081f3c412abe2fbb48d30bf4c920001e8",
+          "length": 1389,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "c0a76386c16c9fa736cb2946409b0fa2acc224612ac1066353f803065783d097",
+          "length": 2814,
+          "skeleton_matches": true
+        },
+        "478_NEGATIVE": {
+          "sha256": "7a71ac0945d6504bbb0d54ac5874afaf238f6bf493d09a37205c1e26466e3e19",
+          "length": 1350,
+          "skeleton_matches": true
+        }
+      }
+    },
+    {
+      "id": "00507",
+      "sha256": "bf10bab0c038b64807e7dda76de9913eeb3e897741e698112a7d95bb144f9f13",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00503.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "13058f6a2e9e3a778af03b4ce0bf757dc31d2505f7bb0b9747c6e4219397a7f6"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "IMG_1987.PNG"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "abf136a5ac52941173e03cd75d1c92f56cbb0e6377f21a06602f3d2317f45efb"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "0a43c58dda394393e4715c6ca914dceb95744f66a4f47541ba535d08f8c5359b",
+          "length": 2767,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "47d9e195214347cfa1807aff8f1191a081f3c412abe2fbb48d30bf4c920001e8",
+          "length": 1389,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "c0a76386c16c9fa736cb2946409b0fa2acc224612ac1066353f803065783d097",
+          "length": 2814,
+          "skeleton_matches": true
+        },
+        "478_NEGATIVE": {
+          "sha256": "7a71ac0945d6504bbb0d54ac5874afaf238f6bf493d09a37205c1e26466e3e19",
+          "length": 1350,
+          "skeleton_matches": true
+        }
+      }
+    },
+    {
+      "id": "00508",
+      "sha256": "24f9946d0b747ed73e0082ceffadbb4bf22d47c71a00f2b7d1700ef0866fc693",
+      "size": [
+        1440,
+        1920
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00242.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "cbc7c108ef851679b22aac1f5381b3f09761d614cad317db6b9d839e6ba1de14"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "IMG_1987.PNG"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "abf136a5ac52941173e03cd75d1c92f56cbb0e6377f21a06602f3d2317f45efb"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "e743c7dbab79918513bc20a447cf231205d698d12022a43a6615732c121acbfb",
+          "length": 2817,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "04a068dc5d3589b893c7dbb45acf87aedbdcde74a09cb6e7db5cf588a8223ee4",
+          "length": 1360,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "6237eb97a1a0286d0e26cabfcb98979cde453eef9b7240ab1b292255088e399c",
+          "length": 2930,
+          "skeleton_matches": true
+        },
+        "478_NEGATIVE": {
+          "sha256": "7b9f72b57beb3aa453a46a13a1e78499fd1ebadab494f0fc2319328ddb80c876",
+          "length": 1350,
+          "skeleton_matches": true
+        }
+      }
+    },
+    {
+      "id": "00509",
+      "sha256": "2de2386c2fa67b00540776631ef2e7170786e9289b788e1857bb5f62bb0b4a39",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00242.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "cbc7c108ef851679b22aac1f5381b3f09761d614cad317db6b9d839e6ba1de14"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "IMG_1987.PNG"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "abf136a5ac52941173e03cd75d1c92f56cbb0e6377f21a06602f3d2317f45efb"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "e743c7dbab79918513bc20a447cf231205d698d12022a43a6615732c121acbfb",
+          "length": 2817,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "04a068dc5d3589b893c7dbb45acf87aedbdcde74a09cb6e7db5cf588a8223ee4",
+          "length": 1360,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "6237eb97a1a0286d0e26cabfcb98979cde453eef9b7240ab1b292255088e399c",
+          "length": 2930,
+          "skeleton_matches": true
+        },
+        "478_NEGATIVE": {
+          "sha256": "7b9f72b57beb3aa453a46a13a1e78499fd1ebadab494f0fc2319328ddb80c876",
+          "length": 1350,
+          "skeleton_matches": true
+        }
+      }
+    },
+    {
+      "id": "00510",
+      "sha256": "42077960ee9a3c26d469eed8e8f397d58471941d261e63d9384f2ba512b9b51a",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00242.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "cbc7c108ef851679b22aac1f5381b3f09761d614cad317db6b9d839e6ba1de14"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "纯白背景下的对称证件肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "998a0dd31ba0e81f56511d001136a5d1d14c90ae922082ce79d6a48d43c7b931"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "e743c7dbab79918513bc20a447cf231205d698d12022a43a6615732c121acbfb",
+          "length": 2817,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "04a068dc5d3589b893c7dbb45acf87aedbdcde74a09cb6e7db5cf588a8223ee4",
+          "length": 1360,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "6237eb97a1a0286d0e26cabfcb98979cde453eef9b7240ab1b292255088e399c",
+          "length": 2930,
+          "skeleton_matches": true
+        },
+        "478_NEGATIVE": {
+          "sha256": "7b9f72b57beb3aa453a46a13a1e78499fd1ebadab494f0fc2319328ddb80c876",
+          "length": 1350,
+          "skeleton_matches": true
+        }
+      }
+    },
+    {
+      "id": "00511",
+      "sha256": "7e33702104e4d06251c272cd6afefb2bcf098816f60dabd4e8508d149318e615",
+      "size": [
+        1088,
+        1920
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00451.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "7f1c7c222005e18285c8b96225fcaa2f0127860f84bbe292836ebe0b7ef9b4ef"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "纯白背景下的对称证件肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "998a0dd31ba0e81f56511d001136a5d1d14c90ae922082ce79d6a48d43c7b931"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "8416ae429d573f5922d4756a7dd0c7161547cf24220fe7b035c95a4c3bfb271f",
+          "length": 2770,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "58f7703f066554dcef1708cfa40e25bfe0d1caa6ea51e2622b74fe8fb64019bd",
+          "length": 1363,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "07e6c286fe6c063d8c1ebed30abad9596a87b798beeeaad4ac35962d976a4e28",
+          "length": 2765,
+          "skeleton_matches": true
+        },
+        "478_NEGATIVE": {
+          "sha256": "82b97c5e42c24e239359586890b1393baad542beb0dbc4e89dfd004d343ab930",
+          "length": 1353,
+          "skeleton_matches": true
+        }
+      }
+    },
+    {
+      "id": "00512",
+      "sha256": "5d5f2bddb966a538552c34e8d5e963af98fff2101c401e25044aa0c60b0e3d93",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00451.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "7f1c7c222005e18285c8b96225fcaa2f0127860f84bbe292836ebe0b7ef9b4ef"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "纯白背景下的对称证件肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "998a0dd31ba0e81f56511d001136a5d1d14c90ae922082ce79d6a48d43c7b931"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "8416ae429d573f5922d4756a7dd0c7161547cf24220fe7b035c95a4c3bfb271f",
+          "length": 2770,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "58f7703f066554dcef1708cfa40e25bfe0d1caa6ea51e2622b74fe8fb64019bd",
+          "length": 1363,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "07e6c286fe6c063d8c1ebed30abad9596a87b798beeeaad4ac35962d976a4e28",
+          "length": 2765,
+          "skeleton_matches": true
+        },
+        "478_NEGATIVE": {
+          "sha256": "82b97c5e42c24e239359586890b1393baad542beb0dbc4e89dfd004d343ab930",
+          "length": 1353,
+          "skeleton_matches": true
+        }
+      }
+    },
+    {
+      "id": "00513",
+      "sha256": "e09eb0091783771904904145536fb8a5a50a490ace7bcf13c8a64e4d8f46d126",
+      "size": [
+        2080,
+        1184
+      ],
+      "load_images": {
+        "480": {
+          "inputs": {
+            "image": "Qwen_image_2.1_00451.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "7f1c7c222005e18285c8b96225fcaa2f0127860f84bbe292836ebe0b7ef9b4ef"
+          ]
+        },
+        "514": {
+          "inputs": {
+            "image": "four-view-shoulder-top-enlarged.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "b55c60da1f1ddae9e1f9a075c4f51c731e155d2cb697361561f846a50e75d455"
+          ]
+        },
+        "522": {
+          "inputs": {
+            "image": "清透白底东方面容肖像.png"
+          },
+          "class_type": "LoadImage",
+          "_meta": {
+            "title": "加载图像"
+          },
+          "is_changed": [
+            "e243d38d838e8c7591fac86fb48fe13cadfed780cfa50e38d6858597aac6ca12"
+          ]
+        }
+      },
+      "samplers": {
+        "478:458": {
+          "inputs": {
+            "seed": [
+              "494",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "478:469",
+              0
+            ],
+            "positive": [
+              "478:474",
+              0
+            ],
+            "negative": [
+              "478:474",
+              1
+            ],
+            "latent_image": [
+              "478:468",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        },
+        "515:510": {
+          "inputs": {
+            "seed": [
+              "518",
+              0
+            ],
+            "steps": 30,
+            "cfg": 3.5,
+            "sampler_name": "euler",
+            "scheduler": "simple",
+            "denoise": 1.0,
+            "model": [
+              "515:512",
+              0
+            ],
+            "positive": [
+              "515:513",
+              0
+            ],
+            "negative": [
+              "515:513",
+              1
+            ],
+            "latent_image": [
+              "515:511",
+              0
+            ]
+          },
+          "class_type": "KSampler",
+          "_meta": {
+            "title": "K采样器"
+          }
+        }
+      },
+      "seed_nodes": {
+        "494": {
+          "inputs": {
+            "seed": 810701216055607
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        },
+        "518": {
+          "inputs": {
+            "seed": 744522349844629
+          },
+          "class_type": "SeedNode",
+          "_meta": {
+            "title": "种子"
+          }
+        }
+      },
+      "prompts": {
+        "515_POSITIVE": {
+          "sha256": "8416ae429d573f5922d4756a7dd0c7161547cf24220fe7b035c95a4c3bfb271f",
+          "length": 2770,
+          "skeleton_matches": true
+        },
+        "515_NEGATIVE": {
+          "sha256": "58f7703f066554dcef1708cfa40e25bfe0d1caa6ea51e2622b74fe8fb64019bd",
+          "length": 1363,
+          "skeleton_matches": true
+        },
+        "478_POSITIVE": {
+          "sha256": "07e6c286fe6c063d8c1ebed30abad9596a87b798beeeaad4ac35962d976a4e28",
+          "length": 2765,
+          "skeleton_matches": true
+        },
+        "478_NEGATIVE": {
+          "sha256": "82b97c5e42c24e239359586890b1393baad542beb0dbc4e89dfd004d343ab930",
+          "length": 1353,
+          "skeleton_matches": true
+        }
+      }
+    }
+  ],
+  "controlled_graph_diffs": {
+    "00478->00491": [
+      {
+        "path": "/515:513/inputs/negative_prompt",
+        "before": "three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, a head in the first three panels, a face in the first three panels, hair falling over the shoulders in the first three panels, head added above the shoulders, repaired crop, figure rescaled to fit the whole body, different person between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, wardrobe from <image2>, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, wide straps, strapless dress, sweetheart neckline, missing cowl drape, flat ungathered waist, bodycon silhouette, a two-piece outfit, a separate skirt, a bodysuit, a jumpsuit, a robe, a nightgown, a short dress, a mini dress, a midi dress, added sleeves, added jacket, added belt, added bag, the floral print simplified, the floral print turned into a solid colour, the flower colours changed, the off-white ground turned cream, the off-white ground turned grey, heeled shoes, rounded-toe shoes, brown shoes, grey shoes, patent shoes, open-toe shoes, strappy sandals, ankle boots, platform heels, wedge heels, block heels, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render",
+        "after": "three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, a head in the first three panels, a face in the first three panels, hair falling over the shoulders in the first three panels, head added above the shoulders, repaired crop, figure rescaled to fit the whole body, different person between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, wardrobe from <image2>, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, wide straps, strapless dress, sweetheart neckline, missing cowl drape, flat ungathered waist, bodycon silhouette, a two-piece outfit, a separate skirt, a bodysuit, a jumpsuit, a robe, a nightgown, a short dress, a mini dress, a midi dress, added sleeves, added jacket, added belt, added bag, the floral print simplified, the floral print turned into a solid colour, the flower colours changed, the off-white ground turned cream, the off-white ground turned grey, heeled shoes, rounded-toe shoes, brown shoes, grey shoes, patent shoes, open-toe shoes, strappy sandals, ankle boots, platform heels, wedge heels, block heels, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render.a straight horizontal top edge, a flat truncation across the neck, a sheared shoulder top, a hard edge at the neckline base, a horizontal line across the upper chest"
+      },
+      {
+        "path": "/515:513/inputs/prompt",
+        "before": "Edit the four-figure sheet in <image1> into a finished character reference sheet: keep <image1> as the canvas, with its four-panel layout, the width and height of each panel, the camera height, the plain white background, the soft even studio light and the faint contact shadows under the shoes all exactly as they are, and change only the heads and the outfit. The leftmost panel shows the standing woman from <image2> in full-length front view, with her head and neck absent above the shoulders, and with both rounded shoulders, both arms and both hands present. The second panel shows the same standing woman in full-length back view, with her head and neck absent above the shoulders, and with both rounded shoulders, both arms and both hands present. The third panel shows the same standing woman in full-length true side view, with her head and neck absent above the shoulders, and with her shoulder, arm and hand visible in the same side-view pose as <image1>. In each of these three panels, keep the shoulder contour, arm and hand positions, body proportions, stance, placement and scale of the corresponding figure in <image1>, rendered as living human skin matching <image2>; retain the exposed shoulders and upper chest above the dress neckline and around its straps, the shoulders keeping their natural rounded contour with a soft clean edge where the figure ends, not a harsh horizontal cut. The absent head and neck occupy only the background above the shoulders; the shoulders, arms, hands and garment remain intact, with no face or hair in any of these three panels. The fourth panel is a large frontal face-and-shoulders portrait of that same woman, filling its panel from just above the crown of her head down to the base of her neck so her face dominates the panel, framed and scaled exactly like the fourth figure of <image1>; her facial identity and hair are those shown in <image2> exactly as <image2> shows them, and this panel is the only one that contains a head or a face. In all four panels she wears one outfit taken from <image3>: a vibrant painterly-floral slip dress with two thin spaghetti straps and a draped cowl neckline, the bodice fitted with soft gathering at the waist, the skirt opening into a flowing A-line that falls to just above the ankle, with a pair of black pointed-toe flat shoes on both feet, smooth matte black leather with no heel. The off-white ground of the print stays clean and never turns cream or grey; the red, blue, yellow and peach blossoms with their green leaves keep the same scale and the same painterly vividness on the bodice and down the full length of the skirt and never merge into a solid colour; the flats stay matte black leather and never turn brown, grey or patent. Nothing else is added, removed, restyled or re-lit.",
+        "after": "Edit the four-figure sheet in <image1> into a finished character reference sheet: keep <image1> as the canvas, with its four-panel layout, the width and height of each panel, the camera height, the plain white background, the soft even studio light and the faint contact shadows under the shoes all exactly as they are, and change only the heads and the outfit. The leftmost panel shows the standing woman from <image2> in full-length front view, with her head and neck absent above the shoulders, and with both rounded shoulders, both arms and both hands present. The second panel shows the same standing woman in full-length back view, with her head and neck absent above the shoulders, and with both rounded shoulders, both arms and both hands present. The third panel shows the same standing woman in full-length true side view, with her head and neck absent above the shoulders, and with her shoulder, arm and hand visible in the same side-view pose as <image1>. In each of these three panels, keep the shoulder contour, arm and hand positions, body proportions, stance, placement and scale of the corresponding figure in <image1>, rendered as living human skin matching <image2>. Let the top of each figure be the natural slope of the shoulders, the shoulder line curving softly up toward the base of the neck and back down into the collarbones, one continuous rounded contour with no straight horizontal edge anywhere along the top; the exposed shoulders and upper chest stay open around the straps, and the skin melts gently into the white background along the shoulder line. The absent head and neck occupy only the background above the shoulders; the shoulders, arms, hands and garment remain intact, with no face or hair in any of these three panels. The fourth panel is a large frontal face-and-shoulders portrait of that same woman, filling its panel from just above the crown of her head down to the base of her neck so her face dominates the panel, framed and scaled exactly like the fourth figure of <image1>; her facial identity and hair are those shown in <image2> exactly as <image2> shows them, and this panel is the only one that contains a head or a face. In all four panels she wears one outfit taken from <image3>: a vibrant painterly-floral slip dress with two thin spaghetti straps and a draped cowl neckline, the bodice fitted with soft gathering at the waist, the skirt opening into a flowing A-line that falls to just above the ankle, with a pair of black pointed-toe flat shoes on both feet, smooth matte black leather with no heel. The off-white ground of the print stays clean and never turns cream or grey; the red, blue, yellow and peach blossoms with their green leaves keep the same scale and the same painterly vividness on the bodice and down the full length of the skirt and never merge into a solid colour; the flats stay matte black leather and never turn brown, grey or patent. Nothing else is added, removed, restyled or re-lit."
+      }
+    ],
+    "00480->00481": [
+      {
+        "path": "/515:513/inputs/prompt",
+        "before": "Edit the four-panel character sheet in <image1>. Replace the white mannequin with a photorealistic young East Asian woman, with her head and neck absent above the shoulders in the first three panels. The figure in panels 1-3 ends cleanly at the garment's own neckline, no bare skin, no neck stump, no trapezius tapering upward. Dress her in the exact outfit from <image3>: a camel-beige three-piece suit set with a shawl-collar open-front blazer with long sleeves and wide turned cuffs, a white V-neck knit top underneath, and a long straight pencil skirt falling to the ankle, plus a pair of beige rounded-toe flat shoes. Every stitch, fold, drape and the set's silhouette must match <image3> precisely, the garments complete and uncut, the shawl collar and the blazer's open front fully shown.\n\nPanel 1: full-length front view, standing straight, arms relaxed at her sides with complete natural hands, the beige blazer fronts falling naturally over the white top. Panel 2: full-length back view, same pose, blazer back and skirt drape matching <image3>. Panel 3: full-length side profile view, blazer silhouette and sleeve shape true to <image3>. Panel 4: close-up portrait of the woman's face, exactly as <image2> shows, same features, same expression.\n\nKeep the exact four-panel layout, white studio background and soft even lighting of <image1>. Photorealistic smartphone rear-camera texture, natural skin with visible pores, matte finish with no oily highlights, true-to-life colour, no over-sharpening, no HDR glow. The woman's body from the shoulders down is consistent across panels 1-3: same skin tone, same arms and hands, same posture language. Change only the heads and the outfit; everything else in <image1> stays identical.",
+        "after": "Edit the four-panel character sheet in <image1>. Replace the white mannequin with a photorealistic young East Asian woman, with her head and neck absent above the shoulders in the first three panels. The figure in panels 1-3 ends at the garment's own neckline; the small area of skin visible at the V-neck is only upper chest, with no neck rising above it, no neck stump, no trapezius tapering upward. Dress her in the exact outfit from <image3>: a camel-beige three-piece suit set with a shawl-collar open-front blazer with long sleeves and wide turned cuffs, a white V-neck knit top underneath, and a long straight pencil skirt falling to the ankle, plus a pair of beige rounded-toe flat shoes. Every stitch, fold, drape and the set's silhouette must match <image3> precisely, the garments complete and uncut, the shawl collar and the blazer's open front fully shown.\n\nPanel 1: full-length front view, standing straight, arms relaxed at her sides with complete natural hands, the beige blazer fronts falling naturally over the white top. Panel 2: full-length back view, same pose, blazer back and skirt drape matching <image3>. Panel 3: full-length side profile view, blazer silhouette and sleeve shape true to <image3>. Panel 4: close-up portrait of the woman's face, exactly as <image2> shows, same features, same expression.\n\nKeep the exact four-panel layout, white studio background and soft even lighting of <image1>. Photorealistic smartphone rear-camera texture, natural skin with visible pores, matte finish with no oily highlights, true-to-life colour, no over-sharpening, no HDR glow. The woman's body from the shoulders down is consistent across panels 1-3: same skin tone, same arms and hands, same posture language. Change only the heads and the outfit; everything else in <image1> stays identical.\n"
+      }
+    ],
+    "00481->00485": [
+      {
+        "path": "/515:513/inputs/negative_prompt",
+        "before": "three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, the beige rendered brown, the beige rendered orange, the beige rendered grey, the white top rendered cream, the white top rendered grey, the beige flats rendered white, the beige flats rendered brown, heeled shoes, pointed-toe shoes, white shoes, pink shoes, lapelled blazer, notched lapels, buttoned blazer, single-breasted closure, double-breasted closure, missing shawl collar, short sleeves, narrow cuffs, flared skirt, A-line skirt, short skirt, knee-length skirt, missing vent, missing white top, a two-piece set, a dress, a jumpsuit, a head in the first three panels, a face in the first three panels, hair falling over the shoulders in the first three panels, head added above the shoulders, repaired crop, figure rescaled to fit the whole body, different person between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, wardrobe from `<image2>`, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render",
+        "after": "three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, a head in the first three panels, a face in the first three panels, a neck in the first three panels, skin rising above the collarbones, a neck stump, a trapezius tapering upward, hair falling over the shoulders in the first three panels, head added above the shoulders, a bare shoulder cut into a horizontal line, repaired crop, figure rescaled to fit the whole body, different person between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, notched lapels, single-breasted closure, double-breasted closure, short sleeves, narrow cuffs, flared skirt, A-line skirt, short skirt, a dress, a jumpsuit, a bag, a belt, jewellery, the beige rendered brown, the beige rendered orange, the beige rendered grey, the white top rendered cream, the white top rendered grey, the beige flats rendered white, heeled shoes, pointed-toe shoes, white shoes, pink shoes, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render"
+      },
+      {
+        "path": "/515:513/inputs/prompt",
+        "before": "Edit the four-panel character sheet in <image1>. Replace the white mannequin with a photorealistic young East Asian woman, with her head and neck absent above the shoulders in the first three panels. The figure in panels 1-3 ends at the garment's own neckline; the small area of skin visible at the V-neck is only upper chest, with no neck rising above it, no neck stump, no trapezius tapering upward. Dress her in the exact outfit from <image3>: a camel-beige three-piece suit set with a shawl-collar open-front blazer with long sleeves and wide turned cuffs, a white V-neck knit top underneath, and a long straight pencil skirt falling to the ankle, plus a pair of beige rounded-toe flat shoes. Every stitch, fold, drape and the set's silhouette must match <image3> precisely, the garments complete and uncut, the shawl collar and the blazer's open front fully shown.\n\nPanel 1: full-length front view, standing straight, arms relaxed at her sides with complete natural hands, the beige blazer fronts falling naturally over the white top. Panel 2: full-length back view, same pose, blazer back and skirt drape matching <image3>. Panel 3: full-length side profile view, blazer silhouette and sleeve shape true to <image3>. Panel 4: close-up portrait of the woman's face, exactly as <image2> shows, same features, same expression.\n\nKeep the exact four-panel layout, white studio background and soft even lighting of <image1>. Photorealistic smartphone rear-camera texture, natural skin with visible pores, matte finish with no oily highlights, true-to-life colour, no over-sharpening, no HDR glow. The woman's body from the shoulders down is consistent across panels 1-3: same skin tone, same arms and hands, same posture language. Change only the heads and the outfit; everything else in <image1> stays identical.\n",
+        "after": "Edit the four-figure sheet in <image1> into a finished character reference sheet: keep <image1> as the canvas, with its four-panel layout, the width and height of each panel, the camera height, the plain white background, the soft even studio light and the faint contact shadows under the shoes all exactly as they are, and change only the figures and the outfit. The leftmost panel shows the standing woman from <image2> in full-length front view, with her head and neck absent above the shoulders, and with both shoulders, both arms and both hands present. The second panel shows the same standing woman in full-length back view, with her head and neck absent above the shoulders, and with both shoulders, both arms and both hands present. The third panel shows the same standing woman in full-length true side view, with her head and neck absent above the shoulders, and with her shoulder, arm and hand visible in the same side-view pose as <image1>. In each of these three panels, keep the shoulder contour, arm and hand positions, body proportions, stance, placement and scale of the corresponding figure in <image1>, rendered as living human skin matching <image2>. The top edge of each of these three figures is the blazer's own shoulder line: the shoulder seams and the rounded shoulders of the blazer form a soft clean edge where the figure ends, not a harsh horizontal cut, and inside the open V of the white top only upper chest shows, with nothing rising above the collarbones. The absent head and neck occupy only the background above the shoulders; the shoulders, arms, hands and garments remain intact, with no face or hair in any of these three panels. The fourth panel is a large frontal face-and-shoulders portrait of that same woman, filling its panel from just above the crown of her head down to the base of her neck so her face dominates the panel, framed and scaled exactly like the fourth figure of <image1>; her facial identity, hair and expression are those shown in <image2> exactly as <image2> shows them, and this panel is the only one that contains a head or a face. In all four panels she wears one outfit taken from <image3>: a camel-beige three-piece suit set with a shawl-collar open-front blazer with long sleeves and wide turned cuffs, a white V-neck knit top underneath, and a long straight pencil skirt falling to the ankle with a back vent, plus a pair of beige rounded-toe flat shoes. The blazer's shawl collar and open front are fully shown, the wide turned cuffs stay at the wrists, and the skirt keeps its straight silhouette; the camel beige stays a warm camel beige, never brown or orange; the white top stays white, never cream or grey; the flats stay matte beige leather, never white or brown. Nothing else is added, removed, restyled or re-lit.\n"
+      }
+    ],
+    "00489->00494": [
+      {
+        "path": "/480/inputs/image",
+        "before": "Qwen_image_2.1_00470.png",
+        "after": "Qwen_image_2.1_00492.png"
+      },
+      {
+        "path": "/480/is_changed",
+        "before": [
+          "860346bda200d0d3f07b5d1f0104f7d6eec427994bb0b48db063c9ab3a6f67a0"
+        ],
+        "after": [
+          "ca7f6048b8200af074efaed1f0891589003a022e5848650725a58d94b86153ae"
+        ]
+      }
+    ],
+    "00498->00500": [
+      {
+        "path": "/515:513/inputs/negative_prompt",
+        "before": "three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, a head in the first three panels, a face in the first three panels, a neck in the first three panels, a neck stump, a trapezius tapering upward, hair falling over the shoulders in the first three panels, head added above the shoulders, a bare shoulder cut into a horizontal line, a straight horizontal top edge, skin above the sweater collar, repaired crop, figure rescaled to fit the whole body, different person between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, crew-neck sweater, full zip, hooded sweater, V-neck sweater, smooth knit, flat knit, sneakers, boots, loafers, sandals, a belt, a bag, a watch, jewellery, a tie, jeans, denim, shorts, the cable knit rendered yellow, the cable knit rendered grey, the shirt rendered cream, the trousers rendered grey, the trousers rendered black, the shoes rendered black, the shoes rendered tan, flat shoes, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render",
+        "after": "three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, a head in the first three panels, a face in the first three panels, hair falling over the shoulders in the first three panels, head added above the shoulders, repaired crop, figure rescaled to fit the whole body, different man between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, wardrobe from <image2>, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, a neck in the first three panels, skin rising above the collarbones, skin above the sweater collar, a neck stump, a trapezius tapering upward, a straight horizontal top edge, crew-neck sweater, full zip, hooded sweater, V-neck sweater, smooth knit, flat knit, sneakers, boots, loafers, sandals, a belt, a bag, a watch, jewellery, a tie, jeans, denim, shorts, the cable knit rendered yellow, the cable knit rendered grey, the shirt rendered cream, the trousers rendered grey, the trousers rendered black, the shoes rendered black, the shoes rendered tan, flat shoes, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render"
+      },
+      {
+        "path": "/515:513/inputs/prompt",
+        "before": "Edit the four-panel character sheet in <image1>. Replace the white mannequin with a photorealistic man matching <image2>, with his head and neck absent above the shoulders in the first three panels. The figure in panels 1-3 ends cleanly at the sweater's own high mock collar, which closes around the base of the neck, no bare skin, no neck stump, no trapezius tapering upward; the raglan sleeves keep a sloped shoulder line with a soft clean edge where the figure ends, not a harsh horizontal cut. Dress him in the exact outfit from <image3>: a half-zip mock-neck sweater in oatmeal-beige cable knit with raglan sleeves, ribbed cuffs and a ribbed hem, worn over a crisp white collared shirt whose collar and cuff edges show, with straight-cut mid-brown trousers falling to the ankle and a pair of brown leather derby lace-up shoes on both feet.\n\nPanel 1: full-length front view, standing straight, arms relaxed at his sides with complete natural hands, the sweater hanging naturally. Panel 2: full-length back view, same pose, sweater back and trouser drape matching <image3>. Panel 3: full-length side profile view, sweater silhouette and raglan sleeve shape true to <image3>. Panel 4: a large frontal face-and-shoulders portrait of the man, exactly as <image2> shows, same features, same expression, framed like the fourth figure of <image1>; this panel is the only one that contains a head or a face.\n\nKeep the exact four-panel layout, white studio background and soft even lighting of <image1>. Photorealistic smartphone rear-camera texture, natural skin with visible pores, matte finish with no oily highlights, true-to-life colour, no over-sharpening, no HDR glow. The man's body from the shoulders down is consistent across panels 1-3: same skin tone, same arms and hands, same posture language. The cable knit stays an oatmeal beige, never yellow or grey; the shirt stays white, never cream; the trousers stay mid brown, never grey or black; the shoes stay rich brown leather, never black or tan. Change only the heads and the outfit; everything else in <image1> stays identical.",
+        "after": "Edit the four-figure sheet in <image1> into a finished character reference sheet: keep <image1> as the canvas, with its four-panel layout, the width and height of each panel, the camera height, the plain white background, the soft even studio light and the faint contact shadows under the shoes all exactly as they are, and change only the heads and the outfit. The leftmost panel shows the standing man from <image2> in full-length front view, with his head and neck absent above the shoulders, and with both shoulders, both arms and both hands present. The second panel shows the same standing man in full-length back view, with his head and neck absent above the shoulders, and with both shoulders, both arms and both hands present. The third panel shows the same standing man in full-length true side view, with his head and neck absent above the shoulders, and with his shoulder, arm and hand visible in the same side-view pose as <image1>. In each of these three panels, keep the shoulder contour, arm and hand positions, body proportions, stance, placement and scale of the corresponding figure in <image1>, rendered as living human skin matching <image2>. The figure in panels 1-3 ends cleanly at the sweater's own high mock collar, which closes around the base of the neck, no bare skin, no neck stump, no trapezius tapering upward; the raglan sleeves keep a natural sloped shoulder line with a soft clean edge where the figure ends. The absent head and neck occupy only the background above the shoulders; the shoulders, arms, hands and garment remain intact, with no face or hair in any of these three panels. The fourth panel is a large frontal face-and-shoulders portrait of that same man, filling its panel from just above the crown of his head down to the base of his neck so his face dominates the panel, framed and scaled exactly like the fourth figure of <image1>; his facial identity and hair are those shown in <image2> exactly as <image2> shows them, and this panel is the only one that contains a head or a face. In all four panels he wears one outfit taken from <image3>: a half-zip mock-neck sweater in oatmeal-beige cable knit with raglan sleeves, ribbed cuffs and a ribbed hem, worn over a crisp white collared shirt whose collar and cuff edges show, with straight-cut mid-brown trousers falling to the ankle and a pair of brown leather derby lace-up shoes on both feet. The cable knit stays an oatmeal beige, never yellow or grey; the shirt stays white, never cream; the trousers stay mid brown, never grey or black; the shoes stay rich brown leather, never black or tan. Nothing else is added, removed, restyled or re-lit."
+      },
+      {
+        "path": "/522/inputs/image",
+        "before": "东亚男性白底证件肖像.png",
+        "after": "IMG_1987.PNG"
+      },
+      {
+        "path": "/522/is_changed",
+        "before": [
+          "746a26dfed406e6254cc10928fc36386fae4d69b9862b0cb6db09d4a11e603b2"
+        ],
+        "after": [
+          "abf136a5ac52941173e03cd75d1c92f56cbb0e6377f21a06602f3d2317f45efb"
+        ]
+      }
+    ],
+    "00500->00501": [
+      {
+        "path": "/515:513/inputs/prompt",
+        "before": "Edit the four-figure sheet in <image1> into a finished character reference sheet: keep <image1> as the canvas, with its four-panel layout, the width and height of each panel, the camera height, the plain white background, the soft even studio light and the faint contact shadows under the shoes all exactly as they are, and change only the heads and the outfit. The leftmost panel shows the standing man from <image2> in full-length front view, with his head and neck absent above the shoulders, and with both shoulders, both arms and both hands present. The second panel shows the same standing man in full-length back view, with his head and neck absent above the shoulders, and with both shoulders, both arms and both hands present. The third panel shows the same standing man in full-length true side view, with his head and neck absent above the shoulders, and with his shoulder, arm and hand visible in the same side-view pose as <image1>. In each of these three panels, keep the shoulder contour, arm and hand positions, body proportions, stance, placement and scale of the corresponding figure in <image1>, rendered as living human skin matching <image2>. The figure in panels 1-3 ends cleanly at the sweater's own high mock collar, which closes around the base of the neck, no bare skin, no neck stump, no trapezius tapering upward; the raglan sleeves keep a natural sloped shoulder line with a soft clean edge where the figure ends. The absent head and neck occupy only the background above the shoulders; the shoulders, arms, hands and garment remain intact, with no face or hair in any of these three panels. The fourth panel is a large frontal face-and-shoulders portrait of that same man, filling its panel from just above the crown of his head down to the base of his neck so his face dominates the panel, framed and scaled exactly like the fourth figure of <image1>; his facial identity and hair are those shown in <image2> exactly as <image2> shows them, and this panel is the only one that contains a head or a face. In all four panels he wears one outfit taken from <image3>: a half-zip mock-neck sweater in oatmeal-beige cable knit with raglan sleeves, ribbed cuffs and a ribbed hem, worn over a crisp white collared shirt whose collar and cuff edges show, with straight-cut mid-brown trousers falling to the ankle and a pair of brown leather derby lace-up shoes on both feet. The cable knit stays an oatmeal beige, never yellow or grey; the shirt stays white, never cream; the trousers stay mid brown, never grey or black; the shoes stay rich brown leather, never black or tan. Nothing else is added, removed, restyled or re-lit.",
+        "after": "Edit the four-figure sheet in <image1> into a finished character reference sheet: keep <image1> as the canvas, with its four-panel layout, the width and height of each panel, the camera height, the plain white background, the soft even studio light and the faint contact shadows under the shoes all exactly as they are, and change only the heads and the outfit. The leftmost panel shows the standing man from <image2> in full-length front view, with his head and neck absent above the shoulders, and with both shoulders, both arms and both hands present. The second panel shows the same standing man in full-length back view, with his head and neck absent above the shoulders, and with both shoulders, both arms and both hands present. The third panel shows the same standing man in full-length true side view, with his head and neck absent above the shoulders, and with his shoulder, arm and hand visible in the same side-view pose as <image1>. In each of these three panels, keep the shoulder contour, arm and hand positions, body proportions, stance, placement and scale of the corresponding figure in <image1>, rendered as living human skin matching <image2>. The figure in panels 1-3 ends cleanly at the sweater's own high collar, which closes around the base of the neck, no bare skin, no neck stump, no trapezius tapering upward; the short zip pull and the white shirt collar sit on the garment at the base of the neck and remain visible as part of the outfit, while the neck itself stays absent above them; the raglan sleeves keep a natural sloped shoulder line with a soft clean edge where the figure ends. The absent head and neck occupy only the background above the shoulders; the shoulders, arms, hands and garment remain intact, with no face or hair in any of these three panels. The fourth panel is a large frontal face-and-shoulders portrait of that same man, filling its panel from just above the crown of his head down to the base of his neck so his face dominates the panel, framed and scaled exactly like the fourth figure of <image1>; his facial identity and hair are those shown in <image2> exactly as <image2> shows them, and this panel is the only one that contains a head or a face. In all four panels he wears one outfit taken from <image3>: a half-zip mock-neck sweater in oatmeal-beige cable knit with raglan sleeves, ribbed cuffs and a ribbed hem, worn over a crisp white collared shirt whose collar and cuff edges show, with straight-cut mid-brown trousers falling to the ankle and a pair of brown leather derby lace-up shoes on both feet. The cable knit stays an oatmeal beige, never yellow or grey; the shirt stays white, never cream; the trousers stay mid brown, never grey or black; the shoes stay rich brown leather, never black or tan. Nothing else is added, removed, restyled or re-lit."
+      }
+    ],
+    "00506->00507": [],
+    "00508->00509": [],
+    "00509->00510": [
+      {
+        "path": "/522/inputs/image",
+        "before": "IMG_1987.PNG",
+        "after": "纯白背景下的对称证件肖像.png"
+      },
+      {
+        "path": "/522/is_changed",
+        "before": [
+          "abf136a5ac52941173e03cd75d1c92f56cbb0e6377f21a06602f3d2317f45efb"
+        ],
+        "after": [
+          "998a0dd31ba0e81f56511d001136a5d1d14c90ae922082ce79d6a48d43c7b931"
+        ]
+      }
+    ],
+    "00511->00512": [],
+    "00512->00513": [
+      {
+        "path": "/522/inputs/image",
+        "before": "纯白背景下的对称证件肖像.png",
+        "after": "清透白底东方面容肖像.png"
+      },
+      {
+        "path": "/522/is_changed",
+        "before": [
+          "998a0dd31ba0e81f56511d001136a5d1d14c90ae922082ce79d6a48d43c7b931"
+        ],
+        "after": [
+          "e243d38d838e8c7591fac86fb48fe13cadfed780cfa50e38d6858597aac6ca12"
+        ]
+      }
+    ]
+  },
+  "historical_positive_replays": {
+    "strap": {
+      "equal_stripped": true,
+      "unfilled": [],
+      "differences": []
+    },
+    "vneck": {
+      "equal_stripped": true,
+      "unfilled": [],
+      "differences": []
+    }
+  },
+  "final_document_comparison": {
+    "510": {
+      "478:474/prompt": {
+        "equal_stripped": true,
+        "differences": []
+      },
+      "478:474/negative_prompt": {
+        "equal_stripped": true,
+        "differences": []
+      },
+      "515:513/prompt": {
+        "equal_stripped": true,
+        "differences": []
+      },
+      "515:513/negative_prompt": {
+        "equal_stripped": true,
+        "differences": []
+      }
+    },
+    "512": {
+      "478:474/prompt": {
+        "equal_stripped": true,
+        "differences": []
+      },
+      "478:474/negative_prompt": {
+        "equal_stripped": true,
+        "differences": []
+      },
+      "515:513/prompt": {
+        "equal_stripped": true,
+        "differences": []
+      },
+      "515:513/negative_prompt": {
+        "equal_stripped": true,
+        "differences": []
+      }
+    },
+    "507": {
+      "478:474/prompt": {
+        "equal_stripped": true,
+        "differences": []
+      },
+      "478:474/negative_prompt": {
+        "equal_stripped": true,
+        "differences": []
+      },
+      "515:513/prompt": {
+        "equal_stripped": true,
+        "differences": []
+      },
+      "515:513/negative_prompt": {
+        "equal_stripped": true,
+        "differences": []
+      }
+    }
+  }
+}

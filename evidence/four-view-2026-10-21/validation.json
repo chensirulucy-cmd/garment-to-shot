@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-21",
+  "scope": "existing PNG evidence and offline prompt assembly; no GPU runs",
+  "standard_skill_validator": "PASS",
+  "repo_skills": {
+    "count": 6,
+    "errors": 0,
+    "advisory_warnings": 21
+  },
+  "repo_templates": {
+    "count": 8,
+    "failures": 0
+  },
+  "template_bytes_unchanged": 2,
+  "exact_prompt_replays": 18,
+  "original_pngs_checked": 5,
+  "existing_unit_tests_passed": 10,
+  "skill_markdown_links": "PASS",
+  "slot_errors_subject_linkage_cli": "PASS",
+  "known_limits": [
+    "478 missing complete views",
+    "ordinary crew-neck adaptation not yet validated",
+    "dark-colour/detail and video continuity not resolved"
+  ]
+}

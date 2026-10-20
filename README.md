@@ -16,7 +16,7 @@
 | `01-canvas` | 场景画布（空镜） | ✅ | 00336（正向 = 交付版 498 词逐字一致） |
 | `02-ghost-mannequin` | 服装照 → 幽灵服装台 | ✅ | 00235（基础）/ 00241（件数锁 + 鞋补全）；**三件套配方** 00393（白T + 浅蓝修身牛仔 + 白板鞋）→ `templates/02-ghost-set-trio.md` |
 | `03-two-source-merge` | 上装 + 下装/鞋 两源合并 | ✅ | 00315 |
-| `04-character-sheet` | 角色四视图（三槽：画布 / 人像 / 服装板） | ✅ 成功样本；换装稳定性待验证 | 00264 / 00308 / 00321 / 00325 / 00408 / 00418。保留一次整图生成，永久排除拼接；[证据纠错与历史线](evidence/four-view-2026-10-19/README.md) |
+| `04-character-sheet` | 角色四视图（三槽：画布 / 人像 / 服装板） | ✅ 515三族样本已验证；478视角有已知限制 | 现行 [fourview-headless](skills/fourview-headless/SKILL.md)：00501 / 00507 / 00510 / 00512 / 00513。一次整图生成，永久排除拼接；[新证据](skills/fourview-headless/references/evidence.md)，[历史线](evidence/four-view-2026-10-19/README.md) |
 | `05-display-wall` | 六格陈列墙 | ✅ 维持现状 | 00339（n=1），保留一次生成完整六格的现有流程 |
 | `06-tap-select` | 手指点选高亮 | ✅ | 00341 |
 | `07-portrait-headshot` | **AI 人物建模特写**（写法指南：九段骨架 + 三旋钮 + 有/无 LoRA 双版） | ✅ | 00397（暖米·中分·LoRA 1.0）；对照 00390 / 00392（邋遢版）、00394（侧分·脸型漂移）→ `templates/07-portrait-headshot.md` |
@@ -84,7 +84,7 @@ scripts/       校验器（技能规范 / 模板结构）
 
 ## 技能与模板规范（agentskills.io）
 
-技能按 [agentskills.io/specification](https://agentskills.io/specification) 组织，本仓库的 5 个 `skills/` 可运行下列结构检查；上游副本不在本仓库检查范围内。
+技能按 [agentskills.io/specification](https://agentskills.io/specification) 组织，本仓库的 6 个 `skills/` 可运行下列结构检查；上游副本不在本仓库检查范围内。
 
 **硬性要求**
 
@@ -105,7 +105,7 @@ python scripts/validate_skills.py <技能目录> …     # 指定目录（单技
 python scripts/check_templates.py                 # templates/ 的四态 + 三段结构
 ```
 
-本轮结构检查：5个技能无本地结构硬错误、7个模板通过。验证器会显示Hermes元数据兼容与外部依赖警告，不能把这些警告折算为全部兼容。检查不代表提示词效果通过；详见 evidence/skill-audit-2026-10-19/README.md。
+2026-10-21 结构检查：6个技能无本地结构硬错误、8个模板通过。验证器显示21条格式约定、Hermes兼容与外部依赖警告，不代表全部兼容。四视图新技能标准校验通过，18段提示词回放与5张原始PNG来源校验通过；见 [本轮证据](evidence/four-view-2026-10-21/README.md)。历史审阅见 evidence/skill-audit-2026-10-19/README.md。
 
 **模板三段结构**（`check_templates.py` 会查）
 

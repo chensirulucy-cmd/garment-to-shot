@@ -1,0 +1,9 @@
+# vneck: family slot values, not a complete prompt.
+# Subject/pronouns are resolved by scripts/render.py. Garment values belong in case/config files.
+CHANGE_SCOPE: figures
+GARMENT_WORD: garments
+IDENTITY_TERMS: facial identity, hair and expression
+ABSENCE_FRONT_BACK: with {{POSS}} head and neck absent above the shoulders, and with both shoulders, both arms and both hands present
+ABSENCE_SIDE: with {{POSS}} head and neck absent above the shoulders, and with {{POSS}} shoulder, arm and hand visible in the same side-view pose as <image1>
+NECKLINE_ANCHOR: The top edge of each of these three figures is the {{OUTER}}'s own shoulder line: the shoulder seams and the rounded shoulders of the {{OUTER}} form a soft clean edge where the figure ends, not a harsh horizontal cut, and inside the {{OPEN_LABEL}} only {{OPEN_CONTENT}} shows, with nothing rising above the collarbones.
+NEG_FAMILY: a neck in the first three panels, skin rising above the collarbones, a neck stump, a trapezius tapering upward, a bare shoulder cut into a horizontal line, a horizontal line across the upper chest

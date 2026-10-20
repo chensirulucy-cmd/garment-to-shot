@@ -1,0 +1,24 @@
+# Stage 515 SKELETON. One structure for every neckline family.
+# Only the slots in {{double braces}} change. Slot values come from templates/families/<family>.txt.
+# Invariant text (everything outside the slots) must not be edited per garment.
+
+[POSITIVE]
+Edit the four-figure sheet in <image1> into a finished character reference sheet: keep <image1> as the canvas, with its four-panel layout, the width and height of each panel, the camera height, the plain white background, the soft even studio light and the faint contact shadows under the shoes all exactly as they are, and change only the {{CHANGE_SCOPE}} and the outfit. The leftmost panel shows the standing {{SUBJECT}} from <image2> in full-length front view, {{ABSENCE_FRONT_BACK}}. The second panel shows the same standing {{SUBJECT}} in full-length back view, {{ABSENCE_FRONT_BACK}}. The third panel shows the same standing {{SUBJECT}} in full-length true side view, {{ABSENCE_SIDE}}. In each of these three panels, keep the shoulder contour, arm and hand positions, body proportions, stance, placement and scale of the corresponding figure in <image1>, rendered as living human skin matching <image2>. {{NECKLINE_ANCHOR}} The absent head and neck occupy only the background above the shoulders; the shoulders, arms, hands and {{GARMENT_WORD}} remain intact, with no face or hair in any of these three panels. The fourth panel is a large frontal face-and-shoulders portrait of that same {{SUBJECT}}, filling its panel from just above the crown of {{POSS}} head down to the base of {{POSS}} neck so {{POSS}} face dominates the panel, framed and scaled exactly like the fourth figure of <image1>; {{POSS}} {{IDENTITY_TERMS}} are those shown in <image2> exactly as <image2> shows them, and this panel is the only one that contains a head or a face. In all four panels {{PRONOUN}} wears one outfit taken from <image3>: {{OUTFIT}} {{LOCK}} Nothing else is added, removed, restyled or re-lit.
+
+[NEGATIVE]
+three identical front views, all three standing panels showing a front view, identical panels, missing back view, missing side view, a head in the first three panels, a face in the first three panels, hair falling over the shoulders in the first three panels, head added above the shoulders, repaired crop, figure rescaled to fit the whole body, different {{SUBJECT}} between panels, different face between panels, different hairstyle between panels, different outfit between panels, mixed outfits, wardrobe from <image2>, mannequin appearance, white mannequin material, featureless face, a second person, extra limbs, extra fingers, malformed hands, fused garments, {{NEG_FAMILY}}, {{NEG_GARMENT}}, text, captions, labels, watermark, panel borders, comic panels, frame lines, low resolution, blurry, plastic skin, waxy skin, illustration, painting, anime, cartoon, CGI, 3D render
+
+[SLOT DEFINITIONS]
+{{SUBJECT}}          woman | man (identity source, must match <image2>)
+{{PRONOUN}}          she | he
+{{POSS}}             her | his
+{{ABSENCE_FRONT_BACK}}  family-specific phrase, see families/<family>.txt
+{{ABSENCE_SIDE}}     family-specific phrase, see families/<family>.txt
+{{NECKLINE_ANCHOR}}  family-specific core sentence (the only neckline-dependent sentence in the body)
+{{OUTFIT}}           one sentence naming every garment, neckline/straps/collar, length, shoes
+{{CHANGE_SCOPE}}     heads (strap, 00491) | figures (vneck, 00485)
+{{GARMENT_WORD}}     garment (strap, 00491) | garments (vneck, 00485)
+{{IDENTITY_TERMS}}   facial identity and hair (strap, 00491) | facial identity, hair and expression (vneck, 00485)
+{{LOCK}}             colour and shape locks, validated text per family (families/*.txt)
+{{NEG_FAMILY}}       family-specific negatives, see families/<family>.txt
+{{NEG_GARMENT}}      garment-specific negatives (contradictions with the outfit only)

@@ -1,0 +1,14 @@
+# round: family slot values, not a complete prompt.
+# Subject/pronouns are resolved by scripts/render.py. Garment values belong in case/config files.
+# Validated scope: closed high collar (00510) and zip/shirt-collar detail (00501). Ordinary crew neck remains outside this validated adaptation.
+CHANGE_SCOPE: heads
+GARMENT_WORD: garment
+IDENTITY_TERMS: facial identity and hair
+ABSENCE_FRONT_BACK: with {{POSS}} head and neck absent above the shoulders, and with both shoulders, both arms and both hands present
+ABSENCE_SIDE: with {{POSS}} head and neck absent above the shoulders, and with {{POSS}} shoulder, arm and hand visible in the same side-view pose as <image1>
+NECKLINE_ANCHOR: The figure in panels 1-3 ends cleanly at the {{COLLAR_OBJECT}}'s own high collar, which closes around the base of the neck, no bare skin, no neck stump, no trapezius tapering upward{{COLLAR_DETAIL}}; the {{SLEEVES}} keep a natural sloped shoulder line with a soft clean edge where the figure ends.
+NEG_FAMILY: a neck in the first three panels, skin rising above the collarbones, skin above the {{NEG_COLLAR}}, a neck stump, a trapezius tapering upward, a straight horizontal top edge
+COLLAR_OBJECT: garment
+COLLAR_DETAIL:
+SLEEVES: sleeves
+NEG_COLLAR: collar

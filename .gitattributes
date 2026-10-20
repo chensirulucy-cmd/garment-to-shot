@@ -7,3 +7,5 @@ prompts/12-white-model/00383-positive.txt -text whitespace=-blank-at-eof
 prompts/12-white-model/00383-negative.txt -text whitespace=-blank-at-eof
 prompts/12-white-model/00382-wardrobe-positive.txt -text whitespace=-blank-at-eof
 prompts/12-white-model/00382-wardrobe-negative.txt -text whitespace=-blank-at-eof
+# Preserve source-template byte fingerprints across Windows checkouts.
+skills/fourview-headless/** text eol=lf

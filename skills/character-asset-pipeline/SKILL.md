@@ -30,7 +30,7 @@ metadata:
 
 四视图的产出**不能当上身照用**，上身也不需要先做四视图。设计「同一套衣服跨步骤掉色」这类验收前，先确认这两条链不是一条：按「幽灵台 → 四视图 → 上身」去要样本，就会向用户索要他从来没做过、也不需要做的图（他做的是四视图，四视图不是上身）。同一套衣服能凑成一条链的只有：服装照 → 幽灵台 → 白模上身。
 
-上游服装板的可变块按 references/02-garment-board.md 当前说明执行，不受早期“服装类零改动”的字数/次数限制。四视图相关骨架暂不在本轮更新。
+上游服装板的可变块按 references/02-garment-board.md 当前说明执行，不受早期“服装类零改动”的字数/次数限制。四视图现行入口为 [fourview-headless](../fourview-headless/SKILL.md)：按其固定骨架与族槽值生成，已有515样本通过，478视角缺口另列限制。
 
 派生规则（换一版服装要改哪几处）见 `references/05-derivation-rules.md`；参数、接线、踩过的坑见 `references/06-params-and-pitfalls.md`。要「白模 + 服装板 → 真人全身 → 换脸」时**不要另写模板**，优先读本仓库 `templates/12-white-model-to-body.md` 和 `templates/11-faceswap-head.md`。外部 `comfyui-face-swap:references/two-stage-garment-to-body.md` 的安装状态未验证，不能因它缺失而跳过仓库已有的完整配方。
 

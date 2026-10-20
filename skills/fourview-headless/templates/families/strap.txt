@@ -1,0 +1,9 @@
+# strap: family slot values, not a complete prompt.
+# Subject/pronouns are resolved by scripts/render.py. Garment values belong in case/config files.
+CHANGE_SCOPE: heads
+GARMENT_WORD: garment
+IDENTITY_TERMS: facial identity and hair
+ABSENCE_FRONT_BACK: with {{POSS}} head and neck absent above the shoulders, and with both rounded shoulders, both arms and both hands present
+ABSENCE_SIDE: with {{POSS}} head and neck absent above the shoulders, and with {{POSS}} shoulder, arm and hand visible in the same side-view pose as <image1>
+NECKLINE_ANCHOR: Let the top of each figure be the natural slope of the shoulders, the shoulder line curving softly up toward the base of the neck and back down into the collarbones, one continuous rounded contour with no straight horizontal edge anywhere along the top; the exposed shoulders and upper chest stay open around the straps, and the skin melts gently into the white background along the shoulder line.
+NEG_FAMILY: a straight horizontal top edge, a flat truncation across the neck, a sheared shoulder top, a hard edge at the neckline base, a horizontal line across the upper chest
