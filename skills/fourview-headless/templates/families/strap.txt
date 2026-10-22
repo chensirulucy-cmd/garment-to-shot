@@ -1,9 +1,21 @@
-# strap: family slot values, not a complete prompt.
-# Subject/pronouns are resolved by scripts/render.py. Garment values belong in case/config files.
+# FAMILY: strap
+# Garment: exposed shoulders; spaghetti or wide straps; shoulders are visible and must be kept.
+# Validation: 00491 (red/blue painterly cowl slip) with the soft contour anchor. Earlier validated: 00441, 00476, 00478 (older anchor, horizontal-edge risk).
+
+SUBJECT: woman
+PRONOUN: she
+POSS: her
+
+ABSENCE_FRONT_BACK: with her head and neck absent above the shoulders, and with both rounded shoulders, both arms and both hands present
+ABSENCE_SIDE: with her head and neck absent above the shoulders, and with her shoulder, arm and hand visible in the same side-view pose as <image1>
+
+NECKLINE_ANCHOR: Let the top of each figure be the natural slope of the shoulders, the shoulder line curving softly up toward the base of the neck and back down into the collarbones, one continuous rounded contour with no straight horizontal edge anywhere along the top; the exposed shoulders and upper chest stay open around the straps, and the skin melts gently into the white background along the shoulder line.
+
+NEG_FAMILY: a straight horizontal top edge, a flat truncation across the neck, a sheared shoulder top, a hard edge at the neckline base, a horizontal line across the upper chest
+
+# Slot values (00491)
 CHANGE_SCOPE: heads
 GARMENT_WORD: garment
 IDENTITY_TERMS: facial identity and hair
-ABSENCE_FRONT_BACK: with {{POSS}} head and neck absent above the shoulders, and with both rounded shoulders, both arms and both hands present
-ABSENCE_SIDE: with {{POSS}} head and neck absent above the shoulders, and with {{POSS}} shoulder, arm and hand visible in the same side-view pose as <image1>
-NECKLINE_ANCHOR: Let the top of each figure be the natural slope of the shoulders, the shoulder line curving softly up toward the base of the neck and back down into the collarbones, one continuous rounded contour with no straight horizontal edge anywhere along the top; the exposed shoulders and upper chest stay open around the straps, and the skin melts gently into the white background along the shoulder line.
-NEG_FAMILY: a straight horizontal top edge, a flat truncation across the neck, a sheared shoulder top, a hard edge at the neckline base, a horizontal line across the upper chest
+OUTFIT: a vibrant painterly-floral slip dress with two thin spaghetti straps and a draped cowl neckline, the bodice fitted with soft gathering at the waist, the skirt opening into a flowing A-line that falls to just above the ankle, with a pair of black pointed-toe flat shoes on both feet, smooth matte black leather with no heel.
+LOCK: The off-white ground of the print stays clean and never turns cream or grey; the red, blue, yellow and peach blossoms with their green leaves keep the same scale and the same painterly vividness on the bodice and down the full length of the skirt and never merge into a solid colour; the flats stay matte black leather and never turn brown, grey or patent.

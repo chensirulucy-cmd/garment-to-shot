@@ -1,49 +1,51 @@
-# 槽位组装与回放
+# Parameters: invariants and slots
 
-两个主模板来自交付包，逐字节保留。固定正文不变，所有替换发生在双大括号槽内。案例衣服内容在 cases/，不写入通用模板。
+## 1. The one structure
+Every stage 515 prompt is `templates/skeleton_515.txt` with slots filled. Text outside the slots is invariant and must not be edited per garment.
 
-## 生成方式
+## 2. Invariant text (all families, all garments)
+| Element | Text (abridged) | Source |
+|---|---|---|
+| Opening | `Edit the four-figure sheet in <image1> into a finished character reference sheet: keep <image1> as the canvas…` | 00485, 00491 |
+| Panel 1-3 subject line | `The leftmost panel shows the standing {{SUBJECT}} from <image2> in full-length front view` | 00485, 00491 |
+| Skin rule | `rendered as living human skin matching <image2>` | all validated |
+| Background rule | `The absent head and neck occupy only the background above the shoulders; …` | 00485, 00491 |
+| Panel-4 crop | `filling its panel from just above the crown of {{POSS}} head down to the base of {{POSS}} neck` (long form) | 00441, 00476, 00478, 00485, 00491 |
+| Single-face rule | `this panel is the only one that contains a head or a face` | all validated |
+| Closing | `Nothing else is added, removed, restyled or re-lit.` | 00485, 00491 |
+| Canvas | `four-view-shoulder-top-enlarged.png` | all except 00436 |
+| Sampler | 30 steps, cfg 3.5, euler, simple, denoise 1.0 | all samples |
 
-在 skill 目录运行：
+## 3. Slots (what changes)
+| Slot | Round | V / open | Strap | Notes |
+|---|---|---|---|---|
+| `{{SUBJECT}}` / `{{PRONOUN}}` / `{{POSS}}` | woman / she / her | woman / she / her | woman / she / her | match <image2> sex |
+| `{{ABSENCE_FRONT_BACK}}` | with her head and neck absent above the shoulders | with her head and neck absent above the shoulders, and with both shoulders, both arms and both hands present | …and with both rounded shoulders, both arms and both hands present | strap uses "rounded shoulders" |
+| `{{ABSENCE_SIDE}}` | …shoulder, arm and hand visible in the same side-view pose | same | same | |
+| `{{NECKLINE_ANCHOR}}` | ends cleanly at the garment's own neckline | blazer's own shoulder line + only upper chest in the opening | soft continuous shoulder contour, no horizontal edge | **the core** |
+| `{{CHANGE_SCOPE}}` | figures | figures | heads | 00485 vs 00491 |
+| `{{GARMENT_WORD}}` | garment | garments | garment | 00485 vs 00491 |
+| `{{IDENTITY_TERMS}}` | facial identity and hair | facial identity, hair and expression | facial identity and hair | 00485 vs 00491 |
+| `{{OUTFIT}}` | per garment | per garment | per garment | must match the board; end with the garment list, no "on both feet" added |
+| `{{LOCK}}` | colour lock | colour lock + shape lock (collar fully shown, cuffs at wrists, straight silhouette) | colour lock | validated text per family |
+| `{{NEG_FAMILY}}` | neck exclusions | neck exclusions + horizontal-edge exclusions | horizontal-edge exclusions | |
+| `{{NEG_GARMENT}}` | per garment | per garment | per garment | only contradictions with the outfit |
 
-```powershell
-python scripts/render.py --case 00510 --out <输出目录>
-python scripts/render.py --config <配置.json> --out <输出目录>
-python scripts/verify.py
-```
+## 4. Validation of the structure
+Replay of the skeleton against the metadata:
+- strap family filled from `families/strap.txt` reproduces 00491's stage 515 positive with 0 differing sentences.
+- V/open family filled from `families/vneck.txt` reproduces 00485's stage 515 positive with 0 differing sentences.
+- round family: not replayed. 00436 uses a different opening and a short panel-4 form. The skeleton applies the long form and the skeleton opening. This is an adaptation, not a validated reproduction.
 
-自定义配置结构与 `cases/00510.json` 的 `config` 相同。`--case` 用于复现该案例，不是自动换衣。要换款，提取 config 后根据图片填写新服装数据。
+## 5. Wardrobe stage (478)
+Slots: `{{GARMENT_LIST}}`, `{{FOOTWEAR}}`, `{{DETAIL_TILES}}` (neckline-dependent, listed in `templates/wardrobe_478.txt`), `{{COLOUR_LOCK}}`, `{{NEG_GARMENT}}`. Input at slot 480: original high-resolution garment photo.
 
-## 515 角色板
+## 6. V family opening slots (updated for 00503)
+- `{{OPEN_LABEL}}` and `{{OPEN_CONTENT}}` replace the fixed "open V of the {{INNER}}" wording.
+- 00485: OPEN_LABEL = open V of the white top; OPEN_CONTENT = upper chest (replay: 0 differing sentences).
+- 00503: OPEN_LABEL = open front of the cardigan; OPEN_CONTENT = the white crew neckline of the tee and the upper chest.
 
-| 槽组 | 规则 |
-|---|---|
-| family | strap / vneck / round；round 当前只验证闭合高领 |
-| subject | woman 或 man；组装器同步 she/he、her/his 及 ABSENCE_* 内的代词 |
-| OUTFIT | 完整服装结构与鞋履，按参考服装填写，保留句末标点 |
-| LOCK | 颜色、形状、细节保真句；不可遗失 |
-| NEG_GARMENT | 当前服装不应出现的变化；不能把正向所需内容写成禁项 |
-| ABSENCE_* / CHANGE_SCOPE / GARMENT_WORD / IDENTITY_TERMS / NEG_FAMILY | 从 family 文件取，不允许 config 偷偷覆盖固定措辞 |
-| vneck 的 OUTER / OPEN_LABEL / OPEN_CONTENT | 外衣名、实际开口、开口内可见内搭；00507 是 cardigan / open front of the cardigan / the white crew neckline of the tee and the upper chest |
-| round 的 COLLAR_OBJECT / SLEEVES / NEG_COLLAR | 默认为 garment / sleeves / collar；00501 为 sweater / raglan sleeves / sweater collar |
-| round 的 COLLAR_DETAIL | 默认空串；有实测的拉链/白领细节见 00501 config，包含开头分号 |
-
-COLLAR_DETAIL 位于 NECKLINE_ANCHOR 内 `no trapezius tapering upward` 之后、`; the … sleeves` 之前。不是在骨架末尾额外加一句。00501 精确子句：
-
-```text
-; the short zip pull and the white shirt collar sit on the garment at the base of the neck and remain visible as part of the outfit, while the neck itself stays absent above them
-```
-
-只在对应服装确有拉链/白领时使用；其他领口细节需依据参考填槽并标明新适配范围，不把白领复制到无衬衫衣服。00500→00501 还将 high mock collar 改成 high collar，不能声称仅追加文字。
-
-## 478 服装板
-
-独立填 GARMENT_LIST、FOOTWEAR、DETAIL_TILES、COLOUR_LOCK、NEG_GARMENT 五槽。保留三整装视图＋细节栏的文字目标。DETAIL_TILES 随实际服装选择，不能给无褶皱裙子硬加褶皱。
-
-00501 的 478 使用旧模板，完整原文保留在案例 expected 中；`--case 00501` 只将 515 从现行骨架组装，478 复制已测原文，不谎称能从现行 478 回放。
-
-## 回放边界
-
-最终 00507/510/512/513：四段均精确回放；00501：515 两段精确回放。比较只忽略首尾空白，不改内部空格、大小写、标点和词序。
-
-00485/491 的零差仅指历史正向，旧负向不等同现行骨架。00491 的肩线负向曾追加在 `3D render.` 之后，现行版位置已变化，最终样本为现行版的实测依据。
+## 7. COLLAR_DETAIL (v1.0.1)
+- Not a separate skeleton slot. The skeleton has only {{NECKLINE_ANCHOR}}.
+- For the closed-collar round variant, COLLAR_DETAIL is written inside the value of NECKLINE_ANCHOR_COLLAR (families/round.txt).
+- Evidence: 00500 (without the clause) lost zip and white collar; 00501 (with it) kept both and stayed headless.

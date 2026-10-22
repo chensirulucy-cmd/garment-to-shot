@@ -1,35 +1,57 @@
-# 证据链与纠错（2026-10-21）
+# Evidence: sample metadata and controlled comparisons
 
-证据来源为本地原始 PNG 的 prompt 图谱与完整图像，非交接摘要。28 张元数据、11 张目视审核；本轮没有重新生成。文件指纹、真实种子/接线、差异字段见 [evidence.json](evidence.json)。图片不进入仓库。
+All values read from PNG `prompt` metadata (ComfyUI workflow chunk). Character counts are prompt string lengths.
 
-| 结果 | 参考服装 | 实际身份 | 判定范围 |
-|---|---|---|---|
-| 00501 | 00461 | IMG_1987.PNG | 闭合领男装无头，拉链/白领恢复可见 |
-| 00507 | 00503 | IMG_1987.PNG | V/open 男装无头；上游 00506 缺完整背面 |
-| 00510 | 00242 | 纯白背景下的对称证件肖像.png | 闭合高领女装无头；上游视角完整性不足 |
-| 00512 | 00451 | 纯白背景下的对称证件肖像.png | 吊带换款无头，肩臂手仍存在 |
-| 00513 | 00451 | 清透白底东方面容肖像.png | 仅换身份，仍无头；非像素相同或身份普遍无影响的证明 |
+## A. Sample table
 
-## 对照的实际变化
+| Sample | Garment | Family | 478 input | Canvas | Identity (522) | 478 pos/neg | 515 pos/neg | Outcome |
+|---|---|---|---|---|---|---|---|---|
+| 00436 | cream round-neck T-shirt dress | round | 00401 | old (shoulder-cut-no-neck) | 清透 | 3144 / 1266 | 1618 / 1224 | success |
+| 00438 | floral slip (ends cleanly at straps) | strap | — | — | — | — | 2410 / 1326 | heads in panels 1-2 (retain-shoulders sentence removed) |
+| 00439 | floral slip (empty background) | strap | — | — | — | — | 2531 / 1326 | heads in panels 1-2 (same deletion) |
+| 00442 | wine-red slip (Codex base) | strap | — | top | 清透 | 3875 / 1788 | 3167 / 1430 | headless, shoulder horizontal cut |
+| 00441 | white-purple floral slip | strap | 00420 | top | 清透 | 3346 / 1610 | 2970 / 1326 | success |
+| 00476 | pink watercolour bodycon, wide straps | strap | 00474 | top | 清透 | 3282 / 1843 | 2831 / 1480 | success |
+| 00478 (1792430858798, 1792432857487) | red/blue painterly cowl slip | strap | 00449 | top | 清透 | 3274 / 1839 | 2792 / 1465 | success, horizontal shoulder edge |
+| 00480 | camel suit, white V top | V/open | 00468 | top | Sakura | 3214 / 1650 | 1739 / 1385 | heads in panels 1-3 |
+| 00481 | camel suit, white V top | V/open | 00468 | top | Sakura | 3214 / 1650 | 1814 / 1385 | heads in panels 1-3 |
+| 00485 | camel suit, white V top | V/open | 00468 | top | Sakura | 3214 / 1650 | 2793 / 1384 | success |
+| 00487 | navy suit (first navy run) | V/open | 00470 | top | Sakura | 2993 / 1556 | 2908 / 1497 | headless; colour too dark |
+| 00489 | navy suit (colour sentences added) | V/open | 00470 | top | Sakura | 3302 / 1699 | 3286 / 1648 | colour and detail insufficient |
+| 00491 | red/blue painterly cowl slip | strap | 00449 | top | 清透 | 3274 / 1839 | 2971 / 1631 | success, best strap result |
+| 00492 | navy board (459 pipeline, 1440 px) | — | 00470 (jpg) | — | — | 459 board: 4328 / 1883 | — | board only |
+| 00494 | navy suit | V/open | 00492 | top | Sakura | 3302 / 1699 | 3286 / 1648 | detail still insufficient |
 
-- 00478→00491：515 正向、负向一起改；是组合修改，不是隔离某一句的单变量证明。
-- 00480→00481：仅角色正向变，旧 failure_catalog 所称“也改身份”错误。
-- 00498→00500：角色正负向和身份一起变，不能将改进唯一归因于恢复骨架。
-- 00500→00501：只有角色正向变化，改动在领口锚点；细节子句加入且 high mock collar 改成 high collar。拉链白领可见且头部未回退。
-- 00489→00494：仅服装输入及指纹变；新输入仍由原低清来源生成。未做高清原图对照，分辨率是细节限制的解释之一，不是已隔离的唯一根因。
-- 00512→00513、00509→00510：仅身份图及指纹变化。
-- 00506/00507、00508/00509、00511/00512：各自完整图谱相同，尺寸/图像内容/保存连线支持服装板与角色板配对；没有运行日志时不宣称身份变体一定复用了完全相同的缓存板像素。
+Notes:
+- The uploaded file `1792434604609_..._00478.png` and `1792432857487_..._00478.png` carry the same parameters; they are repeat exports of the same baseline.
+- 00438, 00439, 00442 values come from the earlier metadata extraction recorded in `fourview-skill-reference.md`, not from a fresh read in this batch.
 
-## 纠正旧报告
+## B. Controlled comparisons
 
-00442 是服装板，00443 才是红裙角色板；494/518 是种子节点编号。00438/439 改的是整段角色文本，不能缩写成“只删保肩一句导致冒头”。00440 已有圆肩句但仍偏平，00440→00441 只改画布；00411 与 00441 画布指纹相同仍冒头，新画布不是无头硬保证。
+### B1. Shoulder sentence, single variable (00491 vs 00478)
+- Identical: 478 wardrobe prompt, input 00449, canvas, identity, seeds.
+- Changed: the 515 shoulder sentence (retain-shoulders + not-a-horizontal-cut → soft continuous contour), plus four appended negatives (negative length 1465 → 1631).
+- Result: 00491 preferred by the user. The two changes are semantically one variable (shoulder contour), so this is treated as one controlled change.
 
-“否定句重新激活横切概念”是机制假说，不作铁律。strap 优先保留 00491/512 的已测柔和肩线措辞；V/open 保留 00485/507 中实际出现的 not a harsh horizontal cut，不跨族机械替换。
+### B2. Anchor text identity across floral strap samples (00441 vs 00476 vs 00478)
+- The 515 shoulder/neck anchor text is byte-identical across the three.
+- Differences are limited to the outfit sentence, the colour lock, and the 478 wardrobe board/input (00420, 00474, 00449).
+- Result: identical anchor, different outcome. The wardrobe board and outfit photo are a real variable.
 
-## 入库前的可复算检查
+### B3. Input source with identical prompts (00489 vs 00494)
+- Identical: 478 prompt (3302 / 1699) and 515 prompt (3286 / 1648).
+- Changed: 480 input, 00470 (608 px display) → 00492 (1440 px board regenerated from the same source jpg via the 459 pipeline).
+- Result: no visible improvement on navy detail. Regenerating a board from a low-resolution source does not add information.
 
-- 最终样本文档对 PNG：12/12 段相同。
-- 00507/510/512/513 对主模板：16/16 段相同。
-- 从 family＋语义明确的衣物槽重新组装：上面16段＋00501角色2段，共18段。
-- 两个主模板 SHA256 与交付包一致。
-- 上述是文本、来源和已有图像证据，不替代未知换款或视频实测。
+### B4. Colour sentences (00487 vs 00489/00494)
+- 00487 has no colour-positive sentences; the navy turned black.
+- 00489/00494 add undertone, exposure and shadow-lift sentences.
+- Result: the navy became readable (user: "亮了一个度"). Detail loss remained, so colour and detail are separate problems.
+
+### B5. Round-family anchor (00436 vs V and strap anchors)
+- No controlled test exists for round garments on the top-enlarged canvas. The only round sample uses the old canvas.
+
+## C. Shared settings across all samples
+- Sampler: 30 steps, cfg 3.5, euler, simple, denoise 1.0 (every sample).
+- Seeds: 478:458 = 494 and 515:510 = 518 in most samples (recorded in `fourview-skill-reference.md`).
+- Canvas: `four-view-shoulder-top-enlarged.png` for every sample except 00436.
