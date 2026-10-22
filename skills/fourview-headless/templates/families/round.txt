@@ -1,14 +1,26 @@
-# round: family slot values, not a complete prompt.
-# Subject/pronouns are resolved by scripts/render.py. Garment values belong in case/config files.
-# Validated scope: closed high collar (00510) and zip/shirt-collar detail (00501). Ordinary crew neck remains outside this validated adaptation.
+# FAMILY: round  (v1.0.1)
+# Garment: full coverage; sleeves cover shoulders. The cut line is the garment's own neckline (plain round)
+#          or its closed collar (mock neck / half-zip collar).
+# Two anchors. Choose ONE and write it as the value of skeleton slot {{NECKLINE_ANCHOR}}.
+#   NECKLINE_ANCHOR_PLAIN  : plain crew/round neck. Wording from 00436 (OLD canvas, short panel-4). NOT re-validated on top-enlarged canvas.
+#   NECKLINE_ANCHOR_COLLAR : closed collar. VALIDATED on 00501 (male, PASS) and 00510 (female, PASS).
+#                            COLLAR_DETAIL is part of this sentence; it is NOT a separate skeleton slot.
+#                            Use it only when the garment has a zip or a visible shirt collar at the neck.
+#                            Without the COLLAR_DETAIL clause (00500) the zip and white collar were lost.
+# Wearer values below are the validated 00501 set (man). For a woman use: woman / she / her.
+# Values in this file were restored from the 00501 metadata (replay: exact match) in v1.0.1.
+
+SUBJECT: man
+PRONOUN: he
+POSS: his
+ABSENCE_FRONT_BACK: with his head and neck absent above the shoulders, and with both shoulders, both arms and both hands present
+ABSENCE_SIDE: with his head and neck absent above the shoulders, and with his shoulder, arm and hand visible in the same side-view pose as <image1>
 CHANGE_SCOPE: heads
 GARMENT_WORD: garment
 IDENTITY_TERMS: facial identity and hair
-ABSENCE_FRONT_BACK: with {{POSS}} head and neck absent above the shoulders, and with both shoulders, both arms and both hands present
-ABSENCE_SIDE: with {{POSS}} head and neck absent above the shoulders, and with {{POSS}} shoulder, arm and hand visible in the same side-view pose as <image1>
-NECKLINE_ANCHOR: The figure in panels 1-3 ends cleanly at the {{COLLAR_OBJECT}}'s own high collar, which closes around the base of the neck, no bare skin, no neck stump, no trapezius tapering upward{{COLLAR_DETAIL}}; the {{SLEEVES}} keep a natural sloped shoulder line with a soft clean edge where the figure ends.
-NEG_FAMILY: a neck in the first three panels, skin rising above the collarbones, skin above the {{NEG_COLLAR}}, a neck stump, a trapezius tapering upward, a straight horizontal top edge
-COLLAR_OBJECT: garment
-COLLAR_DETAIL:
-SLEEVES: sleeves
-NEG_COLLAR: collar
+
+NECKLINE_ANCHOR_PLAIN: The figure in panels 1-3 ends cleanly at the garment's own neckline, no bare skin, no neck stump, no trapezius tapering upward.
+NECKLINE_ANCHOR_COLLAR: The figure in panels 1-3 ends cleanly at the sweater's own high collar, which closes around the base of the neck, no bare skin, no neck stump, no trapezius tapering upward; the short zip pull and the white shirt collar sit on the garment at the base of the neck and remain visible as part of the outfit, while the neck itself stays absent above them; the raglan sleeves keep a natural sloped shoulder line with a soft clean edge where the figure ends.
+
+NEG_FAMILY_PLAIN: a neck in the first three panels, skin rising above the collarbones, a neck stump, a trapezius tapering upward
+NEG_FAMILY_COLLAR: a neck in the first three panels, skin rising above the collarbones, skin above the sweater collar, a neck stump, a trapezius tapering upward, a straight horizontal top edge

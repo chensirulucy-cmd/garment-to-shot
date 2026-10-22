@@ -1,9 +1,27 @@
-# vneck: family slot values, not a complete prompt.
-# Subject/pronouns are resolved by scripts/render.py. Garment values belong in case/config files.
+# FAMILY: V / open
+# Garment: long sleeves cover shoulders; V neck or open jacket over a top; the outer garment's shoulder seam is the cut line; opening shows only upper chest.
+# Validation: 00485 (camel suit, white V top), canvas top-enlarged, identity Sakura.
+# Related: 00494 (navy, same anchor with "jacket" and "navy blouse" wording) reached the head-free stage; detail limit is an input-resolution issue, see SKILL.md section 6.
+
+SUBJECT: woman
+PRONOUN: she
+POSS: her
+
+ABSENCE_FRONT_BACK: with her head and neck absent above the shoulders, and with both shoulders, both arms and both hands present
+ABSENCE_SIDE: with her head and neck absent above the shoulders, and with her shoulder, arm and hand visible in the same side-view pose as <image1>
+
+# Slots inside the anchor: OUTER = outer garment noun, INNER = inner garment noun. 00485 values: blazer, white top.
+NECKLINE_ANCHOR: The top edge of each of these three figures is the {{OUTER}}'s own shoulder line: the shoulder seams and the rounded shoulders of the {{OUTER}} form a soft clean edge where the figure ends, not a harsh horizontal cut, and inside the {{OPEN_LABEL}} only {{OPEN_CONTENT}} shows, with nothing rising above the collarbones.
+OUTER: blazer
+INNER: white top
+OPEN_LABEL: open V of the white top
+OPEN_CONTENT: upper chest
+
+NEG_FAMILY: a neck in the first three panels, skin rising above the collarbones, a neck stump, a trapezius tapering upward, a bare shoulder cut into a horizontal line, a horizontal line across the upper chest
+
+# Slot values (00485)
 CHANGE_SCOPE: figures
 GARMENT_WORD: garments
 IDENTITY_TERMS: facial identity, hair and expression
-ABSENCE_FRONT_BACK: with {{POSS}} head and neck absent above the shoulders, and with both shoulders, both arms and both hands present
-ABSENCE_SIDE: with {{POSS}} head and neck absent above the shoulders, and with {{POSS}} shoulder, arm and hand visible in the same side-view pose as <image1>
-NECKLINE_ANCHOR: The top edge of each of these three figures is the {{OUTER}}'s own shoulder line: the shoulder seams and the rounded shoulders of the {{OUTER}} form a soft clean edge where the figure ends, not a harsh horizontal cut, and inside the {{OPEN_LABEL}} only {{OPEN_CONTENT}} shows, with nothing rising above the collarbones.
-NEG_FAMILY: a neck in the first three panels, skin rising above the collarbones, a neck stump, a trapezius tapering upward, a bare shoulder cut into a horizontal line, a horizontal line across the upper chest
+OUTFIT: a camel-beige three-piece suit set with a shawl-collar open-front blazer with long sleeves and wide turned cuffs, a white V-neck knit top underneath, and a long straight pencil skirt falling to the ankle with a back vent, plus a pair of beige rounded-toe flat shoes.
+LOCK: The blazer's shawl collar and open front are fully shown, the wide turned cuffs stay at the wrists, and the skirt keeps its straight silhouette; the camel beige stays a warm camel beige, never brown or orange; the white top stays white, never cream or grey; the flats stay matte beige leather, never white or brown.

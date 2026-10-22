@@ -1,53 +1,94 @@
 ---
 name: fourview-headless
-description: "Use when preparing or diagnosing ComfyUI Qwen Image 2.1 stage 478 wardrobe-board and stage 515 four-view prompts: three headless standing views plus one portrait. Uses a fixed skeleton with covered-open, closed-collar, and exposed-shoulder slot profiles."
-metadata:
-  version: "1.0.0"
+description: Build ComfyUI four-view character sheets for Qwen Image 2.1 editing workflows, where panels 1-3 are headless garment figures and only panel 4 carries a face. Use when writing or debugging the stage 478 wardrobe-board prompt or the stage 515 four-view prompt, choosing a neckline family (round, V/open, strap), fixing head growth above the shoulders, horizontal shoulder cuts, lost dark-colour detail, or garment mismatch.
 ---
 
-# 四视图无头提示词
+# fourview-headless
 
-**状态：✅ 515 已验证样本与固定骨架；478 保留已测文字，但三整装视图完整性有已知缺口。**
+## 1. What is produced
 
-服装照片 → 478 服装板 → 515 一次生成完整四视图。不跳过 478，永久排除分格生成后拼接。输出前三格正/背/侧站立无头、第四格唯一人像。无头不等于缺肩缺手可以接受。
+Two stages in one ComfyUI chain:
 
-## 使用步骤
+- **Stage 478, wardrobe board**: a garment photo (slot 480) becomes a ghost-mannequin board. Its output is `<image3>` of stage 515.
+- **Stage 515, four-view**: panels 1-3 are the headless front, back and side of the model wearing the outfit. Panel 4 is the only panel with a head and face.
 
-1. 确认服装源图、身份图和画布；按实际服装选择下表 profile。衣物细节从图片读取，不凭旧案例猜测。
-2. 读取 [槽位规则](references/parameters.md) 和对应 `templates/families/*.txt`。515 固定正文在 [skeleton_515.txt](templates/skeleton_515.txt)，不随服装重写。
-3. 填写配置：`family`、`subject`、`role`、`wardrobe`。role 与 wardrobe 的 `NEG_GARMENT` 是两个独立槽，不互相覆盖。结构示例见 [00510 案例](references/cases/00510.json) 的 `config`。
-4. 用 [render.py](scripts/render.py) 组装并检查缺槽、未知槽、嵌套引用和代词。它只写文本，不调用 ComfyUI。命令在槽位规则中。
-5. 交付完整 478 正/负向、515 正/负向；第一行说明改的是哪个阶段。若上游板未生成，明确 515 服装槽暂按源图准备，生成板后核对，不假称看过板图。
-6. 对照测试固定参考图、种子和采样参数，记录实际变动字段；不靠重复抽图解决失败。成功文字保持原样，新措辞仅为候选。
+Stage 515 input slots:
 
-## 选择 profile
-
-先看肩部是否露肤，再看包肩衣服的领口闭合与开襟层次；不能只按“V形领口”这个名称选族。
-
-| profile | 条件 | 当前证据 |
+| Slot | Content | Standard |
 |---|---|---|
-| `strap` | 肩部露肤、吊带/细带；保留肩臂手 | 00491；换款 00512/00513 |
-| `vneck` | 肩部被衣物覆盖，外层开襟或 V 开口，保留实际内搭 | 00485；男装开衫 00507 |
-| `round` | 当前默认仅闭合高领/包领；可带拉链、衬衫领细节 | 00510；细节变体 00501 |
+| `<image1>` | canvas | `four-view-shoulder-top-enlarged.png` (shoulders touch the top edge). Only 00436 used the older `four-view-shoulder-cut-no-neck.png`. |
+| `<image2>` | identity | a clean white-background portrait of the same sex as the garment's wearer (清透白底东方面容肖像 or Sakura, keep fixed within one test) |
+| `<image3>` | wardrobe board | stage 478 output |
 
-普通圆领短袖的 00436 是旧提示词和旧画布成功样本；新统一骨架的普通圆领版本尚未验证。抹胸、露肩复杂结构等未覆盖款式，不自动声称等同已验证吊带。
+Sampler for every validated run: 30 steps, cfg 3.5, euler, simple, denoise 1.0.
 
-## 接线与参数
+## 2. The one structure
 
-- 478：480 服装源图 → 服装板；515 的 image3 接该输出。
-- 515：image1 = `four-view-shoulder-top-enlarged.png`；image2 = 522 身份；image3 = 478 服装板。
-- 30 steps、cfg 3.5、euler/simple、denoise 1.0，两段相同。
-- 本批实际 seed：478 为 `810701216055607`，515 为 `744522349844629`。494/518 是连接的种子节点编号。
-- 画布输入 2075×1184，当前 latent 路径按 32 对齐后输出 2080×1184；不以界面的闲置分辨率节点判断实际尺寸。
-- 新画布是样本基线，不是无头的硬保护；00411 同画布仍曾冒头。
-- 人像必须记录实际文件；00510/512 用对称证件肖像，00513 用清透白底。该对照只证明这组换身份未使头部回退。
+Every four-view prompt is built from `templates/skeleton_515.txt`. The body text never changes. Only the slots change:
 
-## 验收范围与限制
+| Slot | Set by | Varies by |
+|---|---|---|
+| `{{SUBJECT}}`, `{{PRONOUN}}`, `{{POSS}}` | identity | sex of the wearer |
+| `{{ABSENCE_FRONT_BACK}}`, `{{ABSENCE_SIDE}}` | family | family |
+| `{{NECKLINE_ANCHOR}}` | family | **family (the core)** |
+| `{{CHANGE_SCOPE}}`, `{{GARMENT_WORD}}`, `{{IDENTITY_TERMS}}` | family | family (validated wording differs between 00485 and 00491) |
+| `{{OUTFIT}}`, `{{LOCK}}` | garment | garment (`{{LOCK}}` = colour and shape locks, validated text per family) |
+| `{{NEG_FAMILY}}` | family | family |
+| `{{NEG_GARMENT}}` | garment | garment |
 
-检查前三格头颈/头发、肩臂手、视角、服装鞋履、第四格身份和版式。顶部空白或文字回放不能独立证明图像合格。
+Wardrobe stage 478 (`templates/wardrobe_478.txt`) uses its own slots: `{{GARMENT_LIST}}`, `{{FOOTWEAR}}`, `{{DETAIL_TILES}}` (neckline-dependent), `{{COLOUR_LOCK}}`, `{{NEG_GARMENT}}`.
 
-478 当前样本缺完整视角：00506/00511 缺明确完整背面；00508 第二个服装视图几乎消失。515 无头成果独立保留，不写成全流程全项通过。新板图仍按三整装视图检查，不能自行降低要求。
+Family values live in `templates/families/round.txt`, `vneck.txt`, `strap.txt`.
 
-478 固定正文的 smooth/fine weave、无刺绣/文字等只保留当前已测写法，不保证适合刺绣、标识或所有材质。遇冲突先标为待测，不偷偷改固定正文。暗色细节/色彩、肩颈边缘自然度及后续视频接缝仍有局限，不自动增加昂贵试验。
+## 3. Pick the family
 
-[证据与纠错](references/evidence.md) · [验证范围](references/verification.md) · [已知问题](references/failure-catalog.md)。
+Decide from the garment, not from prompt history.
+
+| Family | Garment | Cut line | Validated |
+|---|---|---|---|
+| Round, plain | full coverage, crew or round neck, sleeves cover shoulders | the garment's own neckline | not validated on top-enlarged canvas (00436, old canvas only) |
+| Round, closed collar | mock neck or half-zip collar that closes around the neck; add COLLAR_DETAIL if zip or shirt collar shows | the closed collar | 00501 (male, PASS), 00510 (female, PASS) |
+| V / open | long sleeves cover shoulders; V neck or open jacket over a top | the outer garment's shoulder seam; opening shows only upper chest | 00485 |
+| Strap | exposed shoulders, spaghetti or wide straps | a soft continuous shoulder contour; shoulders kept | 00491 (best), 00441, 00476, 00478 |
+
+Stand-collar jackets over an open top are still untested; treat them as a candidate, not as a validated sample.
+
+## 4. Core anchor per family (the only neckline-dependent sentence)
+
+- Round: `The figure in panels 1-3 ends cleanly at the garment's own neckline, no bare skin, no neck stump, no trapezius tapering upward.`
+- Round, closed collar (validated 00501, 00510): stored as the value `NECKLINE_ANCHOR_COLLAR` in `templates/families/round.txt`. That name is a key inside round.txt, not a skeleton slot. COLLAR_DETAIL is part of that sentence.
+- V / open (OUTER = blazer, INNER = white top in 00485): `The top edge of each of these three figures is the blazer's own shoulder line: the shoulder seams and the rounded shoulders of the blazer form a soft clean edge where the figure ends, not a harsh horizontal cut, and inside the open V of the white top only upper chest shows, with nothing rising above the collarbones.`
+- Strap: `Let the top of each figure be the natural slope of the shoulders, the shoulder line curving softly up toward the base of the neck and back down into the collarbones, one continuous rounded contour with no straight horizontal edge anywhere along the top; the exposed shoulders and upper chest stay open around the straps, and the skin melts gently into the white background along the shoulder line.`
+
+Do not put `not a harsh horizontal cut` on strap garments. The negated phrase keeps a horizontal edge alive (00478 against 00491).
+
+## 5. Rules that held across samples
+
+1. One variable per test. Keep seeds, canvas, identity and wardrobe input fixed.
+2. Identical anchor text does not guarantee an identical result. The wardrobe board and outfit photo carry real weight (00441, 00476, 00478 share one anchor).
+3. Do not shorten the absence phrases or the panel-4 long form. Deleting the retain-shoulders sentence grows heads on strap garments (00438, 00439).
+4. Input resolution is a hard limit. A 608 px display image cannot carry buckle, weave or collar-print detail. Re-generating a board from the same small source does not help (00492 vs 00489).
+5. Negatives do not fix colour. Use positive colour sentences plus an exposure sentence.
+6. Round panel-4 form: the skeleton uses the long form for all families. The round family's old sample used the short form. Test the long form on round before trusting it.
+
+## 6. Navy / dark colour (special case, not a template)
+
+- Colour sentences (undertone, brighter exposure, lifted shadows) moved 00487 from black to readable navy.
+- Remaining loss of buckle, weave and collar pattern traces to input resolution (00489, 00494).
+- Order of work: high-resolution original photo at slot 480, prompt unchanged, then single-variable lighting or colour tests.
+
+## 7. Diagnosis checklist
+
+1. Heads above the shoulders in panels 1-3 → the family anchor is wrong or a slot was edited. Compare with section 4.
+2. Flat horizontal shoulder edge → a negated horizontal phrase is present, or the soft contour is missing.
+3. Garment colour drifts dark → add a positive colour sentence and exposure; do not use negatives.
+4. Detail missing on zoom → check input resolution before editing the prompt.
+5. Outfit does not match the garment → rewrite `{{OUTFIT}}` from the wardrobe board, not from memory.
+6. Body text differs from the skeleton → someone edited invariant text. Restore the skeleton.
+
+## 8. Files
+
+- `templates/skeleton_515.txt`: the single four-view structure.
+- `templates/families/round.txt`, `vneck.txt`, `strap.txt`: slot values per family, with validation status.
+- `templates/wardrobe_478.txt`: wardrobe board structure with neckline-dependent detail tiles.
+- `references/evidence.md`, `parameters.md`, `neckline_families.md`, `failure_catalog.md`, `verification.md`.
