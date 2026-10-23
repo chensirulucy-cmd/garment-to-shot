@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""校验 templates/ 是否符合本仓库的模板约定（POLICY.md 的四态 + 三段结构）。
+"""校验 templates/ 是否符合本仓库的模板约定（POLICY.md 的两态 + 三段结构）。
 
 每条模板必须满足：
-  1. 第 8 行内出现 **状态**：✅已验证 / 🗄️暂定存档 / ⚠️未验证 / ⛔弃用 之一
+  1. 前 10 行内出现 **状态**：✅已验证 / 🗄️暂定存档 之一
   2. 有"变量"表（换服装/换场景只改哪几处）
   3. 有"自查 / 判据 / 门"清单（发出前检查）
   4. 有"负向"段（视频类模板可豁免，用 --allow-no-negative 或在文件名上标 09-video）
@@ -16,7 +16,7 @@ import os
 import re
 import sys
 
-STATES = ("✅", "🗄️", "⚠️", "⛔")
+STATES = ("✅", "🗄️")
 SKIP = {"README.md"}
 
 
@@ -28,7 +28,7 @@ def check(path: str):
     if "状态" not in head:
         issues.append("前 10 行没有 **状态** 行")
     elif not any(s in head for s in STATES):
-        issues.append("状态行里没有四态标记（✅ / 🗄️ / ⚠️ / ⛔）")
+        issues.append("状态行里没有状态标记（✅ / 🗄️）")
     if not re.search(r"变量", text):
         issues.append("没有“变量”说明（换服装/换场景改哪几处）")
     if not re.search(r"自查|判据|检查|门", text):

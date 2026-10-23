@@ -1,6 +1,6 @@
 # 02 · 幽灵服装台（文生图线 · 三件套骨架）
 
-> **状态**：✅ 已验证（`00393` 修身三件套单次成功）；⚠️ 直筒及其他派生款需各自验收。
+> **状态**：✅ 已验证（`00393` 修身三件套单次成功）；直筒及其他派生款未验证，需各自验收。
 > **线**：Qwen-Image 2.1 **文生图线** —— 9 节点、**无 `LoadImage`**、`TextEncodeQwenImage21` 只有 `prompt`/`negative_prompt`；尺寸由 `ResolutionSelector`（9:16 · 1.0MP · multiple 8）喂 `EmptyLatentImage` 得 **768×1376**；30 步 / cfg 3.5 / euler-simple / denoise 1.0，seed `919066758927647`
 > **逐字原文**：`prompts/02-ghost-set/T2I-00393-positive.txt` / `T2I-00393-negative.txt`
 > 单张幽灵台不是多视角服装板；需要服装板时读 [服装板骨架](../skills/character-asset-pipeline/references/02-garment-board.md)

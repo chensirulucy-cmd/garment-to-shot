@@ -144,4 +144,4 @@ for nid, n in d.items():
 - **「不带走什么」要逐项写**：`Carry over nothing else from <image2> — not its light-blue shirt, not its model's body, not its background, not its lighting and not its lettering.` 这句治的是「参考图的次要元素渗进来」（衬衫／背景／水印），比笼统的 `keep only the garments` 有效得多。
 - **两参考严格分工 + 颜色分离**：`<image1>` 只供上装、`<image2>` 只供下装与鞋；再补一句 `The navy of <image1> reads as a deep navy and the black of <image2> reads as true black, clearly separated, never crushed into one another, both keeping their own sheen and seams.`
 - **上身失败样本（A 级观察）的**完整**归因**：早期只记「2 槽 + 没画布」，但逐字抽出工作流接线后，主因是**提示词标签与实际接线错位**（正文说 `<image2>` 是服装，实际那里接的是人像；真正的服装在 `<image3>` 且全文未提）。→ 上身镜先查接线；三槽应为「身体/身份 + 服装 + 画布」，且标签必须与接线逐一对应。没有画布就退到中全景，别赌全身。
-- **空白背景墙当第三槽（⚠️ 未验证，待跑）**：没有场景空镜时，可先 T2I 出一张竖幅纯净无缝背景墙（无道具、无字、墙地一体弧）当画布；要让输出尺寸跟它走，就把**画布放第 1 槽**（`custom_size=false` 时输出尺寸跟随第 1 张输入图）。这条尚未实测，别当已验证结论引用。
+- **空白背景墙当第三槽（未验证，待跑）**：没有场景空镜时，可先 T2I 出一张竖幅纯净无缝背景墙（无道具、无字、墙地一体弧）当画布；要让输出尺寸跟它走，就把**画布放第 1 槽**（`custom_size=false` 时输出尺寸跟随第 1 张输入图）。这条尚未实测，别当已验证结论引用。
